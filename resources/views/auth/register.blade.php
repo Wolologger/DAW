@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
+                        {{-- Nick --}}
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nick') }}</label>
 
@@ -24,7 +24,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                        {{-- Email --}}
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
 
@@ -38,7 +38,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                        {{-- Contraseña --}}
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Contraseña') }}</label>
 
