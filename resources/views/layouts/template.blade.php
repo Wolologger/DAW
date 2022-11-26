@@ -61,7 +61,17 @@
                             @endguest
                         <li class="nav-item"><a class="nav-link" href="#page-top">Your Band Music</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">Acerca de</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Instrumentos
+                            </a>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Grupos
+                            </a>   
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Tutoriales
+                            </a>                      
+                        </li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Grupos</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                     </ul>
