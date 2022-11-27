@@ -58,7 +58,7 @@
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
-                        <img class="d-inline-block align-middle mr-2"  width="15%" height="15%" alt="" src="assets/logo_white.png"/>
+                        <img class="d-inline-block align-middle mr-2"  width="10%" height="10%" alt="" src="assets/logo_white.png"/>
                         <h1 class="text-white font-weight-bold">Your Band Music</h1>
                         <hr class="divider" />
                     </div>
@@ -175,7 +175,9 @@
                 </div>
             </div>
         </section>
+
         <!-- Portfolio-->
+        
         <div id="portfolio">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8 text-center">
