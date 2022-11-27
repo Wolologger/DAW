@@ -76,11 +76,10 @@
         <!-- CompraVenta-->
         <div id="compraventa">
             <hr class="divider-light" />    
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-lg-8 text-center">
+                <div class="container px-4 px-lg-5 text-center">
                     <h2 class="text-uppercase Roboto"><i class="bi bi-wallet2"></i> Compra Venta</h2>
                 </div>
-            </div>    
+                
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     {{-- elemento --}}
@@ -179,12 +178,9 @@
         <!-- Portfolio-->
         
         <div id="portfolio">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-lg-8 text-center">
+                <div class="container px-4 px-lg-5 text-center">
                     <h2 class="text-center text-uppercase mt-0"><i class="bi bi-display"></i> Tutoriales</h2>
                 </div>
-            </div>    
-
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     <div class="col-lg-4 col-sm-6">
