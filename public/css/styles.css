@@ -11494,3 +11494,7 @@ header.masthead h1, header.masthead .h1 {
 #compraventa .container-fluid .compraventa-box:hover .compraventa-box-caption, #compraventa .container-sm .compraventa-box:hover .compraventa-box-caption, #compraventa .container-md .compraventa-box:hover .compraventa-box-caption, #compraventa .container-lg .compraventa-box:hover .compraventa-box-caption, #compraventa .container-xl .compraventa-box:hover .compraventa-box-caption, #compraventa .container-xxl .compraventa-box:hover .compraventa-box-caption {
   opacity: 1;
 }
+
+i {
+  font-style: normal !important;;
+}

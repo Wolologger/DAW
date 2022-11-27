@@ -23,7 +23,6 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#page-top">Your Band Music</a>
-                {{-- <a class="navbar-brand" href="#page-top">Your Band Music</a> --}}
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
@@ -42,16 +41,14 @@
                                 @endif
                             @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user') }}">{{ Auth::user()->name }}</a>
+                                <a class="nav-link" href="{{ route('user') }}"><i class="bi bi-person-circle"></i> {{ Auth::user()->name }}</a>
                             </li>  
                             @endguest
-                        {{-- <li class="nav-item"><a class="nav-link" href="#page-top">Your Band Music</a></li> --}}
-                        <li class="nav-item"><a class="nav-link" href="#compraventa">
-                            Compra Venta</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Grupos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Tutoriales</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">Sobre nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#compraventa"><i class="bi bi-wallet2"></i> Compra Venta</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services"><i class="bi bi-people-fill"></i> Grupos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio"><i class="bi bi-display"></i> Tutoriales</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about"><i class="bi bi-info-circle"></i> Sobre nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact"><i class="bi bi-envelope"></i> Contacto</a></li>
                     </ul>
                 </div>
             </div>
@@ -61,6 +58,7 @@
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
+                        <img class="d-inline-block align-middle mr-2"  width="10%" height="10%" alt="" src="assets/logo_white.png"/>
                         <h1 class="text-white font-weight-bold">Your Band Music</h1>
                         <hr class="divider" />
                     </div>
@@ -77,19 +75,29 @@
 
         <!-- CompraVenta-->
         <div id="compraventa">
+            <hr class="divider-light" />    
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="text-uppercase Roboto"><i class="bi bi-wallet2"></i> Compra Venta</h2>
+                </div>
+            </div>    
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     {{-- elemento --}}
                     <div class="col-lg-4 col-sm-6">
-                        <a class="compraventa-box" href="assets/img/portfolio/fullsize/1.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="..." />
+                        <a class="compraventa-box" href="assets/img/portfolio/fullsize/pacifica.jpg" title="Project Name">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/pacifica.jpg" alt="..." />
                             <div class="compraventa-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">
-                                    <button type="button" class="btn btn-outline-light">
-                                        ¡Ver más!
-                                    </button>
-                                </div>
+                                <div class="project-category text-white-75">Yamaha Pacifica</div>
+                                <div class="project-category text-white-50">Estado: Excelente</div>
+                                <div class="project-category text-white-50">Precio: 550€</div>
+                                <p>
+                                    <div class="project-name">
+                                        <button type="button" class="btn btn-outline-light">
+                                            ¡Ver más!
+                                        </button>
+                                    </div>
+                                </p>
                             </div>
                         </a>
                         
@@ -109,39 +117,57 @@
         <!-- Services-->
         <section class="page-section" id="services">
             <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0">Grupos</h2>
+                <h2 class="text-center text-uppercase mt-0"><i class="bi bi-people-fill"></i> Grupos</h2>
                 <hr class="divider" />
                 <div class="row gx-4 gx-lg-5">
 
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <h3 class="h4 mb-2">Luna Vacía</h3>
-                            <p class="text-muted mb-0">Este grupo esta buscando</p><a href='#'><strong>bajista</strong></a>
+                            <p class="text-muted mb-0">Este grupo esta buscando:</p>
+                            <ul class="list-group">
+                                <li class="list-group-item"><a href='#'><strong>Bajista</strong></a></li>
+                                <li class="list-group-item"><a href='#'><strong>Batería</strong></a></li>
+                            </ul>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Up to Date</h3>
-                            <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
+                            <div class="mb-2"></div>
+                            <h3 class="h4 mb-2">Forraje</h3>
+                            <p class="text-muted mb-0">Este grupo esta buscando:</p>
+                            <ul class="list-group">
+                                <li class="list-group-item"><a href='#'><strong>Cantante</strong></a></li>
+                            </ul>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Ready to Publish</h3>
-                            <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+                            <div class="mb-2"></div>
+                            <h3 class="h4 mb-2">Exceso</h3>
+                            <p class="text-muted mb-0">Este grupo esta buscando:</p>
+                            <ul class="list-group">
+                                <li class="list-group-item"><a href='#'><strong>Guitarrista</strong></a></li>
+                                <li class="list-group-item"><a href='#'><strong>Bajista</strong></a></li>
+                                <li class="list-group-item"><a href='#'><strong>Cantante</strong></a></li>
+                                <li class="list-group-item"><a href='#'><strong>Productor</strong></a></li>
+                            </ul>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Made with Love</h3>
-                            <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
+                            <div class="mb-2"></div>
+                            <h3 class="h4 mb-2">Extremoduro</h3>
+                            <p class="text-muted mb-0">Este grupo esta buscando:</p>
+                            <ul class="list-group">
+                                <li class="list-group-item"><a href='#'><strong>Cantante</strong></a></li>
+                                <li class="list-group-item"><a href='#'><strong>Guitarrista</strong></a></li>
+                            </ul>
                         </div>
+
                     </div>
                     <hr class="divider-light" />
                     <a class="btn btn-secondary btn-xl" href="{{ route('grupos') }}">Más información</a>
@@ -153,62 +179,68 @@
         <div id="portfolio">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h2 class="text-center mt-0">Tutoriales</h2>
+                    <h2 class="text-center text-uppercase mt-0"><i class="bi bi-display"></i> Tutoriales</h2>
                 </div>
             </div>    
+
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/flv.jpg" title="Project Name">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/flv.jpg" alt="..." />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-category text-white-50">Edicción Musical</div>
                                 <div class="project-name">Fl Studio</div>
                             </div>
                         </a>
                     </div>
+
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/2.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/2.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/cubase.jpg" title="Project Name">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/cubase.jpg" alt="..." />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-category text-white-50">Edicción Musical</div>
                                 <div class="project-name">Cubase</div>
                             </div>
                         </a>
                     </div>
+
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/3.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/moises.jpg" title="Project Name">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/moises.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Moises</div>
                             </div>
                         </a>
                     </div>
+
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/4.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/4.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/guitarpro.jpg" title="Project Name">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/guitarpro.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Guitar Pro</div>
                             </div>
                         </a>
                     </div>
+
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/5.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/5.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/logicpro.jpg" title="Project Name">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/logicpro.jpg" alt="..." />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-category text-white-50">Edicción Musical</div>
+                                <div class="project-name">Logic Pro</div>
                             </div>
                         </a>
                     </div>
+
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/6.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/6.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/musescore.jpg" title="Project Name">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/musescore.jpg" alt="..." />
                             <div class="portfolio-box-caption p-3">
                                 <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-name">MuseScore</div>
                             </div>
                         </a>
                     </div>
@@ -228,9 +260,10 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
+                        <h1 class="text-white"><i class="bi bi-info-circle"></i></h1>
                         <h2 class="text-white mt-0">Projecto para final de curso DAW</h2>
                         <hr class="divider divider-light" />
-                        <p class="text-white-75 mb-4">Esta página es un projecto estudiantil sin ánimo de lucro para el curso de DAW</p>
+                        <p class="text-white-75 mb-4"> Esta página es un projecto estudiantil sin ánimo de lucro para el curso de DAW</p>
                         {{-- <a class="btn btn-light btn-xl" href="#">¡Comenzar!</a> --}}
                     </div>
                 </div>
@@ -242,6 +275,7 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6 text-center">
+                        <h1><i class="bi bi-envelope"></i></h1>
                         <h2 class="mt-0">¡Ponte en contacto con nosotros!</h2>
                         <hr class="divider" />
                         <p class="text-muted mb-5">Envíenos un mensaje y nos pondremos en contacto con usted lo antes posible.</p>

@@ -27,7 +27,7 @@
                             <div class="col-6 col-md-4">
                                 <button type="button" name="" id="" class="btn btn-info" btn-lg btn-block">
                                     <i class="bi bi-person-circle">
-                                        <h5>Ver perfil</h5>
+                                        <h5>Perfil</h5>
                                     </i>
                                 </button>
                             </div>
@@ -36,7 +36,7 @@
                             <div class="col-6 col-md-4">
                                 <button type="button" name="" id="" class="btn btn-success" btn-lg btn-block">
                                     <i class="bi bi-file-post">
-                                        <h5>Ver mis posts</h5>
+                                        <h5>Mis posts</h5>
                                     </i>
                                 </button>
                             </div>
