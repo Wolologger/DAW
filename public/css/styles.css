@@ -11456,3 +11456,41 @@ header.masthead h1, header.masthead .h1 {
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xxl .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
 }
+
+
+/* Compra Venta */
+#compraventa .container-fluid, #compraventa .container-sm, #compraventa .container-md, #compraventa .container-lg, #compraventa .container-xl, #compraventa .container-xxl {
+  max-width: 1920px;
+}
+#compraventa .container-fluid .compraventa-box, #compraventa .container-sm .compraventa-box, #compraventa .container-md .compraventa-box, #compraventa .container-lg .compraventa-box, #compraventa .container-xl .compraventa-box, #compraventa .container-xxl .compraventa-box {
+  position: relative;
+  display: block;
+}
+#compraventa .container-fluid .compraventa-box .compraventa-box-caption, #compraventa .container-sm .compraventa-box .compraventa-box-caption, #compraventa .container-md .compraventa-box .compraventa-box-caption, #compraventa .container-lg .compraventa-box .compraventa-box-caption, #compraventa .container-xl .compraventa-box .compraventa-box-caption, #compraventa .container-xxl .compraventa-box .compraventa-box-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  opacity: 0;
+  color: #fff;
+  background: rgba(244, 98, 58, 0.9);
+  transition: opacity 0.25s ease;
+  text-align: center;
+}
+#compraventa .container-fluid .compraventa-box .compraventa-box-caption .project-category, #compraventa .container-sm .compraventa-box .compraventa-box-caption .project-category, #compraventa .container-md .compraventa-box .compraventa-box-caption .project-category, #compraventa .container-lg .compraventa-box .compraventa-box-caption .project-category, #compraventa .container-xl .compraventa-box .compraventa-box-caption .project-category, #compraventa .container-xxl .compraventa-box .compraventa-box-caption .project-category {
+  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+#compraventa .container-fluid .compraventa-box .compraventa-box-caption .project-name, #compraventa .container-sm .compraventa-box .compraventa-box-caption .project-name, #compraventa .container-md .compraventa-box .compraventa-box-caption .project-name, #compraventa .container-lg .compraventa-box .compraventa-box-caption .project-name, #compraventa .container-xl .compraventa-box .compraventa-box-caption .project-name, #compraventa .container-xxl .compraventa-box .compraventa-box-caption .project-name {
+  font-size: 1.2rem;
+}
+#compraventa .container-fluid .compraventa-box:hover .compraventa-box-caption, #compraventa .container-sm .compraventa-box:hover .compraventa-box-caption, #compraventa .container-md .compraventa-box:hover .compraventa-box-caption, #compraventa .container-lg .compraventa-box:hover .compraventa-box-caption, #compraventa .container-xl .compraventa-box:hover .compraventa-box-caption, #compraventa .container-xxl .compraventa-box:hover .compraventa-box-caption {
+  opacity: 1;
+}

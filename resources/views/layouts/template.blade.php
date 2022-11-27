@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
+        <meta name="description" content="Página para el proyecto de DAW" />
         <meta name="author" content="" />
-        <title>Your Band Music</title>
+        <title>{{ config('app.name', 'Your Band Music') }}</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap Icons-->
@@ -22,11 +22,11 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">YOUR BAND MUSIC</a>
+                <a class="navbar-brand" href="#page-top">Your Band Music</a>
+                {{-- <a class="navbar-brand" href="#page-top">Your Band Music</a> --}}
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <ul class="navbar-nav ms-auto my-2 my-lg-0">
                             <!-- Authentication Links -->
                             @guest
                                 @if (Route::has('login'))
@@ -37,42 +37,20 @@
     
                                 @if (Route::has('register'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Registro') }}</a>
                                     </li>
                                 @endif
                             @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
-                                    </a>
-    
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-    
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('user') }}">{{ Auth::user()->name }}</a>
+                            </li>  
                             @endguest
-                        <li class="nav-item"><a class="nav-link" href="#page-top">Your Band Music</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">Acerca de</a></li>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Instrumentos
-                            </a>
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Grupos
-                            </a>   
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Tutoriales
-                            </a>                      
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Grupos</a></li>
+                        {{-- <li class="nav-item"><a class="nav-link" href="#page-top">Your Band Music</a></li> --}}
+                        <li class="nav-item"><a class="nav-link" href="#compraventa">
+                            Compra Venta</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">Grupos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Tutoriales</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">Sobre nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                     </ul>
                 </div>
@@ -97,36 +75,51 @@
             </div>
         </header>
 
-        <!-- About-->
-        <section class="page-section bg-primary" id="about">
-            <div class="container px-4 px-lg-5">
-            <!-- 
-                @yield('content') 
-            -->
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">¡Tenemos lo que busca!</h2>
-                        <hr class="divider divider-light" />
-                        <p class="text-white-75 mb-4">Si busca banda, instrumento, tutoriales o banda esta es su página!</p>
-                        <a class="btn btn-light btn-xl" href="#services">¡Comenzar!</a>
-                    </div>
+        <!-- CompraVenta-->
+        <div id="compraventa">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    {{-- elemento --}}
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="compraventa-box" href="assets/img/portfolio/fullsize/1.jpg" title="Project Name">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="..." />
+                            <div class="compraventa-box-caption">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">
+                                    <button type="button" class="btn btn-outline-light">
+                                        ¡Ver más!
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                        
+                    </div> 
                 </div>
+
             </div>
-        </section>
+                <hr class="divider-light" />
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <a class="btn btn-secondary btn-xl" href={{ route('compraventa') }}>¡Ver más!</a>
+                </div>
+                    {{-- <hr class="divider-light" /> --}}
+            </div>
+        </div>
 
         <!-- Services-->
         <section class="page-section" id="services">
             <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0">At Your Service</h2>
+                <h2 class="text-center mt-0">Grupos</h2>
                 <hr class="divider" />
                 <div class="row gx-4 gx-lg-5">
+
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Sturdy Themes</h3>
-                            <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+                            <h3 class="h4 mb-2">Luna Vacía</h3>
+                            <p class="text-muted mb-0">Este grupo esta buscando</p><a href='#'><strong>bajista</strong></a>
                         </div>
                     </div>
+
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
@@ -134,6 +127,7 @@
                             <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
                         </div>
                     </div>
+
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
@@ -141,6 +135,7 @@
                             <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
                         </div>
                     </div>
+
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
@@ -148,11 +143,19 @@
                             <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
                         </div>
                     </div>
+                    <hr class="divider-light" />
+                    <a class="btn btn-secondary btn-xl" href="{{ route('grupos') }}">Más información</a>
+
                 </div>
             </div>
         </section>
         <!-- Portfolio-->
         <div id="portfolio">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="text-center mt-0">Tutoriales</h2>
+                </div>
+            </div>    
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     <div class="col-lg-4 col-sm-6">
@@ -160,7 +163,7 @@
                             <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-name">Fl Studio</div>
                             </div>
                         </a>
                     </div>
@@ -169,7 +172,7 @@
                             <img class="img-fluid" src="assets/img/portfolio/thumbnails/2.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-name">Cubase</div>
                             </div>
                         </a>
                     </div>
@@ -178,7 +181,7 @@
                             <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-name">Moises</div>
                             </div>
                         </a>
                     </div>
@@ -187,7 +190,7 @@
                             <img class="img-fluid" src="assets/img/portfolio/thumbnails/4.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-name">Guitar Pro</div>
                             </div>
                         </a>
                     </div>
@@ -211,16 +214,29 @@
                     </div>
                 </div>
             </div>
+                <hr class="divider-light" />
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <a class="btn btn-secondary btn-xl" href={{ route('tutoriales') }}>¡Ver más!</a>
+                </div>
+                    <hr class="divider-light" />
+            </div>
         </div>
-        <!-- Call to action-->
-        <!--
-        <section class="page-section bg-dark text-white">
-            <div class="container px-4 px-lg-5 text-center">
-                <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-                <a class="btn btn-light btn-xl" href="https://startbootstrap.com/theme/creative/">Download Now!</a>
+
+        <!-- About-->
+        <section class="page-section bg-primary" id="about">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="text-white mt-0">Projecto para final de curso DAW</h2>
+                        <hr class="divider divider-light" />
+                        <p class="text-white-75 mb-4">Esta página es un projecto estudiantil sin ánimo de lucro para el curso de DAW</p>
+                        {{-- <a class="btn btn-light btn-xl" href="#">¡Comenzar!</a> --}}
+                    </div>
+                </div>
             </div>
         </section>
-        -->
+
         <!-- Contact-->
         <section class="page-section" id="contact">
             <div class="container px-4 px-lg-5">

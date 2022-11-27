@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\CompraventaController;
+use App\Http\Controllers\TutorialesController;
+use App\Http\Controllers\GruposController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
-|--------------------------------------------------------------------------
+|--------------------------------------------------------------------------page
 | Web Routes
 |--------------------------------------------------------------------------
 |
@@ -14,9 +18,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    // return view('welcome');
+    return view('layouts/template');
+    
+})->name('home');
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/user', [App\Http\Controllers\HomeController::class, 'index'])->name('user');
+
+
+Route::get('/compraventa', [App\Http\Controllers\CompraventaController::class, 'index'])->name('compraventa');
+Route::get('/tutoriales', [App\Http\Controllers\TutorialesController::class, 'index'])->name('tutoriales');
+Route::get('/grupos', [App\Http\Controllers\GruposController::class, 'index'])->name('grupos');
