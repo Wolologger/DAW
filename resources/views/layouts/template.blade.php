@@ -30,13 +30,13 @@
                             @guest
                                 @if (Route::has('login'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                        <a class="nav-link" href="{{ route('login') }}"><i class="bi bi-person"></i> {{ __('Login') }}</a>
                                     </li>
                                 @endif
     
                                 @if (Route::has('register'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Registro') }}</a>
+                                        <a class="nav-link" href="{{ route('register') }}"><i class="bi bi-person-plus"></i> {{ __('Registro') }}</a>
                                     </li>
                                 @endif
                             @else
@@ -58,7 +58,7 @@
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
-                        <img class="d-inline-block align-middle mr-2"  width="10%" height="10%" alt="" src="assets/logo_white.png"/>
+                        <img class="d-inline-block align-middle mr-2"  width="15%" height="15%" alt="" src="assets/logo_white.png"/>
                         <h1 class="text-white font-weight-bold">Your Band Music</h1>
                         <hr class="divider" />
                     </div>
