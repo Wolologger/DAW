@@ -4,7 +4,9 @@ use App\Http\Controllers\CompraventaController;
 use App\Http\Controllers\TutorialesController;
 use App\Http\Controllers\GruposController;
 use App\Http\Controllers\Instrumentos;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------page
@@ -23,7 +25,7 @@ Route::get('/', function () {
     
 })->name('home');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/user', [App\Http\Controllers\HomeController::class, 'index'])->name('user');
 
