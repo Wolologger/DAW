@@ -13,7 +13,10 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DISK', 'local'),
+    //'default' => env('FILESYSTEM_DISK', 'local'),
+    
+    // Cambio la URL del storage
+    'default' => env('FILESYSTEM_DISK', 'public'),
 
     /*
     |--------------------------------------------------------------------------
