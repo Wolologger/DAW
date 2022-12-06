@@ -1,6 +1,11 @@
 @extends('layouts.app')
-
 @section('content')
+
+@php
+// $i = auth()->id() 
+$user = Auth::user()
+
+@endphp
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -66,12 +71,17 @@
 
                                 {{-- opcion --}}
                                 <div class="col-6 col-md-4">
-                                    <button type="button" name="" id="" class="btn btn-danger" btn-lg
-                                        btn-block">
-                                        <i class="bi bi-file-post">
-                                            <h5>lorem ipsum</h5>
-                                        </i>
-                                    </button>
+                                    {{-- <form method="POST" action="{{ route('user.destroy',$id)}}"> --}}
+                                    <form method="POST" action="{{ route('user.destroy', $user)}}">
+                                        @csrf
+                                        <button type="submit" name="" id="" class="btn btn-danger" btn-lg
+                                            btn-block"  onclick="return confirm('¿Estás seguro?')">
+                                            <i class="bi bi-trash-fill">
+                                            {{-- <i class="bi bi-person-x-fill"> --}}
+                                                <h5>Borrar usuario</h5>
+                                            </i>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

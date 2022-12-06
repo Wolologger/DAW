@@ -73,13 +73,14 @@
                                 </div>
                             </div>
 
+                            {{-- Arreglar --}}
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label text-md-end"></label>
                                 <div class="col-md-6">
-                                    {{-- <input id="grupo2" type="checkbox"> ¿Eres un grupo? 2<p> --}}
-                                    <input type="checkbox" name="grupo" class="switch-input" value="1" {{ old('grupo') ? 'checked="checked"' : '0' }}/> ¿Eres un grupo?
-
-                                        {{-- name="password_confirmation" required autocomplete="new-password"> --}}
+                                    {{-- <input type="checkbox" name="grupo" class="switch-input" value="1" {{ old('grupo') ? 'checked="checked"' : '0' }}/>  --}}
+                                    <input class="form-check-input" type="checkbox" name="grupo" id="grupo" 
+                                        {{ old('grupo') ? 'checked' : '' }}>
+                                    ¿Eres un grupo?
                                 </div>
                             </div>
 

@@ -27,7 +27,7 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::get('/user', [App\Http\Controllers\HomeController::class, 'index'])->name('user');
+Route::get('/user', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth','verified'])->name('user');
 
 
 Route::get('/compraventa', [App\Http\Controllers\CompraventaController::class, 'index'])->name('compraventa');
@@ -36,3 +36,6 @@ Route::get('/grupos', [App\Http\Controllers\GruposController::class, 'index'])->
 
 // Instrumentos
 Route::get('/instrumento', [App\Http\Controllers\InstrumentosController::class, 'index'])->name('instrumento');
+
+Route::post('/user/delete/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');
+
