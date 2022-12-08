@@ -5,7 +5,10 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Category;
+use App\Models\Compraventa;
+use App\Models\Grupo;
 use App\Models\Tag;
+use App\Models\Tutorial;
 use Illuminate\Database\Seeder;
 
 // creamos la carpeta posts para guardar las imagenes
@@ -33,6 +36,11 @@ class DatabaseSeeder extends Seeder
             
             $this->call(UserSeeder::class);
             Category::factory(4)->create();
+         
+            Grupo::factory(5)->create();
+            Tutorial::factory(10)->create();
+            Compraventa::factory(12)->create();
+
             Tag::factory(8)->create();
             $this->call(PostSeeder::class);
 

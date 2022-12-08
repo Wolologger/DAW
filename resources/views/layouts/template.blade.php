@@ -52,16 +52,23 @@
                                 {{ Auth::user()->name }}</a>
                         </li>
                     @endguest
-                    <li class="nav-item"><a class="nav-link" href="#compraventa"><i class="bi bi-wallet2"></i> Compra
-                            Venta</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#compraventa"><i class="bi bi-wallet2"></i>
+                            Compra Venta</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services"><i class="bi bi-people-fill"></i>
                             Grupos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio"><i class="bi bi-display"></i>
                             Tutoriales</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about"><i class="bi bi-info-circle"></i> Sobre
-                            nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact"><i class="bi bi-envelope"></i> Contacto</a>
+                    {{-- <li class="nav-item"><a class="nav-link" href="#contact"><i class="bi bi-card-text"></i>
+                            Posts</a>
+                    </li> --}}
+                    {{-- <li class="nav-item"><a class="nav-link" href="#about"><i class="bi bi-info-circle"></i>
+                            Sobre nosotros</a></li> --}}
+                    <li class="nav-item"><a class="nav-link" href="#about"><i class="bi bi-card-text"></i>
+                            Posts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact"><i class="bi bi-envelope"></i>
+                            Contacto</a>
                     </li>
+
                 </ul>
             </div>
         </div>
@@ -80,6 +87,11 @@
                     <p class="text-white-75 mb-5">
                         Web dedicada a músicos para la formación de grupos musicales,
                         búsqueda de profesores, clases, compra-venta de instrumentos y tutoriales.
+                    </p>
+                    <p class="text-white-50 mb-5">
+
+                        <i class="bi bi-info-circle"></i>
+                        Esta página es un projecto estudiantil sin ánimo de lucro para el curso de DAW
                     </p>
                     <a class="btn btn-primary btn-xl" href="#about">Más información</a>
                 </div>
@@ -126,12 +138,12 @@
             {{-- <hr class="divider-light" /> --}}
         </div>
     </div>
-
+    {{-- GRUPOS --}}
     <!-- Services-->
     <section class="page-section" id="services">
         <div class="container px-4 px-lg-5">
             <h2 class="text-center text-uppercase mt-0"><i class="bi bi-people-fill"></i> Grupos</h2>
-            <hr class="divider" />
+            {{-- <hr class="divider" /> --}}
             <div class="row gx-4 gx-lg-5">
 
                 <div class="col-lg-3 col-md-6 text-center">
@@ -183,7 +195,7 @@
 
                 </div>
                 <hr class="divider-light" />
-                <a class="btn btn-secondary btn-xl" href="{{ route('grupos') }}">Más información</a>
+                <a class="btn btn-secondary btn-xl" href="{{ route('grupos') }}">¡Ver más!</a>
 
             </div>
         </div>
@@ -269,18 +281,43 @@
 
     <!-- About-->
     <section class="page-section bg-primary" id="about">
+        
         <div class="container px-4 px-lg-5">
+            
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h1 class="text-white"><i class="bi bi-info-circle"></i></h1>
-                    <h2 class="text-white mt-0">Projecto para final de curso DAW</h2>
-                    <hr class="divider divider-light" />
-                    <p class="text-white-75 mb-4"> Esta página es un projecto estudiantil sin ánimo de lucro para el
-                        curso de DAW</p>
-                    {{-- <a class="btn btn-light btn-xl" href="#">¡Comenzar!</a> --}}
+                    {{-- <h1 class="text-white"><i class="bi bi-info-circle"></i></h1> --}}
+                    <h2 class="text-center text-uppercase text-white mt-0"><i class="bi bi-card-text"></i> Posts</h2>
+                    <div class="row gx-4 gx-lg-5">
+                        {{-- <hr class="divider divider-light" /> --}}
+                        <p class="text-white-75 mb-4">¡Los últimos posts de la comunidad!</p>
+                    </div>
                 </div>
             </div>
-        </div>
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Titulo</h5>
+                            <p class="card-text">
+                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                            </p>
+                            <a href="#" class="btn btn-primary">Leer más</a>
+                        </div>
+                    </div>
+                    <p>
+                </div>
+
+
+            </div>
+            <p> 
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <a class="btn btn-secondary btn-xl" href={{ route('tutoriales') }}>¡Ver más!</a>
+                </div>
+            </div>
     </section>
 
     <!-- Contact-->
@@ -291,8 +328,9 @@
                     <h1><i class="bi bi-envelope"></i></h1>
                     <h2 class="mt-0">¡Ponte en contacto con nosotros!</h2>
                     <hr class="divider" />
-                    <p class="text-muted mb-5">Envíenos un mensaje y nos pondremos en contacto con usted lo antes
-                        posible.</p>
+                    <p class="text-muted mb-5">
+                        Envíenos un mensaje y nos pondremos en contacto con usted lo antes posible.
+                    </p>
                 </div>
             </div>
             <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
@@ -323,13 +361,13 @@
                             <div class="invalid-feedback" data-sb-feedback="email:email">Email no váido.</div>
                         </div>
                         <!-- Phone number input-->
-                        <div class="form-floating mb-3">
+                        {{-- <div class="form-floating mb-3">
                             <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890"
                                 data-sb-validations="required" />
                             <label for="phone">Número de teléfono</label>
                             <div class="invalid-feedback" data-sb-feedback="phone:required">Se requiere un número de
                                 teléfono.</div>
-                        </div>
+                        </div> --}}
                         <!-- Message input-->
                         <div class="form-floating mb-3">
                             <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..."
@@ -364,12 +402,12 @@
                     </form>
                 </div>
             </div>
-            <div class="row gx-4 gx-lg-5 justify-content-center">
+            {{-- <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-4 text-center mb-5 mb-lg-0">
                     <i class="bi-phone fs-2 mb-3 text-muted"></i>
                     <div>+34 (942) 000-000</div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
     <!-- Footer-->

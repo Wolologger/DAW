@@ -11,4 +11,16 @@ class Tag extends Model
     public function posts(){
         return $this->belongsToMany(Post::class);
     }
+
+    public function tutoriales(){
+        return $this->hasMany(Tutorial::class);
+    }
+
+    public function grupos(){
+        return $this->hasMany(Grupo::class);
+    }
+
+    public function compraventa(){
+        return $this->hasMany(Compraventa::class);
+    }
 }
