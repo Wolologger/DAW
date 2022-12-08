@@ -26,6 +26,8 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="{{ route('home') }}">Your Band Music</a>
+            <a class="navbar-brand" href="{{ route('home2') }}">Your Band Music2</a>
+
             {{-- <a class="navbar-brand" href="#page-top">Your Band Music</a> --}}
             {{-- <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>

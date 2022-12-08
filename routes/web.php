@@ -4,8 +4,13 @@ use App\Http\Controllers\CompraventaController;
 use App\Http\Controllers\TutorialesController;
 use App\Http\Controllers\GruposController;
 use App\Http\Controllers\Instrumentos;
+use App\Http\Controllers\HomeController;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+// cambiar esto
+use Illuminate\Support\Facades\DB;
+
 
 
 /*
@@ -20,14 +25,47 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
-    return view('layouts/template');
+//cambiar esto:
+$compraventa = DB::table('compraventas')
+->select('*')
+->where('status', '=', 1) 
+->orderBy('created_at', 'desc')
+->take(3)
+->get();
+
+$tutoriales = DB::table('tutorials')
+->select('*')
+->where('status', '=', 1)    
+->orderBy('created_at', 'desc')
+->take(3)
+->get();
+
+$grupos = DB::table('grupos')
+->select('*')
+->where('search', '<>', 'Ninguno')    
+->orderBy('created_at', 'desc')
+->take(4)
+->get();
+
+$posts = DB::table('posts')
+->select('*')
+->where('status', '=', 1)    
+->orderBy('created_at', 'desc')
+->take(4)
+->get();
+
+return view('layouts/template', ['compraventa' => $compraventa, 'grupos' => $grupos, 'posts' => $posts, 'tutoriales'=>$tutoriales]);
+
     
 })->name('home');
 
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home2');
+
+
 Auth::routes(['verify' => true]);
 
-Route::get('/user', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth','verified'])->name('user');
+Route::get('/user', [App\Http\Controllers\HomeController::class, 'user'])->middleware(['auth','verified'])->name('user');
 
 
 Route::get('/compraventa', [App\Http\Controllers\CompraventaController::class, 'index'])->name('compraventa');

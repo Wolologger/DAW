@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Compraventa;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,9 +23,44 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
+    {
+        $compraventa = DB::table('compraventas')
+        ->select('*')
+        ->where('status', '=', 1) 
+        ->orderBy('created_at', 'desc')
+        ->take(3)
+        ->get();
+
+        $tutoriales = DB::table('tutorials')
+        ->select('*')
+        ->where('status', '=', 1)    
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        $grupos = DB::table('grupos')
+        ->select('*')
+        ->orderBy('created_at', 'desc')
+        ->take(4)
+        ->get();
+
+        $posts = DB::table('post')
+        ->select('*')
+        ->orderBy('created_at', 'desc')
+        ->take(4)
+        ->get();
+
+        return view('layouts/template', ['compraventa' => $compraventa, 'grupos' => $grupos, 'posts' => $posts, 'tutoriales'=>$tutoriales]);
+
+    //    return view('template');
+
+    }
+
+    public function user()
     {
        return view('user');
 
     }
+    
 }

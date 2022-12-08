@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Compraventa;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class CompraventaController extends Controller
@@ -15,6 +17,18 @@ class CompraventaController extends Controller
      */
     public function index()
     {
-        return view('pag/compraventa');
+       // $compraventa = Compraventa::all();
+       $compraventa = DB::table('compraventas')
+       ->select('id', 
+                'type', 
+                'brand', 
+                'model',
+                'price', 
+                'state_product', 
+                'state', 
+                'status')
+       ->where('status', '=', 1)    
+       ->get();
+        return view('pag/compraventa', ['compraventa' => $compraventa]);
     }
 }

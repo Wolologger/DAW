@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             $this->call(UserSeeder::class);
             Category::factory(4)->create();
          
-            Grupo::factory(5)->create();
+            Grupo::factory(12)->create();
             Tutorial::factory(10)->create();
             Compraventa::factory(12)->create();
 

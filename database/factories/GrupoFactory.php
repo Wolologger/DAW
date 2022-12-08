@@ -22,6 +22,16 @@ class GrupoFactory extends Factory
     {
 
         $name = $this->faker->unique()->word(10);
+        $musicos = [
+            'Ninguno',
+            'Bajista',
+            'Cantante',
+            'Guitarrista',
+            'Batería',
+            'Teclista',
+            'Técnico de sonido'
+        ];
+
 
         return [
             
@@ -34,6 +44,7 @@ class GrupoFactory extends Factory
             'city' => $this->faker->city(),
             'state' => Address::state(),
             // 'country' => $this->faker->country(),
+            'search' =>$this->faker->randomElement($musicos),
 
             'status' => $this->faker->randomElement([1,2]),
             'user_id' => User::all()->random()->id

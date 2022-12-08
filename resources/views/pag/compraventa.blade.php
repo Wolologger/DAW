@@ -1,77 +1,71 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Compra Venta de Intrumentos') }}</div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Compra Venta de Intrumentos') }}</div>
 
-                <div class="card-body">
+                    <div class="card-body">
 
-                <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block" onclick="location.href='{{ url()->previous() }}';">   
+                        {{-- <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block" onclick="location.href='{{ url()->previous() }}';">   
                     Atrás
-                </button>
-                   {{-- <form method="POST" action="{{ route('login') }}">
-                        @csrf
+                </button> --}}
+                        {{-- <table class="table table-hover">
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Precio</th>
+                        <th>Estado</th>
+                        <th>Provincia</th>
+                    </tr>
+                    @foreach ($compraventa as $instrumento)
+                        <tr>
+                            <td>{{ $instrumento->type }}</td>
+                            <td>{{ $instrumento->brand }}</td>
+                            <td>{{ $instrumento->model }}</td>
+                            <td>{{ $instrumento->price }} €</td>
+                            <td>{{ $instrumento->state_product }}</td>
+                            <td>{{ $instrumento->state }}</td>
+                            <td><a href="#{{ $instrumento->id }}">{{ "Ver más"}}</a></td>
+                        </tr>
+                    @endforeach
+                </table> --}}
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                @foreach ($compraventa as $instrumento)
+                                    {{-- <div class="col-md-4 border"> --}}
+                                        <div class="col-md-6">
+                                        <img class="img-fluid rounded"
+                                            src="assets/img/portfolio/thumbnails/pacifica.jpg" alt="..." />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card-body">
+                                        {{-- <h4>Tipo: {{ $instrumento->type }}</h4> --}}
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
+                                            <h5 class="card-title">Instrumento:
+                                                {{$instrumento->brand . ' ' . $instrumento->model }}</h5>
+                                            <p class="card-text">Precio: {{$instrumento->price }} €</p>
+                                            <p class="card-text">Estado: {{$instrumento->state_product }}</p>
+                                            <p class="card-text">Provincia: {{$instrumento->state }}</p>
+                                            <p class="card-text"><small class="text-muted"></small>
+                                            </p>
+                                        {{-- <div class="card-body text-center"> --}}
+                                            <div class="d-grid gap-2">
+                                            <button type="submit" class="btn btn-outline"><a
+                                                    href="#{{ $instrumento->id }}">{{ 'Más detalle' }}</a></button>
+                                        </div>
+                                    </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Recuérdame') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('¿Has olvidado tu contaseña?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>  --}}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

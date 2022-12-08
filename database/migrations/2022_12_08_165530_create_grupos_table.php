@@ -26,7 +26,15 @@ return new class extends Migration
             $table->string('city');
             $table->string('state');
             // $table->string('country');
-
+            $table->enum('search', array(
+            'Ninguno',
+            'Bajista',
+            'Cantante',
+            'Guitarrista',
+            'Batería',
+            'Teclista',
+            'Técnico de sonido')
+            )->default('Ninguno');
 
             $table->enum('status',[1,2])->default(1);
 

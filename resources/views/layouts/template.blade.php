@@ -105,28 +105,37 @@
         <div class="container px-4 px-lg-5 text-center">
             <h2 class="text-uppercase Roboto"><i class="bi bi-wallet2"></i> Compra Venta</h2>
         </div>
-
         <div class="container-fluid p-0">
             <div class="row g-0">
                 {{-- elemento --}}
-                <div class="col-lg-4 col-sm-6">
-                    <a class="compraventa-box" href="assets/img/portfolio/fullsize/pacifica.jpg" title="Project Name">
-                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/pacifica.jpg" alt="..." />
+                @foreach ($compraventa as $instrumento)
+                <div class="col-lg-4 col-sm-6 border">
+                    <a class="compraventa-box" href="#" title="Project Name">
+                        <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/pacifica.jpg" alt="..."/>
                         <div class="compraventa-box-caption">
-                            <div class="project-category text-white-75">Yamaha Pacifica</div>
-                            <div class="project-category text-white-50">Estado: Excelente</div>
-                            <div class="project-category text-white-50">Precio: 550€</div>
+                            <div class="project-category text-white-75">
+                                {{$instrumento->brand . ' ' . $instrumento->model }}
+                            </div>
+                            <div class="project-category text-white-50">
+                                Estado: {{$instrumento->state_product }}
+                            </div>
+                            <div class="project-category text-white-50">
+                                Precio: {{$instrumento->price }} €
+                            </div>
                             <p>
                             <div class="project-name">
-                                <button type="button" class="btn btn-outline-light">
+                                <button type="submit" class="btn btn-outline-light" formaction="#{{$instrumento->id}}">
                                     ¡Ver más!
                                 </button>
+                            </button>
+
                             </div>
                             </p>
                         </div>
                     </a>
-
                 </div>
+                @endforeach
+
             </div>
 
         </div>
@@ -146,54 +155,17 @@
             {{-- <hr class="divider" /> --}}
             <div class="row gx-4 gx-lg-5">
 
+                @foreach ($grupos as $grupo)
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <h3 class="h4 mb-2">Luna Vacía</h3>
+                        <h3 class="h4 mb-2"> {{$grupo->name }}</h3>
                         <p class="text-muted mb-0">Este grupo esta buscando:</p>
                         <ul class="list-group">
-                            <li class="list-group-item"><a href='#'><strong>Bajista</strong></a></li>
-                            <li class="list-group-item"><a href='#'><strong>Batería</strong></a></li>
+                            <li class="list-group-item"><a href='#{{$grupo->id}}'><strong>{{$grupo->search}}</strong></a></li>
                         </ul>
                     </div>
                 </div>
-
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="mt-5">
-                        <div class="mb-2"></div>
-                        <h3 class="h4 mb-2">Forraje</h3>
-                        <p class="text-muted mb-0">Este grupo esta buscando:</p>
-                        <ul class="list-group">
-                            <li class="list-group-item"><a href='#'><strong>Cantante</strong></a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="mt-5">
-                        <div class="mb-2"></div>
-                        <h3 class="h4 mb-2">Exceso</h3>
-                        <p class="text-muted mb-0">Este grupo esta buscando:</p>
-                        <ul class="list-group">
-                            <li class="list-group-item"><a href='#'><strong>Guitarrista</strong></a></li>
-                            <li class="list-group-item"><a href='#'><strong>Bajista</strong></a></li>
-                            <li class="list-group-item"><a href='#'><strong>Cantante</strong></a></li>
-                            <li class="list-group-item"><a href='#'><strong>Productor</strong></a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="mt-5">
-                        <div class="mb-2"></div>
-                        <h3 class="h4 mb-2">Extremoduro</h3>
-                        <p class="text-muted mb-0">Este grupo esta buscando:</p>
-                        <ul class="list-group">
-                            <li class="list-group-item"><a href='#'><strong>Cantante</strong></a></li>
-                            <li class="list-group-item"><a href='#'><strong>Guitarrista</strong></a></li>
-                        </ul>
-                    </div>
-
-                </div>
+                @endforeach
                 <hr class="divider-light" />
                 <a class="btn btn-secondary btn-xl" href="{{ route('grupos') }}">¡Ver más!</a>
 
@@ -209,65 +181,17 @@
         </div>
         <div class="container-fluid p-0">
             <div class="row g-0">
+                @foreach ($tutoriales as $tutorial)
                 <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/flv.jpg" title="Project Name">
+                    <a class="portfolio-box" href="#{{$tutorial->id}}">
                         <img class="img-fluid" src="assets/img/portfolio/thumbnails/flv.jpg" alt="..." />
                         <div class="portfolio-box-caption">
-                            <div class="project-category text-white-50">Edicción Musical</div>
-                            <div class="project-name">Fl Studio</div>
+                            <div class="project-category text-white-50">{{$tutorial->type}}</div>
+                            <div class="project-name">{{$tutorial->name}}</div>
                         </div>
                     </a>
                 </div>
-
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/cubase.jpg" title="Project Name">
-                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/cubase.jpg" alt="..." />
-                        <div class="portfolio-box-caption">
-                            <div class="project-category text-white-50">Edicción Musical</div>
-                            <div class="project-name">Cubase</div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/moises.jpg" title="Project Name">
-                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/moises.jpg" alt="..." />
-                        <div class="portfolio-box-caption">
-                            <div class="project-category text-white-50">Category</div>
-                            <div class="project-name">Moises</div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/guitarpro.jpg" title="Project Name">
-                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/guitarpro.jpg" alt="..." />
-                        <div class="portfolio-box-caption">
-                            <div class="project-category text-white-50">Category</div>
-                            <div class="project-name">Guitar Pro</div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/logicpro.jpg" title="Project Name">
-                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/logicpro.jpg" alt="..." />
-                        <div class="portfolio-box-caption">
-                            <div class="project-category text-white-50">Edicción Musical</div>
-                            <div class="project-name">Logic Pro</div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/musescore.jpg" title="Project Name">
-                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/musescore.jpg" alt="..." />
-                        <div class="portfolio-box-caption p-3">
-                            <div class="project-category text-white-50">Category</div>
-                            <div class="project-name">MuseScore</div>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
             </div>
         </div>
         <hr class="divider-light" />
@@ -283,7 +207,6 @@
     <section class="page-section bg-primary" id="about">
         
         <div class="container px-4 px-lg-5">
-            
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8 text-center">
                     {{-- <h1 class="text-white"><i class="bi bi-info-circle"></i></h1> --}}
@@ -296,20 +219,24 @@
             </div>
 
             <div class="row">
+                @foreach ($posts as $post)
 
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Titulo</h5>
+                            <h5 class="card-title">{{$post->name}}</h5>
                             <p class="card-text">
-                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                {{$post->extract}}
                             </p>
-                            <a href="#" class="btn btn-primary">Leer más</a>
+                        </div>
+
+                            <div class="card-body text-center">
+                            <a href="#{{ $post->id }}" class="btn btn-primary">Leer más</a>
                         </div>
                     </div>
                     <p>
                 </div>
-
+                @endforeach
 
             </div>
             <p> 
