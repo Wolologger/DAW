@@ -3,7 +3,7 @@
 
 @php
 // $i = auth()->id() 
-$user = Auth::user()
+$user = Auth::user();
 
 @endphp
     <div class="container">
@@ -14,7 +14,8 @@ $user = Auth::user()
                         <div class="text-center">
                             <strong>
                                 <i class="bi bi-music-note-beamed"></i>
-                                {{ __('Hola') }} {{ Auth::user()->name }}
+                                {{-- {{ __('Hola') }} {{ Auth::user()->name }} --}}
+                                Dashboard
                                 <i class="bi bi-music-note-beamed"></i>
                             </strong>
                         </div>
@@ -37,7 +38,6 @@ $user = Auth::user()
                                         </i>
                                     </button>
                                 </div>
-
                                 {{-- opcion --}}
                                 <div class="col-6 col-md-4">
                                     <button type="button" name="" id="" class="btn btn-success" btn-lg
@@ -50,12 +50,15 @@ $user = Auth::user()
 
                                 {{-- opcion --}}
                                 <div class="col-6 col-md-4">
-                                    <button type="button" name="" id="" class="btn btn-secondary" btn-lg
+                                    <form method="POST" action="{{ route('user.compraventa', $user)}}">
+                                        @csrf
+                                    <button type="submit" name="" id="" class="btn btn-secondary" btn-lg
                                         btn-block">
                                         <i class="bi bi-file-earmark-binary">
-                                            <h5>lorem ipsum</h5>
+                                            <h5>Mis compraventa</h5>
                                         </i>
                                     </button>
+                                </form>
                                 </div>
                                 <hr class="divider-light" />
 

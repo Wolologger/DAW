@@ -27,7 +27,6 @@ class CompraventaController extends Controller
                 'state_product', 
                 'state', 
                 'status')
-       ->where('status', '=', 1)    
        ->get();
         return view('pag/compraventa', ['compraventa' => $compraventa]);
     }

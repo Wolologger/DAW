@@ -28,14 +28,12 @@ class HomeController extends Controller
     {
         $compraventa = DB::table('compraventas')
         ->select('*')
-        ->where('status', '=', 1) 
         ->orderBy('created_at', 'desc')
         ->take(3)
         ->get();
 
         $tutoriales = DB::table('tutorials')
         ->select('*')
-        ->where('status', '=', 1)    
         ->orderBy('created_at', 'desc')
         ->get();
 

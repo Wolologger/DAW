@@ -28,14 +28,12 @@ Route::get('/', function () {
 //cambiar esto:
 $compraventa = DB::table('compraventas')
 ->select('*')
-->where('status', '=', 1) 
 ->orderBy('created_at', 'desc')
 ->take(3)
 ->get();
 
 $tutoriales = DB::table('tutorials')
 ->select('*')
-->where('status', '=', 1)    
 ->orderBy('created_at', 'desc')
 ->take(3)
 ->get();
@@ -49,7 +47,6 @@ $grupos = DB::table('grupos')
 
 $posts = DB::table('posts')
 ->select('*')
-->where('status', '=', 1)    
 ->orderBy('created_at', 'desc')
 ->take(4)
 ->get();
@@ -72,8 +69,14 @@ Route::get('/compraventa', [App\Http\Controllers\CompraventaController::class, '
 Route::get('/tutoriales', [App\Http\Controllers\TutorialesController::class, 'index'])->name('tutoriales');
 Route::get('/grupos', [App\Http\Controllers\GruposController::class, 'index'])->name('grupos');
 
-// Instrumentos
-Route::get('/instrumento', [App\Http\Controllers\InstrumentosController::class, 'index'])->name('instrumento');
+// mis compraventa
+Route::post('/user/compraventa/{user}', [App\Http\Controllers\UserController::class, 'compraventa'])->name('user.compraventa');
+
+// Route::post('/user/compraventa/edit/{id}', [App\Http\Controllers\UserController::class, 'compraventa_edit'])->name('user.compraventa.edit');
+Route::post('/user/compraventa/delete/{id}', [App\Http\Controllers\UserController::class, 'compraventa_delete'])->name('user.compraventa.delete');
+// Route::post('/user/compraventa/delete/{id}', [App\Http\Controllers\UserController::class, 'compraventa_delete'])->middleware(['auth'])->name('user.compraventa.delete');
+
+
 
 Route::post('/user/delete/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');
 
