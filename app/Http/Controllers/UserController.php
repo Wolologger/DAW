@@ -38,6 +38,19 @@ class UserController extends Controller
 
         return view('user/compraventa', ['compraventa' => $compraventa]);
     }
+
+    public function grupos(User $user){
+        $user_id = $user -> id;
+        $compraventa = DB::table('grupos')
+        ->select('*')
+        ->where('user_id', '=', $user_id) 
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        return view('user/grupos', ['grupos' => $compraventa]);
+    }
+
+
     public function compraventa_details(Request $id){
         $id = $id -> id;
         $compraventa = DB::table('compraventas')

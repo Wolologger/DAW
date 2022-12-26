@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-//cambiar esto:
+
 $compraventa = DB::table('compraventas')
 ->select('*')
 ->orderBy('created_at', 'desc')
@@ -57,17 +57,19 @@ return view('layouts/template', ['compraventa' => $compraventa, 'grupos' => $gru
 })->name('home');
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home2');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home2');
 
 
 Auth::routes(['verify' => true]);
 
 Route::get('/user', [App\Http\Controllers\HomeController::class, 'user'])->middleware(['auth','verified'])->name('user');
 
-
+// Pags principales
 Route::get('/compraventa', [App\Http\Controllers\CompraventaController::class, 'index'])->name('compraventa');
 Route::get('/tutoriales', [App\Http\Controllers\TutorialesController::class, 'index'])->name('tutoriales');
 Route::get('/grupos', [App\Http\Controllers\GruposController::class, 'index'])->name('grupos');
+Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('posts');
+
 
 // Mis compraventa
 Route::get('/user/compraventa/{user}', [App\Http\Controllers\UserController::class, 'compraventa'])->name('get.user.compraventa');
@@ -76,9 +78,6 @@ Route::post('/user/compraventa/details/{id}', [App\Http\Controllers\UserControll
 
 // Mis compraventa - Nuevo
 Route::post('/user/compraventa/new/{id}', [App\Http\Controllers\UserController::class, 'compraventa_new_view'])->name('user.compraventa.new_view');
-Route::post('/user/compraventa/new/{id}/nuevo', [App\Http\Controllers\UserController::class, 'compraventa_new'])->name('user.compraventa.new');
-
-// Route::post('/user/compraventa/new/{id}', [App\Http\Controllers\UserController::class, 'compraventa_new'])->name('user.compraventa.new.add');
 
 // Mis compraventa - Editar
 Route::post('/user/compraventa/edit/{id}', [App\Http\Controllers\UserController::class, 'compraventa_edit_view'])->name('user.compraventa.edit_view');
@@ -86,6 +85,11 @@ Route::post('/user/compraventa/edit/{id}/{userid}', [App\Http\Controllers\UserCo
 
 // Mis compraventa - Borrar
 Route::post('/user/compraventa/delete/{userid}/{id}', [App\Http\Controllers\UserController::class, 'compraventa_delete'])->name('user.compraventa.delete');
+
+// Mis compraventa - Nuevo Form
+Route::post('/user/compraventa/new/{id}/nuevo', [App\Http\Controllers\UserController::class, 'compraventa_new'])->name('user.compraventa.new');
+
+// Mis posts
 
 
 // Mis grupos 

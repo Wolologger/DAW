@@ -65,9 +65,9 @@
                             Sobre nosotros</a></li> --}}
                     <li class="nav-item"><a class="nav-link" href="#about"><i class="bi bi-card-text"></i>
                             Posts</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact"><i class="bi bi-envelope"></i>
+                    {{-- <li class="nav-item"><a class="nav-link" href="#contact"><i class="bi bi-envelope"></i>
                             Contacto</a>
-                    </li>
+                    </li> --}}
 
                 </ul>
             </div>
@@ -247,93 +247,10 @@
             <p>
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5">
-                    <a class="btn btn-secondary btn-xl" href={{ route('tutoriales') }}>¡Ver más!</a>
+                    <a class="btn btn-secondary btn-xl" href={{ route('posts') }}>¡Ver más!</a>
                 </div>
             </div>
     </section>
-
-    <!-- Contact-->
-    <section class="page-section" id="contact">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-lg-8 col-xl-6 text-center">
-                    <h1><i class="bi bi-envelope"></i></h1>
-                    <h2 class="mt-0">¡Ponte en contacto con nosotros!</h2>
-                    <hr class="divider" />
-                    <p class="text-muted mb-5">
-                        Envíenos un mensaje y nos pondremos en contacto con usted lo antes posible.
-                    </p>
-                </div>
-            </div>
-            <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
-                <div class="col-lg-6">
-                    <!-- * * * * * * * * * * * * * * *-->
-                    <!-- * * SB Forms Contact Form * *-->
-                    <!-- * * * * * * * * * * * * * * *-->
-                    <!-- This form is pre-integrated with SB Forms.-->
-                    <!-- To make this form functional, sign up at-->
-                    <!-- https://startbootstrap.com/solution/contact-forms-->
-                    <!-- to get an API token!-->
-                    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                        <!-- Name input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text"
-                                placeholder="Enter your name..." data-sb-validations="required" />
-                            <label for="name">Nombre completo</label>
-                            <div class="invalid-feedback" data-sb-feedback="name:required">Se requiere un nombre.
-                            </div>
-                        </div>
-                        <!-- Email address input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="email" type="email" placeholder="name@example.com"
-                                data-sb-validations="required,email" />
-                            <label for="email">Email</label>
-                            <div class="invalid-feedback" data-sb-feedback="email:required">Se requiere un Email.
-                            </div>
-                            <div class="invalid-feedback" data-sb-feedback="email:email">Email no váido.</div>
-                        </div>
-                        <!-- Phone number input-->
-                        {{-- <div class="form-floating mb-3">
-                            <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890"
-                                data-sb-validations="required" />
-                            <label for="phone">Número de teléfono</label>
-                            <div class="invalid-feedback" data-sb-feedback="phone:required">Se requiere un número de
-                                teléfono.</div>
-                        </div> --}}
-                        <!-- Message input-->
-                        <div class="form-floating mb-3">
-                            <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..."
-                                style="height: 10rem" data-sb-validations="required"></textarea>
-                            <label for="message">Mensaje</label>
-                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.
-                            </div>
-                        </div>
-                        <!-- Submit success message-->
-                        <!---->
-                        <!-- This is what your users will see when the form-->
-                        <!-- has successfully submitted-->
-                        <div class="d-none" id="submitSuccessMessage">
-                            <div class="text-center mb-3">
-                                <div class="fw-bolder">Su comentario ha sido enviado!</div>
-                                Para activar este formulario, regístrese en
-                                <br />
-                                <a
-                                    href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                            </div>
-                        </div>
-                        <!-- Submit error message-->
-                        <!---->
-                        <!-- This is what your users will see when there is-->
-                        <!-- an error submitting the form-->
-                        <div class="d-none" id="submitErrorMessage">
-                            <div class="text-center text-danger mb-3">Error al enviar el mensaje</div>
-                        </div>
-                        <!-- Submit Button-->
-                        <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton"
-                                type="submit">Enviar</button></div>
-                    </form>
-                </div>
-            </div>
             {{-- <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-4 text-center mb-5 mb-lg-0">
                     <i class="bi-phone fs-2 mb-3 text-muted"></i>
@@ -343,9 +260,12 @@
         </div>
     </section>
     <!-- Footer-->
-    <footer class="bg-light py-5">
-        <div class="container px-4 px-lg-5">
+    <footer class="bg-light py-4">
+        <div class="container px-3 px-lg-5ç4">
+            <div class="small text-center text-muted">Contacto: 
+                <a href="mailto:yourbandmusic@outlook.es">yourbandmusic@outlook.es</a></div>
             <div class="small text-center text-muted">Copyright &copy; 2022 - Your Band Music</div>
+
         </div>
     </footer>
     <!-- Bootstrap core JS-->

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -14,6 +15,14 @@ class TutorialesController extends Controller
      */
     public function index()
     {
-        return view('pag/tutoriales');
+        $tutoriales = DB::table('tutorials')
+        ->select('id', 
+                 'name', 
+                 'type',
+                 'extract', )
+        ->get();
+        // return view('pag/tutoriales');
+        return view('pag/tutoriales', ['tutoriales' => $tutoriales]);
+
     }
 }
