@@ -109,31 +109,36 @@
             <div class="row g-0">
                 {{-- elemento --}}
                 @foreach ($compraventa as $instrumento)
-                <div class="col-lg-4 col-sm-6 border">
-                    <a class="compraventa-box" href="#" title="Project Name">
-                        <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/pacifica.jpg" alt="..."/>
-                        <div class="compraventa-box-caption">
-                            <div class="project-category text-white-75">
-                                {{$instrumento->brand . ' ' . $instrumento->model }}
-                            </div>
-                            <div class="project-category text-white-50">
-                                Estado: {{$instrumento->state_product }}
-                            </div>
-                            <div class="project-category text-white-50">
-                                Precio: {{$instrumento->price }} €
-                            </div>
-                            <p>
-                            <div class="project-name">
-                                <button type="submit" class="btn btn-outline-light" formaction="#{{$instrumento->id}}">
-                                    ¡Ver más!
-                                </button>
-                            </button>
+                    <div class="col-lg-4 col-sm-6 border">
 
+                        <a class="compraventa-box" title={{ $instrumento->slug }}>
+                            <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/pacifica.jpg"
+                                alt="..." />
+                            <div class="compraventa-box-caption">
+                                <div class="project-category text-white-75">
+                                    {{ $instrumento->brand . ' ' . $instrumento->model }}
+                                </div>
+                                <div class="project-category text-white-50">
+                                    Estado: {{ $instrumento->state_product }}
+                                </div>
+                                <div class="project-category text-white-50">
+                                    Precio: {{ $instrumento->price }} €
+                                </div>
+                                <p>
+                                <div class="project-name">
+                                    <form method="POST"
+                                    action="{{ route('user.compraventa.details', $instrumento->id) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-outline-light">
+                                            ¡Ver más!
+                                        </button>
+                                    </form>
+
+                                </div>
+                                </p>
                             </div>
-                            </p>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
                 @endforeach
 
             </div>
@@ -156,15 +161,16 @@
             <div class="row gx-4 gx-lg-5">
 
                 @foreach ($grupos as $grupo)
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="mt-5">
-                        <h3 class="h4 mb-2"> {{$grupo->name }}</h3>
-                        <p class="text-muted mb-0">Este grupo esta buscando:</p>
-                        <ul class="list-group">
-                            <li class="list-group-item"><a href='#{{$grupo->id}}'><strong>{{$grupo->search}}</strong></a></li>
-                        </ul>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <h3 class="h4 mb-2"> {{ $grupo->name }}</h3>
+                            <p class="text-muted mb-0">Este grupo esta buscando:</p>
+                            <ul class="list-group">
+                                <li class="list-group-item"><a
+                                        href='#{{ $grupo->id }}'><strong>{{ $grupo->search }}</strong></a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
                 @endforeach
                 <hr class="divider-light" />
                 <a class="btn btn-secondary btn-xl" href="{{ route('grupos') }}">¡Ver más!</a>
@@ -182,15 +188,15 @@
         <div class="container-fluid p-0">
             <div class="row g-0">
                 @foreach ($tutoriales as $tutorial)
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="#{{$tutorial->id}}">
-                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/flv.jpg" alt="..." />
-                        <div class="portfolio-box-caption">
-                            <div class="project-category text-white-50">{{$tutorial->type}}</div>
-                            <div class="project-name">{{$tutorial->name}}</div>
-                        </div>
-                    </a>
-                </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="#{{ $tutorial->id }}">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/flv.jpg" alt="..." />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">{{ $tutorial->type }}</div>
+                                <div class="project-name">{{ $tutorial->name }}</div>
+                            </div>
+                        </a>
+                    </div>
                 @endforeach
             </div>
         </div>
@@ -205,7 +211,7 @@
 
     <!-- About-->
     <section class="page-section bg-primary" id="about">
-        
+
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8 text-center">
@@ -220,26 +226,25 @@
 
             <div class="row">
                 @foreach ($posts as $post)
-
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">{{$post->name}}</h5>
-                            <p class="card-text">
-                                {{$post->extract}}
-                            </p>
-                        </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $post->name }}</h5>
+                                <p class="card-text">
+                                    {{ $post->extract }}
+                                </p>
+                            </div>
 
                             <div class="card-body text-center">
-                            <a href="#{{ $post->id }}" class="btn btn-primary">Leer más</a>
+                                <a href="#{{ $post->id }}" class="btn btn-primary">Leer más</a>
+                            </div>
                         </div>
+                        <p>
                     </div>
-                    <p>
-                </div>
                 @endforeach
 
             </div>
-            <p> 
+            <p>
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5">
                     <a class="btn btn-secondary btn-xl" href={{ route('tutoriales') }}>¡Ver más!</a>

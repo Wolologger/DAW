@@ -38,6 +38,22 @@ class UserController extends Controller
 
         return view('user/compraventa', ['compraventa' => $compraventa]);
     }
+    public function compraventa_details(Request $id){
+        $id = $id -> id;
+        $compraventa = DB::table('compraventas')
+        ->select('*')
+        ->join('users','compraventas.user_id', '=', 'users.id')
+        ->where('compraventas.id', '=', $id) 
+        ->get();
+        // SELECT * FROM `compraventas` 
+        // INNER JOIN users 
+        // ON compraventas.user_id = users.id 
+        //where compraventas.id = 1;
+
+        return view('pag/compraventa_details', ['compraventa' => $compraventa]);
+
+        // return $id->id;
+    }
 
     public function compraventa_new_view(User $user){
 
@@ -99,17 +115,6 @@ class UserController extends Controller
         $compraventa->state_product = $estado;
         $compraventa->descripcion = $descripcion;
         $compraventa->update();
-        // $resultado->update([
-        //     'type'=> $tipo,
-        //     'brand' => $marca,
-        //     'model' => $modelo,
-        //     'price' => $precio,
-        //     'state' => $provincia,
-        //     'state_product' => $estado,
-        //     'descripcion' => $descripcion
-        // ]);;
-
-        // return $user_id;
         return redirect()->route('get.user.compraventa',[$user_id]);
 
     }

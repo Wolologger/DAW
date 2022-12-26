@@ -36,7 +36,6 @@
                     @endphp
 
                     <form method="POST" action="{{ route('user.compraventa.new_view', $user->id) }}">
-
                         @csrf
                         <div class="card-header">
                             <div class="card">

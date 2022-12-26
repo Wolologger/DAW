@@ -72,6 +72,7 @@ Route::get('/grupos', [App\Http\Controllers\GruposController::class, 'index'])->
 // Mis compraventa
 Route::get('/user/compraventa/{user}', [App\Http\Controllers\UserController::class, 'compraventa'])->name('get.user.compraventa');
 Route::post('/user/compraventa/{user}', [App\Http\Controllers\UserController::class, 'compraventa'])->name('user.compraventa');
+Route::post('/user/compraventa/details/{id}', [App\Http\Controllers\UserController::class, 'compraventa_details'])->name('user.compraventa.details');
 
 // Mis compraventa - Nuevo
 Route::post('/user/compraventa/new/{id}', [App\Http\Controllers\UserController::class, 'compraventa_new_view'])->name('user.compraventa.new_view');

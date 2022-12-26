@@ -39,8 +39,6 @@
                         <div class="card mb-3">
                             <div class="row g-0">
                                 <div class="col-md-6">
-                                    {{-- <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/pacifica.jpg" alt="..." />  src="" alt="..." /> --}}
-
                                     <form>
                                         @csrf
 
@@ -59,8 +57,6 @@
                                             </div>
                                     </form>
                                 </div>
-
-
 
                             </div>
                             <div class="col-md-6">
