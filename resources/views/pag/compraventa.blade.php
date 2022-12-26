@@ -6,33 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Compra Venta de Intrumentos') }}</div>
-
                     <div class="card-body">
-
-                        {{-- <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block" onclick="location.href='{{ url()->previous() }}';">   
-                    Atrás
-                </button> --}}
-                        {{-- <table class="table table-hover">
-                    <tr>
-                        <th>Tipo</th>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th>Precio</th>
-                        <th>Estado</th>
-                        <th>Provincia</th>
-                    </tr>
-                    @foreach ($compraventa as $instrumento)
-                        <tr>
-                            <td>{{ $instrumento->type }}</td>
-                            <td>{{ $instrumento->brand }}</td>
-                            <td>{{ $instrumento->model }}</td>
-                            <td>{{ $instrumento->price }} €</td>
-                            <td>{{ $instrumento->state_product }}</td>
-                            <td>{{ $instrumento->state }}</td>
-                            <td><a href="#{{ $instrumento->id }}">{{ "Ver más"}}</a></td>
-                        </tr>
-                    @endforeach
-                </table> --}}
                         <div class="card mb-3">
                             <div class="row g-0">
                                 @foreach ($compraventa as $instrumento)

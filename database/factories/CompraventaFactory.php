@@ -36,17 +36,16 @@ class CompraventaFactory extends Factory
             // 'slug' => Str::slug($brand+$model),
             'slug' => Str::slug($brand."_".$model),
 
+            'type' => $this->faker->word(5),        
 
-            'type' => $this->faker->unique()->word(5),        
+            // 'type' => $this->faker->unique()->word(5),        
             'descripcion' => $this->faker->text(500),
 
             'price' => $this->faker->randomNumber(4, false),
 
-            'state_product' =>$this->faker->randomElement(['Normal', 'Bueno', 'Muy bueno', 'Excelente']),
+            'state_product' =>$this->faker->randomElement(['Normal', 'Bueno', 'Muy bueno', 'Excelente', 'Regular']),
 
-            'city' => $this->faker->city(),
             'state' => Address::state(),
-            // 'country' => $this->faker->country(),
 
             'status' => $this->faker->randomElement([1,2]),
             'user_id' => User::all()->random()->id

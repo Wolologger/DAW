@@ -69,14 +69,38 @@ Route::get('/compraventa', [App\Http\Controllers\CompraventaController::class, '
 Route::get('/tutoriales', [App\Http\Controllers\TutorialesController::class, 'index'])->name('tutoriales');
 Route::get('/grupos', [App\Http\Controllers\GruposController::class, 'index'])->name('grupos');
 
-// mis compraventa
+// Mis compraventa
+Route::get('/user/compraventa/{user}', [App\Http\Controllers\UserController::class, 'compraventa'])->name('get.user.compraventa');
 Route::post('/user/compraventa/{user}', [App\Http\Controllers\UserController::class, 'compraventa'])->name('user.compraventa');
 
-// Route::post('/user/compraventa/edit/{id}', [App\Http\Controllers\UserController::class, 'compraventa_edit'])->name('user.compraventa.edit');
-Route::post('/user/compraventa/delete/{id}', [App\Http\Controllers\UserController::class, 'compraventa_delete'])->name('user.compraventa.delete');
-// Route::post('/user/compraventa/delete/{id}', [App\Http\Controllers\UserController::class, 'compraventa_delete'])->middleware(['auth'])->name('user.compraventa.delete');
+// Mis compraventa - Nuevo
+Route::post('/user/compraventa/new/{id}', [App\Http\Controllers\UserController::class, 'compraventa_new_view'])->name('user.compraventa.new_view');
+Route::post('/user/compraventa/new/{id}/nuevo', [App\Http\Controllers\UserController::class, 'compraventa_new'])->name('user.compraventa.new');
+
+// Route::post('/user/compraventa/new/{id}', [App\Http\Controllers\UserController::class, 'compraventa_new'])->name('user.compraventa.new.add');
+
+// Mis compraventa - Editar
+Route::post('/user/compraventa/edit/{id}', [App\Http\Controllers\UserController::class, 'compraventa_edit_view'])->name('user.compraventa.edit_view');
+Route::post('/user/compraventa/edit/{id}/{userid}', [App\Http\Controllers\UserController::class, 'compraventa_edit'])->name('user.compraventa.edit');
+
+// Mis compraventa - Borrar
+Route::post('/user/compraventa/delete/{userid}/{id}', [App\Http\Controllers\UserController::class, 'compraventa_delete'])->name('user.compraventa.delete');
 
 
+// Mis grupos 
 
+// Mis grupos - Nuevo
+// Mis grupos - Editar
+// Mis grupos - Borrar
+
+
+// Mis posts 
+
+// Mis posts - Nuevo
+// Mis posts - Editar
+// Mis posts - Borrar
+
+
+// Borrar usuarios
 Route::post('/user/delete/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');
 

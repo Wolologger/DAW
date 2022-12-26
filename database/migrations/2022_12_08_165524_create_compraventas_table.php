@@ -24,13 +24,9 @@ return new class extends Migration
             
             $table->longText('descripcion');
             $table->Integer('price');
-            $table->enum('state_product',['Normal', 'Bueno', 'Muy bueno', 'Excelente']);
+            $table->enum('state_product',['Normal', 'Bueno', 'Muy bueno', 'Excelente', 'Regular']);
 
-
-            $table->string('city');
             $table->string('state');
-            // $table->string('country');
-
 
             $table->enum('status',[1,2])->default(1);
 
