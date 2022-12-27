@@ -36,7 +36,7 @@
                                         <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/pacifica.jpg"
                                             alt="..." /><p>
                                             <p class="card-text"><strong>Usuario:</strong> {{  $instrumento->name}}</p>
-                                            <p class="card-text"><strong>Correo:</strong> {{  $instrumento->email}}</p>
+                                            <p class="card-text"><strong>Correo:</strong> <a href="mailto:{{$instrumento->email}}">{{$instrumento->email}}</a> </p>
                                             <p class="card-text"><strong>Provincia:</strong> {{ $instrumento->state }}</p>
                                         </div>
                                     </div>

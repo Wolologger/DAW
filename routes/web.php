@@ -70,6 +70,9 @@ Route::get('/tutoriales', [App\Http\Controllers\TutorialesController::class, 'in
 Route::get('/grupos', [App\Http\Controllers\GruposController::class, 'index'])->name('grupos');
 Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('posts');
 
+// Filtros
+Route::post('/compraventa', [App\Http\Controllers\CompraventaController::class, 'filtro'])->name('compraventa_filtro');
+
 
 // Mis compraventa
 Route::get('/user/compraventa/{user}', [App\Http\Controllers\UserController::class, 'compraventa'])->name('get.user.compraventa');

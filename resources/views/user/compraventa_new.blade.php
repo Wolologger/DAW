@@ -51,8 +51,8 @@
                                                         alt="...">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <input class="form-control form-control-sm" id="formFileSm"
-                                                        type="file">
+                                                    <input class="form-control form-control-sm" id="image"
+                                                        type="file" name="image">
                                                 </div>
                                             </div>
                                     </form>
@@ -63,8 +63,7 @@
                                 <div class="card-body border">
                                     <h5 class="card-title">Nuevo Instrumento:</h5>
 
-                                    <form method="POST"
-                                    action="{{ route('user.compraventa.new', $user) }}">
+                                    <form method="POST" action="{{ route('user.compraventa.new', $user) }}">
                                         @csrf
 
                                         <div class="form-group">
@@ -83,19 +82,18 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="marca">Marca</label>
-                                            <input type="text" class="form-control" id="marca"
-                                                placeholder="Yamaha" required name="marca">
+                                            <input type="text" class="form-control" id="marca" placeholder="Yamaha"
+                                                required name="marca">
                                         </div>
                                         <div class="form-group">
                                             <label for="modelo">Modelo</label>
-                                            <input type="text" class="form-control" id="modelo"
-                                                placeholder="Pacifica" required name="modelo">
+                                            <input type="text" class="form-control" id="modelo" placeholder="Pacifica"
+                                                required name="modelo">
                                         </div>
                                         <div class="form-group">
-                                            <label for="precio">Precio <i
-                                                    class="bi bi-currency-euro"></i></label>
-                                            <input type="text" class="form-control" id="precio"
-                                                placeholder="300" required name="precio">
+                                            <label for="precio">Precio <i class="bi bi-currency-euro"></i></label>
+                                            <input type="text" class="form-control" id="precio" placeholder="300"
+                                                required name="precio">
 
                                         </div>
                                         <div class="form-group">

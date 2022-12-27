@@ -22,7 +22,9 @@ class PostSeeder extends Seeder
        foreach ($posts as $post) {
             Image::factory(1)->create([
                 'imageable_id' => $post->id,
-                'imageable_type' => Post::class
+                // 'imageable_type' => Post::class
+                'imageable_type' => "Post"
+
             ]);
 
             $post->tags()->attach([

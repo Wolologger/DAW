@@ -22,6 +22,13 @@ return new class extends Migration
            
             $table->string('imageable_type');
 
+            // $table->unsignedBigInteger('post_id');
+            // $table->unsignedBigInteger('compraventa_id');
+
+
+            // $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+
+
             $table->timestamps();
         });
     }
