@@ -9,26 +9,46 @@
 
                     {{-- <div class="container"> --}}
                         <div class="row justify-content-center">
+                            <form method="POST" action="{{ route('grupos_filtro') }}">
+                                @csrf
                             <div class="col">
-                                <strong>Search:</strong>
-                                <select>
-                                    <option>Guitarrista</option>
+                                <strong>Busca</strong>
+                                <select name='musico'>
+                                <option value="">Escoge Músico</option>
+                                @foreach ($musicos as $musico)
+                                    <option value="{{$musico->search}}">{{$musico->search}}</option>
+                                 @endforeach
                                 </select>
                             </div>
                             <div class="col">
                                     <strong>Nombre:</strong>
-                                    <select>
-                                        <option>Yamaha</option>
+                                    <select name='nombre'>
+                                    <option value="">Escoge Grupo</option>
+                                    @foreach ($nombres as $nombre)
+                                        <option value="{{$nombre->name}}">{{$nombre->name}}</option>
+                                     @endforeach
                                     </select>
                                 </div>
                                 <div class="col">
                                     <strong>Provincia:</strong>
-                                    <select>
+                                    <select name='provincia'>
+                                        <option value="" selected>Elige provincia</option>
+                                        @foreach ($provincias as $provincia)
+                                        <option value="{{$provincia->state}}">{{$provincia->state}}</option>
+                                     @endforeach
+                                        
                                         <option>Cantabria</option>
                                     </select>
                                 </div>
-                            {{-- </div> --}}
+                                <div class="col border">
+                                    <div class="d-grid gap-2 border rounded-circle">
+                                        <button type="submit" class="btn btn-primary text-secondary"><i
+                                                class="bi bi-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
+
                     </div>
 
                     <div class="card-body">
@@ -51,6 +71,7 @@
                                             <h5 class="card-title">Grupo:
                                                 {{ $grupo->name}}</h5>
                                             <p class="card-text"><strong>Provincia:</strong> {{ $grupo->state }}</p>
+                                            <p class="card-text"><strong>Busca:</strong> {{ $grupo->search }}</p>
                                             <p class="card-text"><strong>Contacto:</strong> {{ $grupo->contact }}</p>
                                             <p class="card-text"><strong>Descripcion:</strong> {{ $grupo->body }}</p>
                                             </p>

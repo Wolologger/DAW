@@ -72,6 +72,7 @@ Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->nam
 
 // Filtros
 Route::post('/compraventa', [App\Http\Controllers\CompraventaController::class, 'filtro'])->name('compraventa_filtro');
+Route::post('/grupos', [App\Http\Controllers\GruposController::class, 'filtro'])->name('grupos_filtro');
 
 
 // Mis compraventa
