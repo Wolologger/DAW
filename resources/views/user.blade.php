@@ -1,11 +1,10 @@
 @extends('layouts.app')
 @section('content')
-
-@php
-// $i = auth()->id() 
-$user = Auth::user();
-
-@endphp
+    @php
+        // $i = auth()->id()
+        $user = Auth::user();
+        
+    @endphp
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -31,7 +30,7 @@ $user = Auth::user();
                             <div class="row  no-gutters">
                                 {{-- Opcion --}}
                                 <div class="col-6 col-md-4">
-                                    <button type="button" name="" id="" class="btn btn-info" btn-lg
+                                    <button type="submit" name="" id="" class="btn btn-info" btn-lg
                                         btn-block">
                                         <i class="bi bi-person-circle">
                                             <h5>Perfil</h5>
@@ -40,47 +39,66 @@ $user = Auth::user();
                                 </div>
                                 {{-- opcion --}}
                                 <div class="col-6 col-md-4">
-                                    <button type="button" name="" id="" class="btn btn-success" btn-lg
-                                        btn-block">
-                                        <i class="bi bi-file-post">
-                                            <h5>Mis posts</h5>
-                                        </i>
-                                    </button>
+                                    <form method="POST" action="{{ route('user.posts', $user) }}">
+                                        @csrf
+                                        <button type="submit" name="" id="" class="btn btn-success" btn-lg
+                                            btn-block">
+                                            <i class="bi bi-file-post">
+                                                <h5>Mis posts</h5>
+                                            </i>
+                                        </button>
+                                    </form>
                                 </div>
 
                                 {{-- opcion --}}
                                 <div class="col-6 col-md-4">
-                                    <form method="POST" action="{{ route('user.compraventa', $user)}}">
+                                    <form method="POST" action="{{ route('user.compraventa', $user) }}">
                                         @csrf
-                                    <button type="submit" name="" id="" class="btn btn-secondary" btn-lg
-                                        btn-block">
-                                        <i class="bi bi-file-earmark-binary">
-                                            <h5>Mis compraventa</h5>
-                                        </i>
-                                    </button>
-                                </form>
+                                        <button type="submit" name="" id="" class="btn btn-secondary"
+                                            btn-lg btn-block">
+                                            <i class="bi bi-recycle">
+                                                <h5>Mis compraventa</h5>
+                                            </i>
+                                        </button>
+                                    </form>
                                 </div>
+
                                 <hr class="divider-light" />
 
                                 {{-- opcion --}}
                                 <div class="col-6 col-md-4">
-                                    <button type="button" name="" id="" class="btn btn-warning" btn-lg
+                                    <form method="POST" action="{{ route('user.tutoriales', $user) }}">
+                                        @csrf
+                                    <button type="submit" name="" id="" class="btn btn-warning" btn-lg
                                         btn-block">
-                                        <i class="bi bi-inbox">
-                                            <h5>lorem ipsum</h5>
+                                        <i class="bi bi-display">
+                                            <h5>Mis tutoriales</h5>
                                         </i>
                                     </button>
+                                </form>
+                                </div>
+
+                                <div class="col-6 col-md-4">
+                                    <form method="POST" action="{{ route('user.grupos', $user) }}">
+                                        @csrf
+                                    <button type="submit" name="" id="" class="btn btn-primary" btn-lg
+                                        btn-block">
+                                        <i class="bi bi-people-fill">
+                                            <h5>Mis grupos</h5>
+                                        </i>
+                                    </button>
+                                </form>
                                 </div>
 
                                 {{-- opcion --}}
                                 <div class="col-6 col-md-4">
                                     {{-- <form method="POST" action="{{ route('user.destroy',$id)}}"> --}}
-                                    <form method="POST" action="{{ route('user.destroy', $user)}}">
+                                    <form method="POST" action="{{ route('user.destroy', $user) }}">
                                         @csrf
                                         <button type="submit" name="" id="" class="btn btn-danger" btn-lg
-                                            btn-block"  onclick="return confirm('¿Estás seguro?')">
+                                            btn-block" onclick="return confirm('¿Estás seguro?')">
                                             <i class="bi bi-trash-fill">
-                                            {{-- <i class="bi bi-person-x-fill"> --}}
+                                                {{-- <i class="bi bi-person-x-fill"> --}}
                                                 <h5>Borrar usuario</h5>
                                             </i>
                                         </button>

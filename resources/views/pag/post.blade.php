@@ -51,7 +51,6 @@
                                                 {{ $post->name}}</h5>
                                             <p class="card-text"><strong>Resumen:</strong> {{ $post->extract }}</p>
                                             </p>
-                                            {{-- <div class="card-body text-center"> --}}
                                             <form method="POST"
                                                 {{-- action="{{ route('user.posts.details', $post->id) }}"> --}}>
                                                 @csrf

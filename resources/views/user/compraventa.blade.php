@@ -36,6 +36,7 @@
                     @endphp
 
                     <form method="POST" action="{{ route('user.compraventa.new_view', $user->id) }}">
+                        
                         @csrf
                         <div class="card-header">
                             <div class="card">
@@ -53,8 +54,10 @@
                     <div class="row g-0 ">
                         @foreach ($compraventa as $instrumento)
                             <div class="col-md-5">
-                                <img class="img-fluid rounded" src="../../assets/img/portfolio/thumbnails/pacifica.jpg"
-                                    alt="..." />
+                                <div class="card-body">
+                                    <img class="img-fluid rounded" src="../../assets/img/portfolio/thumbnails/pacifica.jpg"
+                                        alt="..." />
+                                </div>
                             </div>
                             <div class="col-md-5">
                                 <div class="card-body">
@@ -63,7 +66,8 @@
                                     <p class="card-text">Precio: {{ $instrumento->price }} €</p>
                                     <p class="card-text">Estado: {{ $instrumento->state_product }}</p>
                                     <p class="card-text">Provincia: {{ $instrumento->state }}</p>
-                                    <p class="card-text">Fecha creación: {{  date('d-m-Y', strtotime($instrumento->created_at))}}</p>
+                                    <p class="card-text">Fecha creación:
+                                        {{ date('d-m-Y', strtotime($instrumento->created_at)) }}</p>
                                     {{-- <p class="card-text">Últm. actualización: {{  date('d-m-Y', strtotime($instrumento->updated_at))}}</p> --}}
                                     </p>
                                 </div>
@@ -72,7 +76,7 @@
                             <div class="col-md-2">
                                 <div class="card-body">
                                     {{-- <div class="d-grid gap-2 col-2 mx-auto "> --}}
-                                        <div class="card-text text-center">  
+                                    <div class="card-text text-center">
                                         <form method="POST"
                                             action="{{ route('user.compraventa.edit_view', $instrumento->id) }}">
                                             @csrf
@@ -93,17 +97,17 @@
                                             </button>
                                         </form>
                                     </div>
-                            </div>
-
-                            </div>
+                                </div>
 
                             </div>
                         @endforeach
+
                     </div>
-                    
                 </div>
+
             </div>
         </div>
+    </div>
     </div>
     </div>
     </div>

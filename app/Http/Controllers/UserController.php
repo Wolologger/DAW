@@ -28,6 +28,9 @@ class UserController extends Controller
         return redirect()->route('home');
     }
 
+
+    // COMPRAVENTA
+
     public function compraventa(User $user){
         $user_id = $user -> id;
         $compraventa = DB::table('compraventas')
@@ -38,18 +41,6 @@ class UserController extends Controller
 
         return view('user/compraventa', ['compraventa' => $compraventa]);
     }
-
-    public function grupos(User $user){
-        $user_id = $user -> id;
-        $compraventa = DB::table('grupos')
-        ->select('*')
-        ->where('user_id', '=', $user_id) 
-        ->orderBy('created_at', 'desc')
-        ->get();
-
-        return view('user/grupos', ['grupos' => $compraventa]);
-    }
-
 
     public function compraventa_details(Request $id){
         $id = $id -> id;
@@ -138,4 +129,108 @@ class UserController extends Controller
         $resultado ->each->delete();
         return redirect()->route('get.user.compraventa',[$user_id]);
     }
+
+
+
+
+    // POSTS
+
+    public function posts(User $user){
+        $user_id = $user -> id;
+        $posts = DB::table('posts')
+        ->select('*')
+        ->where('user_id', '=', $user_id) 
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        return view('user/posts', ['posts' => $posts]);
+    }
+
+    public function posts_details(Request $id){
+        return "patata";
+    }
+    public function posts_new_view(Request $id){
+        return "patata";
+    }
+    public function posts_new(Request $id){
+        return "patata";
+    }    
+    public function posts_edit_view(Request $id){
+        return "patata";
+    }
+    public function posts_edit(Request $id){
+        return "patata";
+    }
+    public function posts_delete(Request $id){
+        return "patata";
+    }
+
+
+        // GRUPOS
+
+        public function grupos(User $user){
+            $user_id = $user -> id;
+            $grupos = DB::table('grupos')
+            ->select('*')
+            ->where('user_id', '=', $user_id) 
+            ->orderBy('created_at', 'desc')
+            ->get();
+    
+            return view('user/grupos', ['grupos' => $grupos]);
+        }
+    
+        public function grupos_details(Request $id){
+            return "patata";
+        }
+        public function grupos_new_view(Request $id){
+            return "patata";
+        }
+        public function grupos_new(Request $id){
+            return "patata";
+        }    
+        public function grupos_edit_view(Request $id){
+            return "patata";
+        }
+        public function grupos_edit(Request $id){
+            return "patata";
+        }
+        public function grupos_delete(Request $id){
+            return "patata";
+        }
+
+        // TUTORIALES
+
+        public function tutoriales(User $user){
+            $user_id = $user -> id;
+            $tutorial = DB::table('tutorials')
+            ->select('*')
+            ->where('user_id', '=', $user_id) 
+            ->orderBy('created_at', 'desc')
+            ->get();
+    
+            return view('user/tutoriales', ['tutoriales' => $tutorial]);
+        }
+    
+        public function tutoriales_details(Request $id){
+            return "patata";
+        }
+        public function tutoriales_new_view(Request $id){
+            return "patata";
+        }
+        public function tutoriales_new(Request $id){
+            return "patata";
+        }    
+        public function tutoriales_edit_view(Request $id){
+            return "patata";
+        }
+        public function tutoriales_edit(Request $id){
+            return "patata";
+        }
+        public function tutoriales_delete(Request $id){
+            return "patata";
+        }    
+
 }
+
+
+

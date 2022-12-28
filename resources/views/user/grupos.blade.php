@@ -29,13 +29,13 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-center">
-                        {{ __('Mis posts') }}
+                        {{ __('Mis grupos') }}
                     </div>
                     @php
                         $user = Auth::user();
                     @endphp
 
-                    <form method="POST" action="{{ route('user.posts.new_view', $user->id) }}">
+                    <form method="post" action="{{ route('user.grupos.new_view', $user->id) }}">
                         @csrf
                         <div class="card-header">
                             <div class="card">
@@ -51,7 +51,7 @@
             <div class="card-body ">
                 <div class="card mb-3 ">
                     <div class="row g-0 ">
-                        @foreach ($posts as $post)
+                        @foreach ($grupos as $grupo)
                             <div class="col-md-5">
                                 <div class="card-body">
 
@@ -62,11 +62,10 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="card-body">
-                                    <h5 class="card-title">Post: {{ $post->name }}</p>
+                                    <h5 class="card-title">Grupo: {{ $grupo->name }}</p>
                                         <p class="card-text">Fecha creación:
-                                            {{ date('d-m-Y', strtotime($post->created_at)) }}</p>
-                                        <p class="card-text">Resumen: {{ $post->extract }}</p>
-                                        {{-- <p class="card-text">Últm. actualización: {{  date('d-m-Y', strtotime($post->updated_at))}}</p> --}}
+                                            {{ date('d-m-Y', strtotime($grupo->created_at)) }}</p>
+                                        {{-- <p class="card-text">Últm. actualización: {{  date('d-m-Y', strtotime($grupo->updated_at))}}</p> --}}
                                         </p>
                                 </div>
 
@@ -75,7 +74,7 @@
                                 <div class="card-body">
                                     {{-- <div class="d-grid gap-2 col-2 mx-auto "> --}}
                                     <div class="card-text text-center">
-                                        <form method="POST" action="{{ route('user.posts.edit_view', $post->id) }}">
+                                        <form method="post" action="{{ route('user.grupos.edit_view', $grupo->id) }}">
                                             @csrf
 
                                             <button type="submit" class="btn btn-primary">
@@ -85,8 +84,8 @@
                                             </button>
                                         </form>
                                         <p>
-                                        <form method="POST"
-                                            action="{{ route('user.posts.delete', [$post->user_id, $post->id]) }}">
+                                        <form method="post"
+                                            action="{{ route('user.grupos.delete', [$grupo->user_id, $grupo->id]) }}">
                                             @csrf
                                             <button type="submit" class="btn btn-danger"
                                                 onclick="return confirm('¿Estás seguro?')"><span
