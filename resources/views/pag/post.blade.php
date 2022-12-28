@@ -9,25 +9,24 @@
 
                     {{-- <div class="container"> --}}
                         <div class="row justify-content-center">
+                            <form method="POST" action="{{ route('posts_filtro') }}">
+                                @csrf
                             <div class="col">
                                 <strong>Fecha:</strong>
-                                <select>
-                                    <option>Guitarrista</option>
-                                </select>
+                                <input type="date" name="fecha">
                             </div>
                             <div class="col">
-                                    <strong>Titulo:</strong>
-                                    <select>
-                                        <option>Yamaha</option>
-                                    </select>
+                                <strong>Titulo:</strong>
+                                <input type="text" name="titulo">
+                                
+                            </div>
+                            <div class="col border">
+                                <div class="d-grid gap-2 border rounded-circle">
+                                    <button type="submit" class="btn btn-primary text-secondary"><i
+                                            class="bi bi-search"></i></button>
                                 </div>
-                                <div class="col">
-                                    <strong>Provincia:</strong>
-                                    <select>
-                                        <option>Cantabria</option>
-                                    </select>
-                                </div>
-                            {{-- </div> --}}
+                            </div>
+                        </form>
                         </div>
                     </div>
 
