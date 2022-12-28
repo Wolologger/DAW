@@ -22,12 +22,13 @@
                             </div>
                             <div class="col">
                                     <strong>Nombre:</strong>
-                                    <select name='nombre'>
+                                    <input type="text" name="nombre">
+                                    {{-- <select name='nombre2'>
                                     <option value="">Escoge Grupo</option>
                                     @foreach ($nombres as $nombre)
                                         <option value="{{$nombre->name}}">{{$nombre->name}}</option>
                                      @endforeach
-                                    </select>
+                                    </select> --}}
                                 </div>
                                 <div class="col">
                                     <strong>Provincia:</strong>
