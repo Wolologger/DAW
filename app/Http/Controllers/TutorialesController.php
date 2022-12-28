@@ -22,7 +22,50 @@ class TutorialesController extends Controller
                  'extract', )
         ->get();
         // return view('pag/tutoriales');
-        return view('pag/tutoriales', ['tutoriales' => $tutoriales]);
+
+        $tipos = DB::table('tutorials')
+        ->select('type')
+        ->groupBy('type')
+        ->get();
+
+
+        return view('pag/tutoriales', [
+            'tutoriales' => $tutoriales,
+            'tipos' => $tipos,
+
+        ]);
 
     }
+
+    public function filtro(Request $request){
+    {
+        $tipo = $request->tipo;
+        $titulo = $request->titulo;
+
+        $tutoriales = DB::table('tutorials')
+        ->select('id', 
+                 'name', 
+                 'type',
+                 'extract', )
+        ->where('type', 'LIKE', '%'.$tipo.'%')
+        ->where('name', 'LIKE', '%'.$titulo.'%')
+        ->get();
+        // return view('pag/tutoriales');
+
+        $tipos = DB::table('tutorials')
+        ->select('type')
+        ->groupBy('type')
+        ->get();
+
+        // return $tutoriales;
+        return view('pag/tutoriales', [
+            'tutoriales' => $tutoriales,
+            'tipos' => $tipos,
+
+        ]);
+
+    }
+}
+
+
 }

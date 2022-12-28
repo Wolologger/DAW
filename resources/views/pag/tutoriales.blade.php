@@ -9,18 +9,31 @@
 
                     {{-- <div class="container"> --}}
                     <div class="row justify-content-center text-center">
+                        <form method="POST" action="{{ route('tutoriales_filtro') }}">
+                            @csrf
                         <div class="col-0">
                             <strong>Titulo:</strong>
-                            <select>
-                                <option>Yamaha</option>
-                            </select>
+                            <input type="text" name="titulo">
+
                         </div><p>
                         <div class="col-0">
                             <strong>Tipo:</strong>
-                            <select>
-                                <option>Cantabria</option>
+                            <select name="tipo">
+                                
+                            <option value="">Escoge tipo:</option>
+                            @foreach ($tipos as $tipo)
+
+                                <option value="{{$tipo->type}}">{{$tipo->type}}</option>
+                            @endforeach
                             </select>
                         </div>
+                        <div class="col border">
+                            <div class="d-grid gap-2 border rounded-circle">
+                                <button type="submit" class="btn btn-primary text-secondary"><i
+                                        class="bi bi-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
                     </div>
                 </div>
 
