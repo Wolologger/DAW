@@ -22,6 +22,7 @@ return new class extends Migration
             $table->longText('body');
 
             $table->string('contact');
+            $table->string('gender');
  
             $table->string('city');
             $table->string('state');

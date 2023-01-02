@@ -31,6 +31,15 @@
                                     </select> --}}
                                 </div>
                                 <div class="col">
+                                    <strong>Género musical</strong>
+                                    <select name='genero'>
+                                    <option value="">Escoge género</option>
+                                    @foreach ($generos as $genero)
+                                        <option value="{{$genero->gender}}">{{$genero->gender}}</option>
+                                     @endforeach
+                                    </select>
+                                </div>
+                                <div class="col">
                                     <strong>Provincia:</strong>
                                     <select name='provincia'>
                                         <option value="" selected>Elige provincia</option>
@@ -73,6 +82,7 @@
                                                 {{ $grupo->name}}</h5>
                                             <p class="card-text"><strong>Provincia:</strong> {{ $grupo->state }}</p>
                                             <p class="card-text"><strong>Busca:</strong> {{ $grupo->search }}</p>
+                                            <p class="card-text"><strong>Género muscial:</strong> {{ $grupo->gender }}</p>
                                             <p class="card-text"><strong>Contacto:</strong> {{ $grupo->contact }}</p>
                                             <p class="card-text"><strong>Descripcion:</strong> {{ $grupo->body }}</p>
                                             </p>

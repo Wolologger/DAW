@@ -40,6 +40,7 @@ class GrupoFactory extends Factory
             'body' => $this->faker->text(500),
 
             'contact' => fake()->unique()->safeEmail(),
+            'gender' => $this->faker->word(10),
 
             'city' => $this->faker->city(),
             'state' => Address::state(),
@@ -47,6 +48,7 @@ class GrupoFactory extends Factory
             'search' =>$this->faker->randomElement($musicos),
 
             'status' => $this->faker->randomElement([1,2]),
+
             'user_id' => User::all()->random()->id
 
         ];

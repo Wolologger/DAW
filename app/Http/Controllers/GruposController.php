@@ -20,6 +20,7 @@ class GruposController extends Controller
                  'name', 
                  'body', 
                  'contact',
+                 'gender',
                  'state', 
                  'search',)
         ->where('search', '<>', 'Ninguno')
@@ -38,6 +39,12 @@ class GruposController extends Controller
         ->groupBy('name')
         ->get();
 
+        // Query género musical
+        $generos = DB::table('grupos')
+        ->select('gender')
+        ->groupBy('gender')
+        ->get();          
+  
         // Query provincias
         $provincias = DB::table('grupos')
         ->select('state')
@@ -48,6 +55,7 @@ class GruposController extends Controller
             'grupos' => $grupos,
             'musicos' => $musicos,
             'nombres' => $nombres,
+            'generos' => $generos,
             'provincias' => $provincias
         ]);
 
@@ -59,6 +67,7 @@ class GruposController extends Controller
         $musico = $request->musico;
         $nombre = $request->nombre;
         $provincia = $request->provincia;
+        $genero = $request->genero;
 
         // Query general
         $grupos = DB::table('grupos')
@@ -67,9 +76,11 @@ class GruposController extends Controller
                  'body', 
                  'contact',
                  'state', 
+                 'gender',
                  'search',)
         ->where('search', '<>', 'Ninguno')
         ->where('search', 'LIKE', '%'.$musico.'%')
+        ->where('gender', 'LIKE', '%'.$genero.'%')
         ->where('name', 'LIKE', '%'.$nombre.'%')
         ->where('state', 'LIKE', '%'.$provincia.'%')
         ->get();
@@ -95,6 +106,12 @@ class GruposController extends Controller
           ->select('name')
           ->groupBy('name')
           ->get();
+
+          // Query género musical
+          $generos = DB::table('grupos')
+          ->select('gender')
+          ->groupBy('gender')
+          ->get();          
   
           // Query provincias
           $provincias = DB::table('grupos')
@@ -106,6 +123,7 @@ class GruposController extends Controller
               'grupos' => $grupos,
               'musicos' => $musicos,
               'nombres' => $nombres,
+              'generos' => $generos,
               'provincias' => $provincias
           ]);
 
