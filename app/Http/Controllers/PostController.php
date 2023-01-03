@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
@@ -43,5 +45,37 @@ class PostController extends Controller
     }
 
 }
+
+    // POSTS
+
+    public function posts(User $user){
+        $user_id = $user -> id;
+        $posts = DB::table('posts')
+        ->select('*')
+        ->where('user_id', '=', $user_id) 
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        return view('user/posts', ['posts' => $posts]);
+    }
+
+    public function posts_details(Request $id){
+        return "patata";
+    }
+    public function posts_new_view(Request $id){
+        return "patata";
+    }
+    public function posts_new(Request $id){
+        return "patata";
+    }    
+    public function posts_edit_view(Request $id){
+        return "patata";
+    }
+    public function posts_edit(Request $id){
+        return "patata";
+    }
+    public function posts_delete(Request $id){
+        return "patata";
+    }
 
 }

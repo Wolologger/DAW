@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
@@ -64,8 +66,42 @@ class TutorialesController extends Controller
 
         ]);
 
+        }
+    
+    
     }
-}
+
+            // TUTORIALES
+
+            public function tutoriales(User $user){
+                $user_id = $user -> id;
+                $tutorial = DB::table('tutorials')
+                ->select('*')
+                ->where('user_id', '=', $user_id) 
+                ->orderBy('created_at', 'desc')
+                ->get();
+        
+                return view('user/tutoriales', ['tutoriales' => $tutorial]);
+            }
+        
+            public function tutoriales_details(Request $id){
+                return "patata";
+            }
+            public function tutoriales_new_view(Request $id){
+                return "patata";
+            }
+            public function tutoriales_new(Request $id){
+                return "patata";
+            }    
+            public function tutoriales_edit_view(Request $id){
+                return "patata";
+            }
+            public function tutoriales_edit(Request $id){
+                return "patata";
+            }
+            public function tutoriales_delete(Request $id){
+                return "patata";
+            }    
 
 
 }

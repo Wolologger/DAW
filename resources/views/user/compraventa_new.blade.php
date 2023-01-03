@@ -66,7 +66,6 @@
                                     <form>
                                     <form method="POST" action="{{ route('user.compraventa.new', $user) }}">
                                         @csrf
-
                                         <div class="form-group">
                                             <label for="tipo">Tipo</label>
                                             <select required class="form-control" id="tipo" name="tipo">

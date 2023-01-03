@@ -84,88 +84,94 @@ Route::post('/posts', [App\Http\Controllers\PostController::class, 'filtro'])->n
 
 
 
+// Mi perfil
+Route::post('/user/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
+
+// Mi perfil - Editar
+Route::post('/user/profile/edit', [App\Http\Controllers\UserController::class, 'profile_edit'])->name('profile_edit');
+
 
 // Mis compraventa
-Route::get('/user/compraventa/{user}', [App\Http\Controllers\UserController::class, 'compraventa'])->name('get.user.compraventa');
-Route::post('/user/compraventa/{user}', [App\Http\Controllers\UserController::class, 'compraventa'])->name('user.compraventa');
-Route::post('/user/compraventa/details/{id}', [App\Http\Controllers\UserController::class, 'compraventa_details'])->name('user.compraventa.details');
+Route::get('/user/compraventa/{user}', [App\Http\Controllers\CompraventaController::class, 'compraventa'])->name('get.user.compraventa');
+Route::post('/user/compraventa/{user}', [App\Http\Controllers\CompraventaController::class, 'compraventa'])->name('user.compraventa');
+Route::post('/user/compraventa/details/{id}', [App\Http\Controllers\CompraventaController::class, 'compraventa_details'])->name('user.compraventa.details');
 
 // Mis compraventa - Nuevo
-Route::post('/user/compraventa/new/{id}', [App\Http\Controllers\UserController::class, 'compraventa_new_view'])->name('user.compraventa.new_view');
+Route::post('/user/compraventa/new/{id}', [App\Http\Controllers\CompraventaController::class, 'compraventa_new_view'])->name('user.compraventa.new_view');
 
 // Mis compraventa - Nuevo Form
-Route::post('/user/compraventa/new/{id}/nuevo', [App\Http\Controllers\UserController::class, 'compraventa_new'])->name('user.compraventa.new');
+Route::post('/user/compraventa/new/{id}/nuevo', [App\Http\Controllers\CompraventaController::class, 'compraventa_new'])->name('user.compraventa.new');
 
 // Mis compraventa - Editar
-Route::post('/user/compraventa/edit/{id}', [App\Http\Controllers\UserController::class, 'compraventa_edit_view'])->name('user.compraventa.edit_view');
-Route::post('/user/compraventa/edit/{id}/{userid}', [App\Http\Controllers\UserController::class, 'compraventa_edit'])->name('user.compraventa.edit');
+Route::post('/user/compraventa/edit/{id}', [App\Http\Controllers\CompraventaController::class, 'compraventa_edit_view'])->name('user.compraventa.edit_view');
+Route::post('/user/compraventa/edit/{id}/{userid}', [App\Http\Controllers\CompraventaController::class, 'compraventa_edit'])->name('user.compraventa.edit');
 
 // Mis compraventa - Borrar
-Route::post('/user/compraventa/delete/{userid}/{id}', [App\Http\Controllers\UserController::class, 'compraventa_delete'])->name('user.compraventa.delete');
+Route::post('/user/compraventa/delete/{userid}/{id}', [App\Http\Controllers\CompraventaController::class, 'compraventa_delete'])->name('user.compraventa.delete');
 
 
 
 
 // Mis posts
-Route::get('/user/posts/{user}', [App\Http\Controllers\UserController::class, 'posts'])->name('get.user.posts');
-Route::post('/user/posts/{user}', [App\Http\Controllers\UserController::class, 'posts'])->name('user.posts');
-Route::post('/user/posts/details/{id}', [App\Http\Controllers\UserController::class, 'posts'])->name('user.posts.details');
+Route::get('/user/posts/{user}', [App\Http\Controllers\PostController::class, 'posts'])->name('get.user.posts');
+Route::post('/user/posts/{user}', [App\Http\Controllers\PostController::class, 'posts'])->name('user.posts');
+Route::post('/user/posts/details/{id}', [App\Http\Controllers\PostController::class, 'posts'])->name('user.posts.details');
 
 // Mis posts - Nuevo
-Route::post('/user/posts/new/{id}', [App\Http\Controllers\UserController::class, 'posts_new_view'])->name('user.posts.new_view');
+Route::post('/user/posts/new/{id}', [App\Http\Controllers\PostController::class, 'posts_new_view'])->name('user.posts.new_view');
 
 // Mis posts - Nuevo Form
-Route::post('/user/posts/new/{id}/nuevo', [App\Http\Controllers\UserController::class, 'posts_new'])->name('user.posts.new');
+Route::post('/user/posts/new/{id}/nuevo', [App\Http\Controllers\PostController::class, 'posts_new'])->name('user.posts.new');
 
 // Mis posts - Editar
-Route::post('/user/posts/edit/{id}', [App\Http\Controllers\UserController::class, 'posts_edit_view'])->name('user.posts.edit_view');
-Route::post('/user/posts/edit/{id}/{userid}', [App\Http\Controllers\UserController::class, 'posts_edit'])->name('user.posts.edit');
+Route::post('/user/posts/edit/{id}', [App\Http\Controllers\PostController::class, 'posts_edit_view'])->name('user.posts.edit_view');
+Route::post('/user/posts/edit/{id}/{userid}', [App\Http\Controllers\PostController::class, 'posts_edit'])->name('user.posts.edit');
 
 // Mis posts - Borrar
-Route::post('/user/posts/delete/{userid}/{id}', [App\Http\Controllers\UserController::class, 'posts_delete'])->name('user.posts.delete');
+Route::post('/user/posts/delete/{userid}/{id}', [App\Http\Controllers\PostController::class, 'posts_delete'])->name('user.posts.delete');
 
 
 
 
 // Mis grupos 
-Route::get('/user/grupos/{user}', [App\Http\Controllers\UserController::class, 'grupos'])->name('get.user.grupos');
-Route::post('/user/grupos/{user}', [App\Http\Controllers\UserController::class, 'grupos'])->name('user.grupos');
-Route::post('/user/grupos/details/{id}', [App\Http\Controllers\UserController::class, 'grupos'])->name('user.grupos.details');
+Route::get('/user/grupos/{user}', [App\Http\Controllers\GruposController::class, 'grupos'])->name('get.user.grupos');
+Route::post('/user/grupos/{user}', [App\Http\Controllers\GruposController::class, 'grupos'])->name('user.grupos');
+Route::post('/user/grupos/details/{id}', [App\Http\Controllers\GruposController::class, 'grupos'])->name('user.grupos.details');
 
 // Mis grupos - Nuevo
-Route::post('/user/grupos/new/{id}', [App\Http\Controllers\UserController::class, 'grupos_new_view'])->name('user.grupos.new_view');
+Route::post('/user/grupos/new/{id}', [App\Http\Controllers\GruposController::class, 'grupos_new_view'])->name('user.grupos.new_view');
 
 // Mis grupos - Nuevo Form
-Route::post('/user/grupos/new/{id}/nuevo', [App\Http\Controllers\UserController::class, 'grupos_new'])->name('user.grupos.new');
+Route::post('/user/grupos/new/{id}/nuevo', [App\Http\Controllers\GruposController::class, 'grupos_new'])->name('user.grupos.new');
 
 // Mis grupos - Editar
-Route::post('/user/grupos/edit/{id}', [App\Http\Controllers\UserController::class, 'grupos_edit_view'])->name('user.grupos.edit_view');
-Route::post('/user/grupos/edit/{id}/{userid}', [App\Http\Controllers\UserController::class, 'grupos_edit'])->name('user.grupos.edit');
+Route::post('/user/grupos/edit/{id}', [App\Http\Controllers\GruposController::class, 'grupos_edit_view'])->name('user.grupos.edit_view');
+Route::post('/user/grupos/edit/{id}/{userid}', [App\Http\Controllers\GruposController::class, 'grupos_edit'])->name('user.grupos.edit');
 
 // Mis grupos - Borrar
-Route::post('/user/grupos/delete/{userid}/{id}', [App\Http\Controllers\UserController::class, 'grupos_delete'])->name('user.grupos.delete');
+Route::post('/user/grupos/delete/{userid}/{id}', [App\Http\Controllers\GruposController::class, 'grupos_delete'])->name('user.grupos.delete');
 
 
 
 
 
 // Mis tutoriales 
-Route::get('/user/tutoriales/{user}', [App\Http\Controllers\UserController::class, 'tutoriales'])->name('get.user.tutoriales');
-Route::post('/user/tutoriales/{user}', [App\Http\Controllers\UserController::class, 'tutoriales'])->name('user.tutoriales');
-Route::post('/user/tutoriales/details/{id}', [App\Http\Controllers\UserController::class, 'tutoriales'])->name('user.tutoriales.details');
+Route::get('/user/tutoriales/{user}', [App\Http\Controllers\TutorialesController::class, 'tutoriales'])->name('get.user.tutoriales');
+Route::post('/user/tutoriales/{user}', [App\Http\Controllers\TutorialesController::class, 'tutoriales'])->name('user.tutoriales');
+Route::post('/user/tutoriales/details/{id}', [App\Http\Controllers\TutorialesController::class, 'tutoriales'])->name('user.tutoriales.details');
 
 // Mis tutoriales - Nuevo
-Route::post('/user/tutoriales/new/{id}', [App\Http\Controllers\UserController::class, 'tutoriales_new_view'])->name('user.tutoriales.new_view');
+Route::post('/user/tutoriales/new/{id}', [App\Http\Controllers\TutorialesController::class, 'tutoriales_new_view'])->name('user.tutoriales.new_view');
 
 // Mis tutoriales - Nuevo Form
-Route::post('/user/tutoriales/new/{id}/nuevo', [App\Http\Controllers\UserController::class, 'tutoriales_new'])->name('user.tutoriales.new');
+Route::post('/user/tutoriales/new/{id}/nuevo', [App\Http\Controllers\TutorialesController::class, 'tutoriales_new'])->name('user.tutoriales.new');
 
 // Mis tutoriales - Editar
-Route::post('/user/tutoriales/edit/{id}', [App\Http\Controllers\UserController::class, 'tutoriales_edit_view'])->name('user.tutoriales.edit_view');
-Route::post('/user/tutoriales/edit/{id}/{userid}', [App\Http\Controllers\UserController::class, 'tutoriales_edit'])->name('user.tutoriales.edit');
+Route::post('/user/tutoriales/edit/{id}', [App\Http\Controllers\TutorialesController::class, 'tutoriales_edit_view'])->name('user.tutoriales.edit_view');
+Route::post('/user/tutoriales/edit/{id}/{userid}', [App\Http\Controllers\TutorialesController::class, 'tutoriales_edit'])->name('user.tutoriales.edit');
 
 // Mis tutoriales - Borrar
-Route::post('/user/tutoriales/delete/{userid}/{id}', [App\Http\Controllers\UserController::class, 'tutoriales_delete'])->name('user.tutoriales.delete');
+Route::post('/user/tutoriales/delete/{userid}/{id}', [App\Http\Controllers\TutorialesController::class, 'tutoriales_delete'])->name('user.tutoriales.delete');
 
 
 

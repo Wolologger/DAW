@@ -1,24 +1,49 @@
 @extends('layouts.app')
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Página para el proyecto de DAW" />
+    <meta name="author" content="Andrés Sierra" />
+    <title>{{ config('app.name', 'Your Band Music') }}</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+        rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../css/styles.css" rel="stylesheet" />
+</head>
+
+@php
+    $user = Auth::user();
+@endphp
+
 @section('content')
-    @php
-        // $i = auth()->id()
-        $user = Auth::user();
-        
-    @endphp
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">
-                        <div class="text-center">
-                            <strong>
-                                <i class="bi bi-music-note-beamed"></i>
-                                {{-- {{ __('Hola') }} {{ Auth::user()->name }} --}}
-                                Dashboard
-                                <i class="bi bi-music-note-beamed"></i>
-                            </strong>
-                        </div>
+                    <div class="card-header text-center">
+                        {{-- {{ __('Mi Compra Venta de Intrumentos') }} --}}
+                        {{ $user->name }}
                     </div>
+                    <div class="card">
+                        <img src="aaaa" width="320px" height="320px">
+                    </div>
+                    <p> Nombre: {{ $user->name }}
+                    <p> Correo: {{ $user->email }}
+                    <p> Verificado: <input type="checkbox" checked>
+                    <p> Número de grupos: 10
+                    <p> Instrumentos en venta: 2
+                    <p> Número de posts publicados: 23
 
                     <div class="card-body">
                         @if (session('status'))
@@ -26,85 +51,76 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <div class="container">
-                            <div class="row  no-gutters">
+                        <hr class="divider">
+                        <div class="container text-center">
+                            <div class="row no-gutters">
                                 {{-- Opcion --}}
-                                <form method="POST" action="{{ route('profile') }}">
+                                <form method="POST" action="{{ route('profile_edit') }}">
                                     @csrf
                                     <div class="col-6 col-md-4">
-                                        <button type="submit" name="" id="" class="btn btn-info" btn-lg
+                                        <button type="submit" name="" id="" class="btn btn-warning" btn-lg
                                             btn-block">
-                                            <i class="bi bi-person-circle">
-                                                <h5>Perfil</h5>
+                                            <i class="bi bi-pencil">
+                                                <h5>Editar Perfil</h5>
                                             </i>
                                         </button>
                                 </form>
                             </div>
                             {{-- opcion --}}
-                            <div class="col-6 col-md-4">
-                                <form method="POST" action="{{ route('user.posts', $user) }}">
-                                    @csrf
+                            {{-- <div class="col-6 col-md-4">
                                     <button type="submit" name="" id="" class="btn btn-success" btn-lg
                                         btn-block">
                                         <i class="bi bi-file-post">
                                             <h5>Mis posts</h5>
                                         </i>
                                     </button>
-                                </form>
-                            </div>
+                            </div> --}}
 
                             {{-- opcion --}}
-                            <div class="col-6 col-md-4">
-                                <form method="POST" action="{{ route('user.compraventa', $user) }}">
-                                    @csrf
+                            {{-- <div class="col-6 col-md-4">
                                     <button type="submit" name="" id="" class="btn btn-secondary" btn-lg
                                         btn-block">
                                         <i class="bi bi-recycle">
                                             <h5>Mis compraventa</h5>
                                         </i>
                                     </button>
-                                </form>
-                            </div>
+                            </div> --}}
 
-                            <hr class="divider-light" />
+                            {{-- <hr class="divider-light" /> --}}
 
                             {{-- opcion --}}
-                            <div class="col-6 col-md-4">
-                                <form method="POST" action="{{ route('user.tutoriales', $user) }}">
-                                    @csrf
-                                    <button type="submit" name="" id="" class="btn btn-warning" btn-lg
+                            {{-- <div class="col-6 col-md-4">
+                                    <button type="submit" name="" id="" class="btn btn-info" btn-lg
                                         btn-block">
                                         <i class="bi bi-display">
                                             <h5>Mis tutoriales</h5>
                                         </i>
                                     </button>
-                                </form>
-                            </div>
+                            </div> --}}
 
-                            <div class="col-6 col-md-4">
-                                <form method="POST" action="{{ route('user.grupos', $user) }}">
-                                    @csrf
+                            {{-- <div class="col-6 col-md-4">
                                     <button type="submit" name="" id="" class="btn btn-primary" btn-lg
                                         btn-block">
-                                        <i class="bi bi-people-fill">
-                                            <h5>Mis grupos</h5>
+                                        <i class="bi bi-asterisk">
+                                            <h5>Cambiar contraseña</h5>
                                         </i>
                                     </button>
-                                </form>
-                            </div>
+                            </div> --}}
 
                             {{-- opcion --}}
-                            {{-- <div class="col-6 col-md-4">
+                            <div class="col-6 col-md-4">
+                                {{-- <form method="POST" action="{{ route('user.destroy',$id)}}"> --}}
                                 <form method="POST" action="{{ route('user.destroy', $user) }}">
                                     @csrf
                                     <button type="submit" name="" id="" class="btn btn-danger" btn-lg
                                         btn-block" onclick="return confirm('¿Estás seguro?')">
                                         <i class="bi bi-trash-fill">
+                                            {{-- <i class="bi bi-person-x-fill"> --}}
                                             <h5>Borrar usuario</h5>
                                         </i>
                                     </button>
                                 </form>
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -121,8 +137,16 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
+
+
+
             </div>
         </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
     </div>
 @endsection
