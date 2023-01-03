@@ -42,7 +42,7 @@ class GrupoFactory extends Factory
             'contact' => fake()->unique()->safeEmail(),
             'gender' => $this->faker->word(10),
 
-            'city' => $this->faker->city(),
+            // 'city' => $this->faker->city(),
             'state' => Address::state(),
             // 'country' => $this->faker->country(),
             'search' =>$this->faker->randomElement($musicos),

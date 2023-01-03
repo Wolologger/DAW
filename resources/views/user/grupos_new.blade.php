@@ -22,13 +22,17 @@
     <link href="../../../css/styles.css" rel="stylesheet" />
 </head>
 
+@php
+    $user = Auth::user()->id;
+@endphp
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-center">
-                        {{ __('Editar Compra Venta de Intrumentos') }}
+                        {{ __('Nuevo Grupo') }}
                     </div>
                     <div class="card-header">
                     </div>
@@ -62,55 +66,24 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="card-body">
-                                    <h5 class="card-title">Editar Instrumento:</h5>
+                                    <h5 class="card-title">Nuevo Grupo:</h5>
                                     {{-- <h5 class="card-title">Nuevo Instrumento</h5> --}}
-                                    @foreach ($resultado as $instrumento)
-                                    <form method="POST"
-                                    action="{{ route('user.compraventa.edit', [$instrumento->id, $instrumento->user_id]) }}">
-                                    @csrf
+                                    <form method="POST" action="{{ route('user.grupos.new', $user) }}">
+                                        @csrf
                                         <div class="form-group">
-                                            <label for="exampleFormControlSelect1">Tipo</label>
-                                            <select required class="form-control" id="tipo" name="tipo">
-                                                <option value="">Elige Tipo</option>
-                                                <option value="Guitarra">Guitarra</option>
-                                                <option value="Piano">Piano</option>
-                                                <option value="Bajo">Bajo</option>
-                                                <option value="Amplificador">Amplificador</option>
-                                                <option value="Bateria">Bateria</option>
-                                                <option value="Accesorio">Accesorio</option>
-                                                <option value="Otro">Otro</option>
-                                            </select>
-                                        </div>
-
-                                        {{-- <div class="form-group">
-                                            <label for="exampleFormControlSelect1">Tipo</label>
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option value="">Elige Tipo</option>
-                                                <option value="Guitarra" selected>Guitarra</option>
-                                                <option value="Piano">Piano</option>
-                                                <option value="Bajo">Bajo</option>
-                                                <option value="Amplificador">Amplificador</option>
-                                                <option value="Bateria">Bateria</option>
-                                                <option value="Accesorio">Accesorio</option>
-                                                <option value="Otro">Otro</option>
-                                            </select>
-                                        </div> --}}
-
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput">Marca</label>
-                                            <input type="text" class="form-control" id="marca" name="marca"
-                                                placeholder="Yamaha" value="{{$instrumento->brand}}">
+                                            <label for="formGroupExampleInput">Nombre</label>
+                                            <input type="text" class="form-control" id="nombre" name="nombre"
+                                                placeholder="Nombre de Grupo">
                                         </div>
                                         <div class="form-group">
-                                            <label for="formGroupExampleInput">Modelo</label>
-                                            <input type="text" class="form-control" id="modelo" name="modelo"
-                                                placeholder="Pacifica" value={{$instrumento->model}}>
+                                            <label for="formGroupExampleInput">Contacto</label>
+                                            <input type="text" class="form-control" id="contacto" name="contacto"
+                                                placeholder="email@example.es">
                                         </div>
                                         <div class="form-group">
-                                            <label for="precio">Precio <i
-                                                class="bi bi-currency-euro"></i></label>
-                                            <input type="text" class="form-control" id="precio" name="precio"
-                                                placeholder="300" value={{$instrumento->price}}>
+                                            <label for="precio">Género músical </label>
+                                            <input type="text" class="form-control" id="genero" name="genero"
+                                                placeholder="Rock">
                                         </div>
                                         <div class="form-group">
                                             <label for="provincia">Provincia</label>
@@ -171,43 +144,34 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="estado">Estado</label>
-                                            <select class="form-control" name="estado" id="estado">
-                                                <option value="">Elige estado</option>
-                                                <option value="Excelente">Excelente</option>
-                                                <option value="Muy bueno">Muy bueno</option>
-                                                <option value="Bueno">Bueno</option>
-                                                <option value="Normal">Normal</option>
-                                                <option value="Regular">Regular</option>
+                                            <label for="estado">Busca músico</label>
+                                            <select class="form-control" name="musico" id="musico">
+                                                <option value="">Elige músico</option>
+                                                <option value="Ninguno">Ninguno</option>
+                                                <option value="Bateria">Batería</option>
+                                                <option value="Cantante">Cantante</option>
+                                                <option value="Guitarrista">Guitarrista</option>
+                                                <option value="Teclista">Teclista</option>
+                                                <option value="Tecnico de sonido">Técnico de sonido</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="descripcion">Descripción</label>
-                                            <textarea class="form-control" name="descripcion" id="descripcion" rows="3">{{$instrumento->descripcion}}</textarea>
+                                            <textarea class="form-control" name="descripcion" id="descripcion" rows="3"></textarea>
                                         </div>
-                                        {{-- <div class="card text-center">
-                                                <button type="submit" class="btn btn-warning">
-                                                    <span class="text-light text-decoration-none">
-                                                        <i class="bi bi-arrow-up-short"></i>
-                                                        {{ 'Actualizar' }}
-                                                    </span>
-                                                </button>
-                                            </div>
-                                        </form> --}}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card text-center">
-                        <button type="submit" class="btn btn-warning">
+                    <div class="card text-center border">
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-plus-circle"></i>
                             <span class="text-light text-decoration-none">
-                                <i class="bi bi-arrow-up-short"></i>
-                                {{ 'Actualizar' }}
+                                {{ 'Crear' }}
                             </span>
                         </button>
                     </div>
                     </form>
-                    @endforeach
                 </div>
             </div>
         </div>

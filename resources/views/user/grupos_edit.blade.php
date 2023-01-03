@@ -28,7 +28,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-center">
-                        {{ __('Editar Grupos') }}
+                        {{ __('Editar Grupo') }}
                     </div>
                     <div class="card-header">
                     </div>
@@ -62,7 +62,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="card-body">
-                                    <h5 class="card-title">Editar Instrumento:</h5>
+                                    <h5 class="card-title">Editar Grupo:</h5>
                                     {{-- <h5 class="card-title">Nuevo Instrumento</h5> --}}
                                     @foreach ($resultado as $grupo)
                                     <form method="POST"

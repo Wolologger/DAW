@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Grupo;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
 class GruposController extends Controller
@@ -150,8 +151,25 @@ class GruposController extends Controller
             public function grupos_new_view(Request $id){
                 return view('user/grupos_new');
             }
-            public function grupos_new(Request $id){
-                return "patata";
+            public function grupos_new(Request $resultado, $user_id){
+                $nombre = $resultado->nombre;
+                $genero = $resultado->genero;
+                $musico = $resultado->musico;
+                $provincia = $resultado->provincia;
+                $contacto = $resultado->contacto;
+                $descripcion = $resultado->descripcion;
+                
+                $grupo = new Grupo;
+                $grupo->name = $nombre;
+                $grupo->slug = Str::slug($nombre);
+                $grupo->contact = $contacto; 
+                $grupo->gender = $genero;
+                $grupo->state = $provincia;
+                $grupo->search = $musico;
+                $grupo->body = $descripcion;
+                $grupo->user_id = $user_id;
+                $grupo->save();
+                return redirect()->route('get.user.grupos',[$user_id]);
             }    
             public function grupos_edit_view(Request $id){
                 $id = $id->id;

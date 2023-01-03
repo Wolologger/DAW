@@ -160,7 +160,7 @@ class CompraventaController extends Controller
         }
     
         public function compraventa_new_view(){
-    
+            
             return view('user/compraventa_new');
         }
     

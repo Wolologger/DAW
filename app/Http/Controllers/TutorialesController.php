@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tutorial;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -99,9 +100,13 @@ class TutorialesController extends Controller
             public function tutoriales_edit(Request $id){
                 return "patata";
             }
-            public function tutoriales_delete(Request $id){
-                return "patata";
+            public function tutoriales_delete(Request $id, $user_id){
+                $id = $id->id;
+                $resultado = Tutorial::get()->where('id', '=', $id)->where('user_id', '=', $user_id);
+                $resultado ->each->delete();
+                return redirect()->route('get.user.tutoriales',[$user_id]);
             }    
+
 
 
 }

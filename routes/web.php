@@ -100,7 +100,7 @@ Route::post('/user/compraventa/details/{id}', [App\Http\Controllers\CompraventaC
 Route::post('/user/compraventa/new/{id}', [App\Http\Controllers\CompraventaController::class, 'compraventa_new_view'])->name('user.compraventa.new_view');
 
 // Mis compraventa - Nuevo Form
-Route::post('/user/compraventa/new/{id}/nuevo', [App\Http\Controllers\CompraventaController::class, 'compraventa_new'])->name('user.compraventa.new');
+Route::post('/user/compraventa/new/{id}/create', [App\Http\Controllers\CompraventaController::class, 'compraventa_new'])->name('user.compraventa.new');
 
 // Mis compraventa - Editar
 Route::post('/user/compraventa/edit/{id}', [App\Http\Controllers\CompraventaController::class, 'compraventa_edit_view'])->name('user.compraventa.edit_view');

@@ -63,6 +63,10 @@
                             <div class="col-md-5">
                                 <div class="card-body">
                                     <h5 class="card-title">Tutorial: {{ $tutorial->name }}</p>
+                                        <p class="card-text">Tipo:
+                                            {{ $tutorial->type }}</p>
+                                        <p class="card-text">Resumen:
+                                            {{ $tutorial->extract }}</p>
                                         <p class="card-text">Fecha creación:
                                             {{ date('d-m-Y', strtotime($tutorial->created_at)) }}</p>
                                         {{-- <p class="card-text">Últm. actualización: {{  date('d-m-Y', strtotime($tutorial->updated_at))}}</p> --}}

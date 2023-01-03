@@ -63,6 +63,12 @@
                             <div class="col-md-5">
                                 <div class="card-body">
                                     <h5 class="card-title">Grupo: {{ $grupo->name }}</p>
+                                        <p class="card-text">Género musical:
+                                            {{ $grupo->gender }}</p>
+                                        <p class="card-text">Provincia:
+                                            {{ $grupo->state }}</p>
+                                        <p class="card-text">Busca:
+                                            {{ $grupo->search }}</p>
                                         <p class="card-text">Fecha creación:
                                             {{ date('d-m-Y', strtotime($grupo->created_at)) }}</p>
                                         {{-- <p class="card-text">Últm. actualización: {{  date('d-m-Y', strtotime($grupo->updated_at))}}</p> --}}

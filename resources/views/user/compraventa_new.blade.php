@@ -62,8 +62,6 @@
                             <div class="col-md-6">
                                 <div class="card-body border">
                                     <h5 class="card-title">Nuevo Instrumento:</h5>
-
-                                    <form>
                                     <form method="POST" action="{{ route('user.compraventa.new', $user) }}">
                                         @csrf
                                         <div class="form-group">
