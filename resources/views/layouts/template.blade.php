@@ -93,7 +93,7 @@
                         <i class="bi bi-info-circle"></i>
                         Esta página es un projecto estudiantil sin ánimo de lucro para el curso de DAW
                     </p>
-                    <a class="btn btn-primary btn-xl" href="#about">Más información</a>
+                    {{-- <a class="btn btn-primary btn-xl" href="#about">Más información</a> --}}
                 </div>
             </div>
         </div>
@@ -245,10 +245,11 @@
 
             </div>
             <p>
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5">
-                    <a class="btn btn-secondary btn-xl" href={{ route('posts') }}>¡Ver más!</a>
-                </div>
+            {{-- <div class="container px-4 px-lg-5">
+
+            </div> --}}
+            <div class="row gx-4 gx-lg-5">
+                <a class="btn btn-secondary btn-xl" href={{ route('posts') }}>¡Ver más!</a>
             </div>
     </section>
             {{-- <div class="row gx-4 gx-lg-5 justify-content-center">

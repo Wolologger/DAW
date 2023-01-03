@@ -5,6 +5,7 @@
         $user = Auth::user();
         
     @endphp
+    
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -26,22 +27,21 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <div class="container">
-                            <div class="row  no-gutters">
+                        <div class="row row-cols-2 justify-content-center">
+                            <div class="col-md-auto p-1">
                                 {{-- Opcion --}}
                                 <form method="POST" action="{{ route('profile') }}">
                                     @csrf
-                                    <div class="col-6 col-md-4">
-                                        <button type="submit" name="" id="" class="btn btn-info" btn-lg
-                                            btn-block">
-                                            <i class="bi bi-person-circle">
-                                                <h5>Perfil</h5>
-                                            </i>
-                                        </button>
+                                    <button type="submit" name="" id="" class="btn btn-info" btn-lg
+                                        btn-block">
+                                        <i class="bi bi-person-circle">
+                                            <h5>Mi Perfil</h5>
+                                        </i>
+                                    </button>
                                 </form>
                             </div>
                             {{-- opcion --}}
-                            <div class="col-6 col-md-4">
+                            <div class="col-md-auto p-1">
                                 <form method="POST" action="{{ route('user.posts', $user) }}">
                                     @csrf
                                     <button type="submit" name="" id="" class="btn btn-success" btn-lg
@@ -54,22 +54,12 @@
                             </div>
 
                             {{-- opcion --}}
-                            <div class="col-6 col-md-4">
-                                <form method="POST" action="{{ route('user.compraventa', $user) }}">
-                                    @csrf
-                                    <button type="submit" name="" id="" class="btn btn-secondary" btn-lg
-                                        btn-block">
-                                        <i class="bi bi-recycle">
-                                            <h5>Mis compraventa</h5>
-                                        </i>
-                                    </button>
-                                </form>
-                            </div>
 
-                            <hr class="divider-light" />
+
+                            {{-- <hr class="divider-light" /> --}}
 
                             {{-- opcion --}}
-                            <div class="col-6 col-md-4">
+                            <div class="col-md-auto p-1">
                                 <form method="POST" action="{{ route('user.tutoriales', $user) }}">
                                     @csrf
                                     <button type="submit" name="" id="" class="btn btn-warning" btn-lg
@@ -81,7 +71,7 @@
                                 </form>
                             </div>
 
-                            <div class="col-6 col-md-4">
+                            <div class="col-md-auto p-1">
                                 <form method="POST" action="{{ route('user.grupos', $user) }}">
                                     @csrf
                                     <button type="submit" name="" id="" class="btn btn-primary" btn-lg
@@ -93,18 +83,18 @@
                                 </form>
                             </div>
 
-                            {{-- opcion --}}
-                            {{-- <div class="col-6 col-md-4">
-                                <form method="POST" action="{{ route('user.destroy', $user) }}">
+                            <div class="col-md-auto p-1">
+                                <form method="POST" action="{{ route('user.compraventa', $user) }}">
                                     @csrf
-                                    <button type="submit" name="" id="" class="btn btn-danger" btn-lg
-                                        btn-block" onclick="return confirm('¿Estás seguro?')">
-                                        <i class="bi bi-trash-fill">
-                                            <h5>Borrar usuario</h5>
+                                    <button type="submit" name="" id="" class="btn btn-secondary" btn-lg
+                                        btn-block">
+                                        <i class="bi bi-recycle">
+                                            <h5>Mis compraventa</h5>
                                         </i>
                                     </button>
                                 </form>
-                            </div> --}}
+                            </div>
+
                         </div>
                     </div>
                 </div>
