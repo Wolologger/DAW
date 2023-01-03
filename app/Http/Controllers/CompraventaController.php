@@ -154,17 +154,12 @@ class CompraventaController extends Controller
             ->join('users','compraventas.user_id', '=', 'users.id')
             ->where('compraventas.id', '=', $id) 
             ->get();
-            // SELECT * FROM `compraventas` 
-            // INNER JOIN users 
-            // ON compraventas.user_id = users.id 
-            //where compraventas.id = 1;
-    
+
             return view('pag/compraventa_details', ['compraventa' => $compraventa]);
-    
-            // return $id->id;
+
         }
     
-        public function compraventa_new_view(User $user){
+        public function compraventa_new_view(){
     
             return view('user/compraventa_new');
         }
@@ -195,14 +190,9 @@ class CompraventaController extends Controller
     
     
         public function compraventa_edit_view(Request $id){
-     
             $id = $id->id;
             $resultado = Compraventa::get()->where('id', '=', $id);
-    
-            // return view('user/compraventa_edit');
             return view('user/compraventa_edit', ['resultado' => $resultado]);
-    
-            return $resultado;
         }
     
         public function compraventa_edit (Request $resultado, $id, $user_id){

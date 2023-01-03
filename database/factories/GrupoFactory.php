@@ -29,7 +29,7 @@ class GrupoFactory extends Factory
             'Guitarrista',
             'Batería',
             'Teclista',
-            'Técnico de sonido'
+            'Tecnico de sonido'
         ];
 
 

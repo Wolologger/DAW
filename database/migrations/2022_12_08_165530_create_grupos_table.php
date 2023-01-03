@@ -34,7 +34,7 @@ return new class extends Migration
             'Guitarrista',
             'Batería',
             'Teclista',
-            'Técnico de sonido')
+            'Tecnico de sonido')
             )->default('Ninguno');
 
             $table->enum('status',[1,2])->default(1);
