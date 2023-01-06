@@ -19,7 +19,7 @@
     <!-- SimpleLightbox plugin CSS-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../../css/styles.css" rel="stylesheet" />
+    <link href="../../../css/styles.css" rel="stylesheet" />
 </head>
 
 @php
@@ -39,21 +39,20 @@ $user = Auth::user();
                     <img src="aaaa" width="320px" height="320px">
                     <input type="file">
                     </div>
+                    <form method="POST" action="{{ route('profile_edit', $user->id)}}">
+                        @csrf
                     <div class="row  no-gutters">
-                        <label>Nombre: <input type="text" value="{{$user->name}}"><p>
-                        <label>Correo: <input type="text" value="{{$user->email}}"><p>
-                        <label>Confirmar correo: <input type="text"><p>
-                        <label>Nueva Contraseña: <input type="text"><p>
-                        <label>Confirmar contraseña<input type="text"><p>
+                        <label>Nombre: <input type="text" name="nombre" value="{{$user->name}}"><p>
+                        <label>Correo: <input type="text" name="email" value="{{$user->email}}"><p>
                     </div>
                     <div class="card-body">
-                        @if (session('status'))
+                        {{-- @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
                             </div>
                         @endif
                         <hr class="divider-light">
-                        <div class="container">
+                        <div class="container"> --}}
 
                             {{-- opcion --}}
                             <div class="col-6 col-md-4">
@@ -65,6 +64,7 @@ $user = Auth::user();
                                     </button>
                             </div>
                         </div>
+                    </form>
                     </div>
                 </div>
 

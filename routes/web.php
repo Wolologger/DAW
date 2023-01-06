@@ -85,10 +85,15 @@ Route::post('/posts', [App\Http\Controllers\PostController::class, 'filtro'])->n
 
 
 // Mi perfil
+Route::get('/user/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('get.profile');
 Route::post('/user/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
 
 // Mi perfil - Editar
-Route::post('/user/profile/edit', [App\Http\Controllers\UserController::class, 'profile_edit'])->name('profile_edit');
+Route::post('/user/profile/edit/{user}', [App\Http\Controllers\UserController::class, 'profile_edit_view'])->name('profile_edit_view');
+
+// Mi perfil - Nuevo Form
+Route::post('/user/profile/edit/{user}/update', [App\Http\Controllers\UserController::class, 'profile_edit'])->name('profile_edit');
+
 
 
 // Mis compraventa

@@ -40,10 +40,11 @@
                     </div>
                     <p> Nombre: {{ $user->name }}
                     <p> Correo: {{ $user->email }}
-                    <p> Verificado: <input type="checkbox" checked>
-                    <p> Número de grupos: 10
-                    <p> Instrumentos en venta: 2
-                    <p> Número de posts publicados: 23
+                    <p> Número de grupos: {{$count_grupos}}
+                    <p> Instrumentos en venta: {{$count_compraventa}}
+                    <p> Número de posts publicados: {{$count_posts}}
+                    <p> Número de tutoriales: {{$count_tutoriales}}
+
 
                     <div class="card-body">
                         @if (session('status'))
@@ -55,7 +56,7 @@
                         <div class="container text-center">
                             <div class="row no-gutters">
                                 {{-- Opcion --}}
-                                <form method="POST" action="{{ route('profile_edit') }}">
+                                <form method="POST" action="{{ route('profile_edit_view', $user->id)}}">
                                     @csrf
                                     <div class="col-6 col-md-4">
                                         <button type="submit" name="" id="" class="btn btn-warning" btn-lg
@@ -66,6 +67,19 @@
                                         </button>
                                 </form>
                             </div>
+
+                            <div class="col-6 col-md-4">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">
+        
+                                <a class="link-light text-decoration-none" href="{{ route('password.update') }}">
+                                    <i class="bi bi-asterisk">
+                                        <h5>Cambiar contraseña</h5>
+                                    </i>
+                                </a>
+                            </button>
+        
+                            </div>
+        
                             {{-- opcion --}}
                             {{-- <div class="col-6 col-md-4">
                                     <button type="submit" name="" id="" class="btn btn-success" btn-lg
@@ -114,6 +128,7 @@
                                     @csrf
                                     <button type="submit" name="" id="" class="btn btn-danger" btn-lg
                                         btn-block" onclick="return confirm('¿Estás seguro?')">
+
                                         <i class="bi bi-trash-fill">
                                             {{-- <i class="bi bi-person-x-fill"> --}}
                                             <h5>Borrar usuario</h5>

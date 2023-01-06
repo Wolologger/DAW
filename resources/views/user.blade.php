@@ -32,6 +32,7 @@
                                 {{-- Opcion --}}
                                 <form method="POST" action="{{ route('profile') }}">
                                     @csrf
+                                    <input type="hidden" value="{{$user->id}}" name="id">
                                     <button type="submit" name="" id="" class="btn btn-info" btn-lg
                                         btn-block">
                                         <i class="bi bi-person-circle">
