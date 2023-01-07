@@ -22,13 +22,18 @@
     <link href="../../../css/styles.css" rel="stylesheet" />
 </head>
 
+@php
+    $user = Auth::user()->id;
+@endphp
+
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-center">
-                        {{ __('Editar Compra Venta de Intrumentos') }}
+                        {{ __('Nuevo Tutorial') }}
                     </div>
                     <div class="card-header">
                     </div>
@@ -62,152 +67,43 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="card-body">
-                                    <h5 class="card-title">Editar Instrumento:</h5>
+                                    <h5 class="card-title">Nuevo Tutorial</h5>
                                     {{-- <h5 class="card-title">Nuevo Instrumento</h5> --}}
-                                    @foreach ($resultado as $instrumento)
                                     <form method="POST"
-                                    action="{{ route('user.compraventa.edit', [$instrumento->id, $instrumento->user_id]) }}">
+                                    action="{{ route('user.tutoriales.new', $user) }}">
                                     @csrf
-                                        <div class="form-group">
-                                            <label for="exampleFormControlSelect1">Tipo</label>
-                                            <select required class="form-control" id="tipo" name="tipo">
-                                                <option value="">Elige Tipo</option>
-                                                <option value="Guitarra">Guitarra</option>
-                                                <option value="Piano">Piano</option>
-                                                <option value="Bajo">Bajo</option>
-                                                <option value="Amplificador">Amplificador</option>
-                                                <option value="Bateria">Bateria</option>
-                                                <option value="Accesorio">Accesorio</option>
-                                                <option value="Otro">Otro</option>
-                                            </select>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="precio">Nombre </label>
+                                        <input type="text" class="form-control" id="nombre" name="nombre"
+                                            placeholder="Inicios">
+                                    </div>
 
-                                        {{-- <div class="form-group">
-                                            <label for="exampleFormControlSelect1">Tipo</label>
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option value="">Elige Tipo</option>
-                                                <option value="Guitarra" selected>Guitarra</option>
-                                                <option value="Piano">Piano</option>
-                                                <option value="Bajo">Bajo</option>
-                                                <option value="Amplificador">Amplificador</option>
-                                                <option value="Bateria">Bateria</option>
-                                                <option value="Accesorio">Accesorio</option>
-                                                <option value="Otro">Otro</option>
-                                            </select>
-                                        </div> --}}
-
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput">Marca</label>
-                                            <input type="text" class="form-control" id="marca" name="marca"
-                                                placeholder="Yamaha" value="{{$instrumento->brand}}">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput">Modelo</label>
-                                            <input type="text" class="form-control" id="modelo" name="modelo"
-                                                placeholder="Pacifica" value={{$instrumento->model}}>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="precio">Precio <i
-                                                class="bi bi-currency-euro"></i></label>
-                                            <input type="text" class="form-control" id="precio" name="precio"
-                                                placeholder="300" value={{$instrumento->price}}>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="provincia">Provincia</label>
-                                            <select required name="provincia" class="form-control">
-                                                <option value="">Elige Provincia</option>
-                                                <option value="Álava/Araba">Álava/Araba</option>
-                                                <option value="Albacete">Albacete</option>
-                                                <option value="Alicante">Alicante</option>
-                                                <option value="Almería">Almería</option>
-                                                <option value="Asturias">Asturias</option>
-                                                <option value="Ávila">Ávila</option>
-                                                <option value="Badajoz">Badajoz</option>
-                                                <option value="Baleares">Baleares</option>
-                                                <option value="Barcelona">Barcelona</option>
-                                                <option value="Burgos">Burgos</option>
-                                                <option value="Cáceres">Cáceres</option>
-                                                <option value="Cádiz">Cádiz</option>
-                                                <option value="Cantabria">Cantabria</option>
-                                                <option value="Castellón">Castellón</option>
-                                                <option value="Ceuta">Ceuta</option>
-                                                <option value="Ciudad Real">Ciudad Real</option>
-                                                <option value="Córdoba">Córdoba</option>
-                                                <option value="Cuenca">Cuenca</option>
-                                                <option value="Gerona/Girona">Gerona/Girona</option>
-                                                <option value="Granada">Granada</option>
-                                                <option value="Guadalajara">Guadalajara</option>
-                                                <option value="Guipúzcoa/Gipuzkoa">Guipúzcoa/Gipuzkoa</option>
-                                                <option value="Huelva">Huelva</option>
-                                                <option value="Huesca">Huesca</option>
-                                                <option value="Jaén">Jaén</option>
-                                                <option value="La Coruña/A Coruña">La Coruña/A Coruña</option>
-                                                <option value="La Rioja">La Rioja</option>
-                                                <option value="Las Palmas">Las Palmas</option>
-                                                <option value="León">León</option>
-                                                <option value="Lérida/Lleida">Lérida/Lleida</option>
-                                                <option value="Lugo">Lugo</option>
-                                                <option value="Madrid">Madrid</option>
-                                                <option value="Málaga">Málaga</option>
-                                                <option value="Melilla">Melilla</option>
-                                                <option value="Murcia">Murcia</option>
-                                                <option value="Navarra">Navarra</option>
-                                                <option value="Orense/Ourense">Orense/Ourense</option>
-                                                <option value="Palencia">Palencia</option>
-                                                <option value="Pontevedra">Pontevedra</option>
-                                                <option value="Salamanca">Salamanca</option>
-                                                <option value="Segovia">Segovia</option>
-                                                <option value="Sevilla">Sevilla</option>
-                                                <option value="Soria">Soria</option>
-                                                <option value="Tarragona">Tarragona</option>
-                                                <option value="Tenerife">Tenerife</option>
-                                                <option value="Teruel">Teruel</option>
-                                                <option value="Toledo">Toledo</option>
-                                                <option value="Valencia">Valencia</option>
-                                                <option value="Valladolid">Valladolid</option>
-                                                <option value="Vizcaya/Bizkaia">Vizcaya/Bizkaia</option>
-                                                <option value="Zamora">Zamora</option>
-                                                <option value="Zaragoza">Zaragoza</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="estado">Estado</label>
-                                            <select class="form-control" name="estado" id="estado">
-                                                <option value="">Elige estado</option>
-                                                <option value="Excelente">Excelente</option>
-                                                <option value="Muy bueno">Muy bueno</option>
-                                                <option value="Bueno">Bueno</option>
-                                                <option value="Normal">Normal</option>
-                                                <option value="Regular">Regular</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="descripcion">Descripción</label>
-                                            <textarea class="form-control" name="descripcion" id="descripcion" rows="3">{{$instrumento->descripcion}}</textarea>
-                                        </div>
-                                        {{-- <div class="card text-center">
-                                                <button type="submit" class="btn btn-warning">
-                                                    <span class="text-light text-decoration-none">
-                                                        <i class="bi bi-arrow-up-short"></i>
-                                                        {{ 'Actualizar' }}
-                                                    </span>
-                                                </button>
-                                            </div>
-                                        </form> --}}
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput">Tipo</label>
+                                        <input type="text" class="form-control" id="tipo" name="tipo"
+                                            placeholder="Cubase">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="descripcion">Resumen</label>
+                                        <input type="text" class="form-control" name="resumen" id="resumen">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="descripcion">Cuerpo</label>
+                                        <textarea class="form-control" name="cuerpo" id="cuerpo" rows="3"></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card text-center">
-                        <button type="submit" class="btn btn-warning">
+                    <div class="card text-center border">
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-plus-circle"></i>
                             <span class="text-light text-decoration-none">
-                                <i class="bi bi-arrow-up-short"></i>
-                                {{ 'Actualizar' }}
+                                {{ 'Crear' }}
                             </span>
                         </button>
                     </div>
                     </form>
-                    @endforeach
                 </div>
             </div>
         </div>

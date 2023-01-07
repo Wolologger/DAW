@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Posts') }}</div>
+                    <div class="card-header text-center">{{ __('Posts') }}</div>
 
                     {{-- <div class="container"> --}}
                         <div class="row justify-content-center">
@@ -18,6 +18,11 @@
                             <div class="col">
                                 <strong>Titulo:</strong>
                                 <input type="text" name="titulo">
+                                
+                            </div>
+                            <div class="col">
+                                <strong>Categoria</strong>
+                                <input type="text" name="category">
                                 
                             </div>
                             <div class="col border">
@@ -47,9 +52,12 @@
                                         <div class="card-body">
                                             {{-- <h4>Tipo: {{ $instrumento->type }}</h4> --}}
 
-                                            <h5 class="card-title">Post:
+                                            <h5 class="card-title">
                                                 {{ $post->name}}</h5>
+                                            <p class="card-text"><strong>Categoria:</strong> {{ $post->category }}</p>
                                             <p class="card-text"><strong>Resumen:</strong> {{ $post->extract }}</p>
+                                            <p class="card-text"><strong>Fecha:</strong> {{ date('d-m-Y', strtotime($post->created_at)) }}</p>
+
                                             </p>
                                             <form method="POST"
                                                 {{-- action="{{ route('user.posts.details', $post->id) }}"> --}}>

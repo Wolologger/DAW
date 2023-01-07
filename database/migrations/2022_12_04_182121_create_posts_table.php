@@ -22,7 +22,9 @@ return new class extends Migration
             $table->text('extract');
 
             $table->longText('body');
+            $table->string('category');
             
+
             $table->enum('status',[1,2])->default(1);
 
             $table->unsignedBigInteger('user_id');

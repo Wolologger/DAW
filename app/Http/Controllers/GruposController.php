@@ -148,7 +148,7 @@ class GruposController extends Controller
             public function grupos_details(Request $id){
                 return "patata";
             }
-            public function grupos_new_view(Request $id){
+            public function grupos_new_view(){
                 return view('user/grupos_new');
             }
             public function grupos_new(Request $resultado, $user_id){

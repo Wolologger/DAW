@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tutorial;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
@@ -88,17 +89,45 @@ class TutorialesController extends Controller
             public function tutoriales_details(Request $id){
                 return "patata";
             }
-            public function tutoriales_new_view(Request $id){
-                return "patata";
+            public function tutoriales_new_view(){
+                return view('user/tutoriales_new');
             }
-            public function tutoriales_new(Request $id){
-                return "patata";
+            public function tutoriales_new(Request $resultado, $user_id){
+                $nombre = $resultado->nombre;
+                $tipo = $resultado->tipo;
+                $resumen = $resultado->resumen;
+                $cuerpo = $resultado->cuerpo;
+
+                $tutorial = new Tutorial;
+                $tutorial->name = $nombre;
+                $tutorial->slug = Str::slug($nombre);
+                $tutorial->type = $tipo;
+                $tutorial->extract = $resumen;
+                $tutorial->body = $cuerpo;
+                $tutorial->user_id = $user_id;
+                $tutorial->save();
+
+                return redirect()->route('get.user.tutoriales',[$user_id]);
             }    
             public function tutoriales_edit_view(Request $id){
-                return "patata";
+                $id = $id->id;
+                $resultado = Tutorial::get()->where('id', '=', $id);
+                return view('user/tutoriales_edit', ['resultado' => $resultado]);
             }
-            public function tutoriales_edit(Request $id){
-                return "patata";
+            public function tutoriales_edit(Request $resultado, $id, $user_id){
+                $nombre = $resultado->nombre;
+                $tipo = $resultado->tipo;
+                $resumen = $resultado->resumen;
+                $cuerpo = $resultado->cuerpo;
+
+                $tutorial= Tutorial::findOrFail($id);
+                $tutorial->name = $nombre;
+                $tutorial->type = $tipo;
+                $tutorial->extract = $resumen;
+                $tutorial->body = $cuerpo;
+                $tutorial->update();
+                // return $resultado;
+                return redirect()->route('get.user.tutoriales',[$user_id]);
             }
             public function tutoriales_delete(Request $id, $user_id){
                 $id = $id->id;

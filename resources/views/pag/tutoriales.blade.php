@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Tutoriales') }}</div>
+                    <div class="card-header text-center">{{ __('Tutoriales') }}</div>
 
                     {{-- <div class="container"> --}}
                     <div class="row justify-content-center text-center">
@@ -52,7 +52,7 @@
 
                                 <div class="col-md-6 ">
                                     <div class="card-body">
-                                        <h5 class="card-title">Tutorial:
+                                        <h5 class="card-title">
                                             {{ $tutorial->name }}</h5>
                                         <p class="card-text"><strong>Tipo:</strong> {{ $tutorial->type }}</p>
                                         <p class="card-text"><strong>Resumen:</strong> {{ $tutorial->extract }}</p>
