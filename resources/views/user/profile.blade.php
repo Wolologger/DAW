@@ -40,11 +40,10 @@
                     </div>
                     <p> Nombre: {{ $user->name }}
                     <p> Correo: {{ $user->email }}
-                    <p> Número de grupos: {{$count_grupos}}
-                    <p> Instrumentos en venta: {{$count_compraventa}}
-                    <p> Número de posts publicados: {{$count_posts}}
-                    <p> Número de tutoriales: {{$count_tutoriales}}
-
+                    <p> Número de grupos: {{ $count_grupos }}
+                    <p> Instrumentos en venta: {{ $count_compraventa }}
+                    <p> Número de posts publicados: {{ $count_posts }}
+                    <p> Número de tutoriales: {{ $count_tutoriales }}
 
                     <div class="card-body">
                         @if (session('status'))
@@ -53,88 +52,42 @@
                             </div>
                         @endif
                         <hr class="divider">
-                        <div class="container text-center">
-                            <div class="row no-gutters">
-                                {{-- Opcion --}}
-                                <form method="POST" action="{{ route('profile_edit_view', $user->id)}}">
-                                    @csrf
-                                    <div class="col-6 col-md-4">
+
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-md-auto p-1 text-center">
+                                    <form method="POST" action="{{ route('profile_edit_view', $user->id) }}">
+                                        @csrf
                                         <button type="submit" name="" id="" class="btn btn-warning" btn-lg
                                             btn-block">
                                             <i class="bi bi-pencil">
                                                 <h5>Editar Perfil</h5>
                                             </i>
                                         </button>
-                                </form>
-                            </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-auto p-1 text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block">
 
-                            <div class="col-6 col-md-4">
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">
-        
-                                <a class="link-light text-decoration-none" href="{{ route('password.update') }}">
-                                    <i class="bi bi-asterisk">
-                                        <h5>Cambiar contraseña</h5>
-                                    </i>
-                                </a>
-                            </button>
-        
-                            </div>
-        
-                            {{-- opcion --}}
-                            {{-- <div class="col-6 col-md-4">
-                                    <button type="submit" name="" id="" class="btn btn-success" btn-lg
-                                        btn-block">
-                                        <i class="bi bi-file-post">
-                                            <h5>Mis posts</h5>
-                                        </i>
-                                    </button>
-                            </div> --}}
+                                        <a class="link-light text-decoration-none" href="{{ route('password.update') }}">
+                                            <i class="bi bi-asterisk">
+                                                <h5>Cambiar contraseña</h5>
+                                            </i>
+                                        </a>
+                                </div>
+                                <div class="col-md-auto p-1 text-center">
+                                    <form method="POST" action="{{ route('user.destroy', $user) }}">
+                                        @csrf
+                                        <button type="submit" name="" id="" class="btn btn-danger" btn-lg
+                                            btn-block" onclick="return confirm('¿Estás seguro?')">
 
-                            {{-- opcion --}}
-                            {{-- <div class="col-6 col-md-4">
-                                    <button type="submit" name="" id="" class="btn btn-secondary" btn-lg
-                                        btn-block">
-                                        <i class="bi bi-recycle">
-                                            <h5>Mis compraventa</h5>
-                                        </i>
-                                    </button>
-                            </div> --}}
-
-                            {{-- <hr class="divider-light" /> --}}
-
-                            {{-- opcion --}}
-                            {{-- <div class="col-6 col-md-4">
-                                    <button type="submit" name="" id="" class="btn btn-info" btn-lg
-                                        btn-block">
-                                        <i class="bi bi-display">
-                                            <h5>Mis tutoriales</h5>
-                                        </i>
-                                    </button>
-                            </div> --}}
-
-                            {{-- <div class="col-6 col-md-4">
-                                    <button type="submit" name="" id="" class="btn btn-primary" btn-lg
-                                        btn-block">
-                                        <i class="bi bi-asterisk">
-                                            <h5>Cambiar contraseña</h5>
-                                        </i>
-                                    </button>
-                            </div> --}}
-
-                            {{-- opcion --}}
-                            <div class="col-6 col-md-4">
-                                {{-- <form method="POST" action="{{ route('user.destroy',$id)}}"> --}}
-                                <form method="POST" action="{{ route('user.destroy', $user) }}">
-                                    @csrf
-                                    <button type="submit" name="" id="" class="btn btn-danger" btn-lg
-                                        btn-block" onclick="return confirm('¿Estás seguro?')">
-
-                                        <i class="bi bi-trash-fill">
-                                            {{-- <i class="bi bi-person-x-fill"> --}}
-                                            <h5>Borrar usuario</h5>
-                                        </i>
-                                    </button>
-                                </form>
+                                            <i class="bi bi-trash-fill">
+                                                {{-- <i class="bi bi-person-x-fill"> --}}
+                                                <h5>Borrar usuario</h5>
+                                            </i>
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

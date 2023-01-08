@@ -41,10 +41,25 @@ $user = Auth::user();
                     </div>
                     <form method="POST" action="{{ route('profile_edit', $user->id)}}">
                         @csrf
-                    <div class="row  no-gutters">
-                        <label>Nombre: <input type="text" name="nombre" value="{{$user->name}}"><p>
-                        <label>Correo: <input type="text" name="email" value="{{$user->email}}"><p>
+                    {{-- <div class="row no-gutters">
+                        <label>Nombre: <input type="text" name="nombre" class="form-control" value="{{$user->name}}"><p>
+                        <label>Correo: <input type="text" name="email" class="form-control" value="{{$user->email}}"><p>
+                    </div> --}}
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-md-auto p-1">
+                                <label>Nombre: <input type="text" name="nombre" class="form-control" value="{{$user->name}}"><p>
+                                    {{-- <label>Correo: <input type="text" name="email" class="form-control" value="{{$user->email}}"><p> --}}
+
+                            </div>
+                            <div class="col-md-auto p-1">
+                                <label>Correo: <input type="text" name="email" class="form-control" value="{{$user->email}}"><p>
+
+                            </div>
+
+                        </div>
                     </div>
+                    
                     <div class="card-body">
                         {{-- @if (session('status'))
                             <div class="alert alert-success" role="alert">
@@ -55,6 +70,21 @@ $user = Auth::user();
                         <div class="container"> --}}
 
                             {{-- opcion --}}
+
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-auto p-1 text-center">
+                                        <button type="submit" name="" id="" class="btn btn-success" btn-lg
+                                        btn-block">
+                                        <i class="bi bi-save">
+                                            <h5>Actualizar datos</h5>
+                                        </i>
+                                    </button>
+                                    </div>
+                                </div>
+                            </div>
+
+{{-- 
                             <div class="col-6 col-md-4">
                                     <button type="submit" name="" id="" class="btn btn-success" btn-lg
                                         btn-block">
@@ -62,7 +92,7 @@ $user = Auth::user();
                                             <h5>Actualizar datos</h5>
                                         </i>
                                     </button>
-                            </div>
+                            </div> --}}
                         </div>
                     </form>
                     </div>

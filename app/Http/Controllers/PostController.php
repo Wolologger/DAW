@@ -102,7 +102,6 @@ class PostController extends Controller
         $posts->extract = $resumen;
         $posts->body = $cuerpo;
         $posts->user_id = $user_id;
-        $posts->category_id = 2;
         $posts->save();
 
         return redirect()->route('get.user.posts',[$user_id]);

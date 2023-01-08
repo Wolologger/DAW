@@ -27,7 +27,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <div class="row row-cols-2 justify-content-center">
+                        <div class="row row-cols-2 justify-content-between">
                             <div class="col-md-auto p-1">
                                 {{-- Opcion --}}
                                 <form method="POST" action="{{ route('profile') }}">
