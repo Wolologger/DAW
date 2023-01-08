@@ -35,7 +35,7 @@
                                             
                                         <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/pacifica.jpg"
                                             alt="..." /><p>
-                                            <p class="card-text"><strong>Usuario:</strong> {{  $grupo->usuario}}</p>
+                                            {{-- <p class="card-text"><strong>Usuario:</strong> {{  $grupo->usuario}}</p> --}}
                                             <p class="card-text"><strong>Contacto:</strong> <a href="mailto:{{  $grupo->contact}}">{{  $grupo->contact}}</a></p>
                                             <p class="card-text"><strong>Provincia:</strong> {{ $grupo->grupos_state }}</p>
                                             <p class="card-text"><strong>Fecha:</strong> {{  date('d-m-Y', strtotime($grupo->grupos_created_at))}}</p>

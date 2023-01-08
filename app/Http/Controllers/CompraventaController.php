@@ -155,7 +155,7 @@ class CompraventaController extends Controller
         public function compraventa_details(Request $id){
             $id = $id -> id;
             $compraventa = DB::table('compraventas')
-            ->select('*')
+            ->select('users.name as usuario','users.id as user_id', 'email','price','brand', 'model', 'type', 'descripcion', 'state_product', 'state', 'compraventas.created_at as compraventas_created_at')
             ->join('users','compraventas.user_id', '=', 'users.id')
             ->where('compraventas.id', '=', $id) 
             ->get();

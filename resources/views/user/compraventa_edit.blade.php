@@ -40,9 +40,7 @@
 
                                     <form>
                                         @csrf
-
                                         <div class="card-body">
-
                                             <div class="form-group">
                                                 <h5 class="card-title">Subir imagen:</h5>
                                                 <div class="card" style="width: auto; height: auto;">
@@ -81,21 +79,6 @@
                                                 <option value="Otro">Otro</option>
                                             </select>
                                         </div>
-
-                                        {{-- <div class="form-group">
-                                            <label for="exampleFormControlSelect1">Tipo</label>
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option value="">Elige Tipo</option>
-                                                <option value="Guitarra" selected>Guitarra</option>
-                                                <option value="Piano">Piano</option>
-                                                <option value="Bajo">Bajo</option>
-                                                <option value="Amplificador">Amplificador</option>
-                                                <option value="Bateria">Bateria</option>
-                                                <option value="Accesorio">Accesorio</option>
-                                                <option value="Otro">Otro</option>
-                                            </select>
-                                        </div> --}}
-
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Marca</label>
                                             <input type="text" class="form-control" id="marca" name="marca"

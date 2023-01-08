@@ -23,7 +23,7 @@
 </head>
 
 @php
-$user = Auth::user();
+    $user = Auth::user();
 @endphp
 
 @section('content')
@@ -33,93 +33,64 @@ $user = Auth::user();
                 <div class="card">
                     <div class="card-header text-center">
                         {{-- {{ __('Mi Compra Venta de Intrumentos') }} --}}
-                        {{$user->name}}
+                        {{ $user->name }}
                     </div>
-                    <div class="card">
-                    <img src="aaaa" width="320px" height="320px">
-                    <input type="file">
-                    </div>
-                    <form method="POST" action="{{ route('profile_edit', $user->id)}}">
+                    <form method="POST" action="{{ route('profile_edit', $user->id) }}">
                         @csrf
-                    {{-- <div class="row no-gutters">
-                        <label>Nombre: <input type="text" name="nombre" class="form-control" value="{{$user->name}}"><p>
-                        <label>Correo: <input type="text" name="email" class="form-control" value="{{$user->email}}"><p>
-                    </div> --}}
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-md-auto p-1">
-                                <label>Nombre: <input type="text" name="nombre" class="form-control" value="{{$user->name}}"><p>
-                                    {{-- <label>Correo: <input type="text" name="email" class="form-control" value="{{$user->email}}"><p> --}}
+                        <div class="container">
+                            <div class="row justify-content-center p-2">
+                                <div class="col p-2 text-center">
+                                    <img src="../../../assets/img/portfolio/thumbnails/user.png" class="rounded-circle border"
+                                        width="220px">
+                                    <hr class="divider">
+                                    <input type="file" class="form-control">
 
+                                </div>
+                                <div class="col p-2">
+                                    <p><label class="form-label">Correo:</label>
+                                        <input type="text" name="email" class="form-control"
+                                            value="{{ $user->email }}">
+                                    <p>
+                                    <p><label class="form-label">Nombre: </label>
+                                        <input type="text" name="nombre" class="form-control"
+                                            value="{{ $user->name }}">
+                                    <p>
+                                </div>
                             </div>
-                            <div class="col-md-auto p-1">
-                                <label>Correo: <input type="text" name="email" class="form-control" value="{{$user->email}}"><p>
-
-                            </div>
-
                         </div>
-                    </div>
-                    
-                    <div class="card-body">
-                        {{-- @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-                        <hr class="divider-light">
-                        <div class="container"> --}}
 
-                            {{-- opcion --}}
-
+                        <div class="card-body">
                             <div class="container">
                                 <div class="row justify-content-center">
                                     <div class="col-md-auto p-1 text-center">
                                         <button type="submit" name="" id="" class="btn btn-success" btn-lg
-                                        btn-block">
-                                        <i class="bi bi-save">
-                                            <h5>Actualizar datos</h5>
-                                        </i>
-                                    </button>
+                                            btn-block">
+                                            <i class="bi bi-save">
+                                                <h5>Actualizar datos</h5>
+                                            </i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-
-{{-- 
-                            <div class="col-6 col-md-4">
-                                    <button type="submit" name="" id="" class="btn btn-success" btn-lg
-                                        btn-block">
-                                        <i class="bi bi-save">
-                                            <h5>Actualizar datos</h5>
-                                        </i>
-                                    </button>
-                            </div> --}}
                         </div>
                     </form>
-                    </div>
                 </div>
-
-                <a class="dropdown-item " href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                              document.getElementById('logout-form').submit();">
-                    <div class="text-center">
-                        {{ __('Desconectarse') }}
-                    </div>
-
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-
-                    
-
-                    </div>
-                </div>
-
             </div>
+
+            <a class="dropdown-item " href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                <div class="text-center">
+                    {{ __('Desconectarse') }}
+                </div>
+
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+
+
+
         </div>
-    </div>
-    </div>
-    </div>
-    </div>
 @endsection

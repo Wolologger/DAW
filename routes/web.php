@@ -86,6 +86,8 @@ Route::post('/posts', [App\Http\Controllers\PostController::class, 'filtro'])->n
 
 // Mi perfil
 Route::get('/user/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('get.profile');
+Route::get('/user/profile/{user}', [App\Http\Controllers\UserController::class, 'profile_view'])->name('profile_view2');
+Route::post('/user/profile/{user}', [App\Http\Controllers\UserController::class, 'profile_view'])->name('profile_view');
 Route::post('/user/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
 
 // Mi perfil - Editar

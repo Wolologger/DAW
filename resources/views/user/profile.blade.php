@@ -35,86 +35,77 @@
                         {{-- {{ __('Mi Compra Venta de Intrumentos') }} --}}
                         {{ $user->name }}
                     </div>
-                    <div class="card">
-                        <img src="aaaa" width="320px" height="320px">
-                    </div>
-                    <p> Nombre: {{ $user->name }}
-                    <p> Correo: {{ $user->email }}
-                    <p> Número de grupos: {{ $count_grupos }}
-                    <p> Instrumentos en venta: {{ $count_compraventa }}
-                    <p> Número de posts publicados: {{ $count_posts }}
-                    <p> Número de tutoriales: {{ $count_tutoriales }}
 
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
+                    <div class="container">
+                        <div class="row justify-content-center p-2">
+                            <div class="col p-2 text-center">
+                                <img src="../assets/img/portfolio/thumbnails/user.png" class="rounded-circle border"
+                                    width="220px">
                             </div>
-                        @endif
-                        <hr class="divider">
-
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-md-auto p-1 text-center">
-                                    <form method="POST" action="{{ route('profile_edit_view', $user->id) }}">
-                                        @csrf
-                                        <button type="submit" name="" id="" class="btn btn-warning" btn-lg
-                                            btn-block">
-                                            <i class="bi bi-pencil">
-                                                <h5>Editar Perfil</h5>
-                                            </i>
-                                        </button>
-                                    </form>
-                                </div>
-                                <div class="col-md-auto p-1 text-center">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block">
-
-                                        <a class="link-light text-decoration-none" href="{{ route('password.update') }}">
-                                            <i class="bi bi-asterisk">
-                                                <h5>Cambiar contraseña</h5>
-                                            </i>
-                                        </a>
-                                </div>
-                                <div class="col-md-auto p-1 text-center">
-                                    <form method="POST" action="{{ route('user.destroy', $user) }}">
-                                        @csrf
-                                        <button type="submit" name="" id="" class="btn btn-danger" btn-lg
-                                            btn-block" onclick="return confirm('¿Estás seguro?')">
-
-                                            <i class="bi bi-trash-fill">
-                                                {{-- <i class="bi bi-person-x-fill"> --}}
-                                                <h5>Borrar usuario</h5>
-                                            </i>
-                                        </button>
-                                    </form>
-                                </div>
+                            <div class="col p-2">
+                                <p> Nombre: {{ $user->name }}
+                                <p> Correo: {{ $user->email }}
+                                <p> Número de grupos: {{ $count_grupos }}
+                                <p> Instrumentos en venta: {{ $count_compraventa }}
+                                <p> Número de posts publicados: {{ $count_posts }}
+                                <p> Número de tutoriales: {{ $count_tutoriales }}
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-auto p-1 text-center">
+                            <form method="POST" action="{{ route('profile_edit_view', $user->id) }}">
+                                @csrf
+                                <button type="submit" class="btn btn-warning btn-lg btn-block">
+                                    <i class="bi bi-pencil">
+                                        <h5>Editar Perfil</h5>
+                                    </i>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-md-auto p-1 text-center">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">
 
-                <a class="dropdown-item " href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                              document.getElementById('logout-form').submit();">
-                    <div class="text-center">
-                        {{ __('Desconectarse') }}
+                                <a class="link-light text-decoration-none" href="{{ route('password.update') }}">
+                                    <i class="bi bi-asterisk">
+                                        <h5>Cambiar contraseña</h5>
+                                    </i>
+                                </a>
+                        </div>
+                        <div class="col-md-auto p-1 text-center">
+                            <form method="POST" action="{{ route('user.destroy', $user) }}">
+                                @csrf
+                                <button type="submit" name="" id="" class="btn btn-danger btn-lg btn-block"
+                                    onclick="return confirm('¿Estás seguro?')">
+                                    <i class="bi bi-trash-fill">
+                                        <h5>Borrar usuario</h5>
+                                    </i>
+                                </button>
+                            </form>
+                        </div>
                     </div>
-
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-
-
-
+                </div>
             </div>
         </div>
+        <div class="card-body">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+        </div>
+    </div>
+    </div>
+    <a class="dropdown-item " href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+        <div class="text-center">
+            {{ __('Desconectarse') }}
+        </div>
 
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+    </a>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
 @endsection

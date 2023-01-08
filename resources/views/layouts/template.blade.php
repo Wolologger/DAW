@@ -21,11 +21,11 @@
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 
-<body id="page-top">
+<body id="home">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#page-top">Your Band Music</a>
+            <a class="navbar-brand" href="#home">Your Band Music</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -54,16 +54,16 @@
                     @endguest
                     <li class="nav-item"><a class="nav-link" href="#compraventa"><i class="bi bi-wallet2"></i>
                             Compra Venta</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services"><i class="bi bi-people-fill"></i>
+                    <li class="nav-item"><a class="nav-link" href="#grupos"><i class="bi bi-people-fill"></i>
                             Grupos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio"><i class="bi bi-display"></i>
+                    <li class="nav-item"><a class="nav-link" href="#tutoriales"><i class="bi bi-display"></i>
                             Tutoriales</a></li>
                     {{-- <li class="nav-item"><a class="nav-link" href="#contact"><i class="bi bi-card-text"></i>
                             Posts</a>
                     </li> --}}
                     {{-- <li class="nav-item"><a class="nav-link" href="#about"><i class="bi bi-info-circle"></i>
                             Sobre nosotros</a></li> --}}
-                    <li class="nav-item"><a class="nav-link" href="#about"><i class="bi bi-card-text"></i>
+                    <li class="nav-item"><a class="nav-link" href="#posts"><i class="bi bi-card-text"></i>
                             Posts</a></li>
                     {{-- <li class="nav-item"><a class="nav-link" href="#contact"><i class="bi bi-envelope"></i>
                             Contacto</a>
@@ -154,7 +154,7 @@
     </div>
     {{-- GRUPOS --}}
     <!-- Services-->
-    <section class="page-section" id="services">
+    <section class="page-section" id="grupos">
         <div class="container px-4 px-lg-5">
             <h2 class="text-center text-uppercase mt-0"><i class="bi bi-people-fill"></i> Grupos</h2>
             {{-- <hr class="divider" /> --}}
@@ -188,7 +188,7 @@
 
     <!-- Portfolio-->
 
-    <div id="portfolio">
+    <div id="tutoriales">
         <div class="container px-4 px-lg-5 text-center">
             <h2 class="text-center text-uppercase mt-0"><i class="bi bi-display"></i> Tutoriales</h2>
         </div>
@@ -224,7 +224,7 @@
     </div>
 
     <!-- About-->
-    <section class="page-section bg-primary" id="about">
+    <section class="page-section bg-primary" id="posts">
 
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
