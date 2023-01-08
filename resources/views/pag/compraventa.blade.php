@@ -26,7 +26,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-center">{{ __('Compra Venta de Intrumentos') }}</div>
+                    <div class="card-header text-center">{{ __('Compraventa') }}</div>
 
                     <form method="POST" action="{{ route('compraventa_filtro') }}">
                         @csrf

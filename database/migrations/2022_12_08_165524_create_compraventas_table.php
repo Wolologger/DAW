@@ -28,7 +28,7 @@ return new class extends Migration
 
             $table->string('state');
 
-            $table->enum('status',[1,2])->default(1);
+            // $table->enum('status',[1,2])->default(1);
 
             $table->unsignedBigInteger('user_id');
 

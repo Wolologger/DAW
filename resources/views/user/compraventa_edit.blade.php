@@ -28,7 +28,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-center">
-                        {{ __('Editar Compra Venta de Intrumentos') }}
+                        {{ __('Editar Compraventa') }}
                     </div>
                     <div class="card-header">
                     </div>

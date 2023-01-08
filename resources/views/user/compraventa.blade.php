@@ -29,7 +29,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-center">
-                        {{ __('Mi Compra Venta de Intrumentos') }}
+                        {{ __('Mi Compraventa') }}
                     </div>
                     @php
                         $user = Auth::user();

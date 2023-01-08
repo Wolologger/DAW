@@ -47,7 +47,7 @@ class GrupoFactory extends Factory
             // 'country' => $this->faker->country(),
             'search' =>$this->faker->randomElement($musicos),
 
-            'status' => $this->faker->randomElement([1,2]),
+            // 'status' => $this->faker->randomElement([1,2]),
 
             'user_id' => User::all()->random()->id
 

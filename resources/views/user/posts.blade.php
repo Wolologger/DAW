@@ -29,7 +29,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-center">
-                        {{ __('Mis posts') }}
+                        {{ __('Mis Posts') }}
                     </div>
                     @php
                         $user = Auth::user();

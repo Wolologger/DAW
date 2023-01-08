@@ -23,16 +23,12 @@ return new class extends Migration
 
             $table->longText('body');
             $table->string('category');
-            
-
-            $table->enum('status',[1,2])->default(1);
 
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('category_id');
+
 
             // Creando claves foraneas
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -30,8 +30,8 @@ class TutorialFactory extends Factory
             'body' => $this->faker->text(500),
             'extract' => $this->faker->text(50),
 
-            'status' => 
-            $this->faker->randomElement([1,2]),
+            // 'status' => 
+            // $this->faker->randomElement([1,2]),
             'user_id' => User::all()->random()->id
 
         ];

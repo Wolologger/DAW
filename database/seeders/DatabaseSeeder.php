@@ -35,7 +35,6 @@ class DatabaseSeeder extends Seeder
             Storage::makeDirectory('public/posts');
             
             $this->call(UserSeeder::class);
-            Category::factory(4)->create();
          
             // Grupo::factory(12)->create();
             // Tutorial::factory(10)->create();
