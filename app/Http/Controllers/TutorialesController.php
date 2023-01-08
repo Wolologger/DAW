@@ -83,12 +83,24 @@ class TutorialesController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->get();
         
+                if(count($tutorial)<=0){
+                    $tutorial = "No se ha encontrado ningún registro";
+                }
+
                 return view('user/tutoriales', ['tutoriales' => $tutorial]);
             }
         
             public function tutoriales_details(Request $id){
-                return "patata";
+                $id = $id -> id;
+                $tutoriales = DB::table('tutorials')
+                ->select('users.name as usuario','type', 'tutorials.id as tutorial_id','tutorials.name as tutorial_name', 'extract', 'body', 'tutorials.created_at')
+                ->join('users','tutorials.user_id', '=', 'users.id')
+                ->where('tutorials.id', '=', $id) 
+                ->get();
+        
+                return view('pag/tutoriales_details', ['tutoriales' => $tutoriales]);           
             }
+
             public function tutoriales_new_view(){
                 return view('user/tutoriales_new');
             }

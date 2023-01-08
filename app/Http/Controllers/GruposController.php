@@ -141,12 +141,23 @@ class GruposController extends Controller
                 ->where('user_id', '=', $user_id) 
                 ->orderBy('created_at', 'desc')
                 ->get();
+
+                if(count($grupos)<=0){
+                    $grupos = "No se ha encontrado ningún registro";
+                }
         
                 return view('user/grupos', ['grupos' => $grupos]);
             }
         
             public function grupos_details(Request $id){
-                return "patata";
+                $id = $id -> id;
+                $grupos = DB::table('grupos')
+                ->select('users.name as usuario','grupos.created_at as grupos_created_at','grupos.state as grupos_state', 'grupos.name as grupos_name', 'contact', 'body', 'gender', 'search')
+                ->join('users','grupos.user_id', '=', 'users.id')
+                ->where('grupos.id', '=', $id) 
+                ->get();
+        
+                return view('pag/grupos_details', ['grupos' => $grupos]);         
             }
             public function grupos_new_view(){
                 return view('user/grupos_new');

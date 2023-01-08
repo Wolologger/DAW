@@ -64,12 +64,25 @@ class PostController extends Controller
         ->orderBy('created_at', 'desc')
         ->get();
 
+        if(count($posts)<=0){
+            $posts = "No se ha encontrado ningún registro";
+        }
+        
         return view('user/posts', ['posts' => $posts]);
     }
 
     public function posts_details(Request $id){
-        return "patata";
+        $id = $id -> id;
+        $posts = DB::table('posts')
+        ->select('users.name as usuario', 'posts.name as nombre_post', 'posts.category as category', 'posts.extract as extract', 'posts.body as body', 'posts.created_at as posts_created_at')
+        ->join('users','posts.user_id', '=', 'users.id')
+        ->where('posts.id', '=', $id) 
+        ->get();
+
+        // return $posts;
+        return view('pag/posts_details', ['posts' => $posts]);
     }
+
     public function posts_new_view(){
         return view('user/posts_new');
     }

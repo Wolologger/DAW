@@ -109,7 +109,7 @@
             <div class="row g-0">
                 {{-- elemento --}}
                 @foreach ($compraventa as $instrumento)
-                    <div class="col-lg-4 col-sm-6 border">
+                    <div class="col-lg-4 col-sm-6 border shadow">
 
                         <a class="compraventa-box" title={{ $instrumento->slug }}>
                             <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/pacifica.jpg"
@@ -127,7 +127,7 @@
                                 <p>
                                 <div class="project-name">
                                     <form method="POST"
-                                    action="{{ route('user.compraventa.details', $instrumento->id) }}">
+                                        action="{{ route('user.compraventa.details', $instrumento->id) }}">
                                         @csrf
                                         <button type="submit" class="btn btn-outline-light">
                                             ¡Ver más!
@@ -164,11 +164,18 @@
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <h3 class="h4 mb-2"> {{ $grupo->name }}</h3>
-                            <p class="text-muted mb-0">Este grupo esta buscando:</p>
+                            <p class="text-muted mb-0">Este grupo de esta buscando:</p>
                             <ul class="list-group">
-                                <li class="list-group-item"><a
-                                        href='#{{ $grupo->id }}'><strong>{{ $grupo->search }}</strong></a></li>
+                                <form method="POST" action="{{ route('user.grupos.details', $grupo->id) }}">
+                                    @csrf
+                                <li class="list-group-item border-0">
+                            <button type="submit" class="shadow border-0 btn btn-outline-primary rounded-pill">
+                                    <strong>{{ $grupo->search }}</strong>
+                            </button>
+                                </li>
+                                </form>
                             </ul>
+                            <p class="text-muted mb-0">En {{ $grupo->state }} </p>
                         </div>
                     </div>
                 @endforeach
@@ -189,13 +196,20 @@
             <div class="row g-0">
                 @foreach ($tutoriales as $tutorial)
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="#{{ $tutorial->id }}">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/flv.jpg" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">{{ $tutorial->type }}</div>
-                                <div class="project-name">{{ $tutorial->name }}</div>
-                            </div>
-                        </a>
+                        <form method="POST" action="{{ route('user.tutoriales.details', $tutorial->id) }}">
+                            @csrf
+                            <button type="submit" class="shadow border-0">
+                                <a class="portfolio-box">
+                                    <img class="img-fluid" src="assets/img/portfolio/thumbnails/flv.jpg"
+                                        alt="..." />
+                                    <div class="portfolio-box-caption">
+                                        <div class="project-category text-white-50">{{ $tutorial->type }}</div>
+                                        <div class="project-name">{{ $tutorial->name }}</div>
+
+                                    </div>
+                                </a>
+                            </button>
+                        </form>
                     </div>
                 @endforeach
             </div>
@@ -236,8 +250,15 @@
                             </div>
 
                             <div class="card-body text-center">
-                                <a href="#{{ $post->id }}" class="btn btn-primary">Leer más</a>
+                                {{-- <a href="#{{ $post->id }}" class="btn btn-primary">Leer más</a> --}}
+                                <form method="POST" action="{{ route('user.posts.details', $post->id) }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary">
+                                        Leer más
+                                    </button>
+                                </form>
                             </div>
+
                         </div>
                         <p>
                     </div>
@@ -245,26 +266,27 @@
 
             </div>
             <p>
-            {{-- <div class="container px-4 px-lg-5">
+                {{-- <div class="container px-4 px-lg-5">
 
             </div> --}}
             <div class="row gx-4 gx-lg-5">
                 <a class="btn btn-secondary btn-xl" href={{ route('posts') }}>¡Ver más!</a>
             </div>
     </section>
-            {{-- <div class="row gx-4 gx-lg-5 justify-content-center">
+    {{-- <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-4 text-center mb-5 mb-lg-0">
                     <i class="bi-phone fs-2 mb-3 text-muted"></i>
                     <div>+34 (942) 000-000</div>
                 </div>
             </div> --}}
-        </div>
+    </div>
     </section>
     <!-- Footer-->
     <footer class="bg-light py-4">
         <div class="container px-3 px-lg-5ç4">
-            <div class="small text-center text-muted">Contacto: 
-                <a href="mailto:yourbandmusic@outlook.es">yourbandmusic@outlook.es</a></div>
+            <div class="small text-center text-muted">Contacto:
+                <a href="mailto:yourbandmusic@outlook.es">yourbandmusic@outlook.es</a>
+            </div>
             <div class="small text-center text-muted">Copyright &copy; 2022 - Your Band Music</div>
 
         </div>

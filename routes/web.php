@@ -120,7 +120,7 @@ Route::post('/user/compraventa/delete/{userid}/{id}', [App\Http\Controllers\Comp
 // Mis posts
 Route::get('/user/posts/{user}', [App\Http\Controllers\PostController::class, 'posts'])->name('get.user.posts');
 Route::post('/user/posts/{user}', [App\Http\Controllers\PostController::class, 'posts'])->name('user.posts');
-Route::post('/user/posts/details/{id}', [App\Http\Controllers\PostController::class, 'posts'])->name('user.posts.details');
+Route::post('/user/posts/details/{id}', [App\Http\Controllers\PostController::class, 'posts_details'])->name('user.posts.details');
 
 // Mis posts - Nuevo
 Route::post('/user/posts/new/{id}', [App\Http\Controllers\PostController::class, 'posts_new_view'])->name('user.posts.new_view');
@@ -141,7 +141,7 @@ Route::post('/user/posts/delete/{userid}/{id}', [App\Http\Controllers\PostContro
 // Mis grupos 
 Route::get('/user/grupos/{user}', [App\Http\Controllers\GruposController::class, 'grupos'])->name('get.user.grupos');
 Route::post('/user/grupos/{user}', [App\Http\Controllers\GruposController::class, 'grupos'])->name('user.grupos');
-Route::post('/user/grupos/details/{id}', [App\Http\Controllers\GruposController::class, 'grupos'])->name('user.grupos.details');
+Route::post('/user/grupos/details/{id}', [App\Http\Controllers\GruposController::class, 'grupos_details'])->name('user.grupos.details');
 
 // Mis grupos - Nuevo
 Route::post('/user/grupos/new/{id}', [App\Http\Controllers\GruposController::class, 'grupos_new_view'])->name('user.grupos.new_view');
@@ -163,7 +163,7 @@ Route::post('/user/grupos/delete/{userid}/{id}', [App\Http\Controllers\GruposCon
 // Mis tutoriales 
 Route::get('/user/tutoriales/{user}', [App\Http\Controllers\TutorialesController::class, 'tutoriales'])->name('get.user.tutoriales');
 Route::post('/user/tutoriales/{user}', [App\Http\Controllers\TutorialesController::class, 'tutoriales'])->name('user.tutoriales');
-Route::post('/user/tutoriales/details/{id}', [App\Http\Controllers\TutorialesController::class, 'tutoriales'])->name('user.tutoriales.details');
+Route::post('/user/tutoriales/details/{id}', [App\Http\Controllers\TutorialesController::class, 'tutoriales_details'])->name('user.tutoriales.details');
 
 // Mis tutoriales - Nuevo
 Route::post('/user/tutoriales/new/{id}', [App\Http\Controllers\TutorialesController::class, 'tutoriales_new_view'])->name('user.tutoriales.new_view');
