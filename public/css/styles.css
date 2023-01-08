@@ -11500,3 +11500,47 @@ header.masthead h1, header.masthead .h1 {
 
 }
 
+
+/* tutoriales */
+#tutoriales .container-fluid, #tutoriales .container-sm, #tutoriales .container-md, #tutoriales .container-lg, #tutoriales .container-xl, #tutoriales .container-xxl {
+  max-width: 1920px;
+}
+
+#tutoriales .container-fluid .tutoriales-box, #tutoriales .container-sm .tutoriales-box, #tutoriales .container-md .tutoriales-box, #tutoriales .container-lg .tutoriales-box, #tutoriales .container-xl .tutoriales-box, #tutoriales .container-xxl .tutoriales-box {
+  position: relative;
+  display: block;
+}
+
+#tutoriales .container-fluid .tutoriales-box .tutoriales-box-caption, #tutoriales .container-sm .tutoriales-box .tutoriales-box-caption, #tutoriales .container-md .tutoriales-box .tutoriales-box-caption, #tutoriales .container-lg .tutoriales-box .tutoriales-box-caption, #tutoriales .container-xl .tutoriales-box .tutoriales-box-caption, #tutoriales .container-xxl .tutoriales-box .tutoriales-box-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  opacity: 0;
+  color: #fff;
+  background: rgba(244, 98, 58, 0.9);
+  transition: opacity 0.25s ease;
+  text-align: center;
+}
+
+#tutoriales .container-fluid .tutoriales-box .tutoriales-box-caption .project-category, #tutoriales .container-sm .tutoriales-box .tutoriales-box-caption .project-category, #tutoriales .container-md .tutoriales-box .tutoriales-box-caption .project-category, #tutoriales .container-lg .tutoriales-box .tutoriales-box-caption .project-category, #tutoriales .container-xl .tutoriales-box .tutoriales-box-caption .project-category, #tutoriales .container-xxl .tutoriales-box .tutoriales-box-caption .project-category {
+  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#tutoriales .container-fluid .tutoriales-box .tutoriales-box-caption .project-name, #tutoriales .container-sm .tutoriales-box .tutoriales-box-caption .project-name, #tutoriales .container-md .tutoriales-box .tutoriales-box-caption .project-name, #tutoriales .container-lg .tutoriales-box .tutoriales-box-caption .project-name, #tutoriales .container-xl .tutoriales-box .tutoriales-box-caption .project-name, #tutoriales .container-xxl .tutoriales-box .tutoriales-box-caption .project-name {
+  font-size: 1.2rem;
+}
+
+#tutoriales .container-fluid .tutoriales-box:hover .tutoriales-box-caption, #tutoriales .container-sm .tutoriales-box:hover .tutoriales-box-caption, #tutoriales .container-md .tutoriales-box:hover .tutoriales-box-caption, #tutoriales .container-lg .tutoriales-box:hover .tutoriales-box-caption, #tutoriales .container-xl .tutoriales-box:hover .tutoriales-box-caption, #tutoriales .container-xxl .tutoriales-box:hover .tutoriales-box-caption {
+  opacity: 1.5;
+}
+
+

@@ -164,7 +164,7 @@
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <h3 class="h4 mb-2"> {{ $grupo->name }}</h3>
-                            <p class="text-muted mb-0">Este grupo de esta buscando:</p>
+                            <p class="text-muted mb-0">Este grupo esta buscando:</p>
                             <ul class="list-group">
                                 <form method="POST" action="{{ route('user.grupos.details', $grupo->id) }}">
                                     @csrf
@@ -188,7 +188,10 @@
 
     <!-- Portfolio-->
 
-    <div id="tutoriales">
+    <div id="portfolio">
+        <div id="tutoriales">
+    {{-- <div id="portfolio"> --}}
+
         <div class="container px-4 px-lg-5 text-center">
             <h2 class="text-center text-uppercase mt-0"><i class="bi bi-display"></i> Tutoriales</h2>
         </div>
@@ -221,6 +224,7 @@
             </div>
             <hr class="divider-light" />
         </div>
+    </div>
     </div>
 
     <!-- About-->

@@ -43,14 +43,24 @@
                                         <div class="card-body">
                                             <p class="card-text"><strong>Categoria:</strong> {{ $post->category }}</p>
                                             <p class="card-text"><strong>Resumen:</strong> {{ $post->extract }}</p>
-                                            <p class="card-text"><strong>Cuerpo:</strong><br> {{ $post->body }}</p>
+                                            {{-- <p class="card-text"><strong>Cuerpo:</strong><br> {{ $post->body }}</p> --}}
                                             
                                         </p>
                                         </div>
 
+
                                     </div>
                                 @endforeach
                             </div>
+                            <div class="row g-0">
+                                <div class="col-md-auto">
+                                    <div class="card-body">
+                                    <p class="card-text"><strong>Cuerpo:</strong><br> {{ $post->body }}</p>
+
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
