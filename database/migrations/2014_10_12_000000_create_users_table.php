@@ -20,9 +20,9 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             //modificamos la tabla users para permitir los admins
-            $table->boolean('admin')->default(false);
+            // $table->boolean('admin')->default(false);
             //para que sea grupo
-            $table->boolean('grupo')->default(false);
+            // $table->boolean('grupo')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
