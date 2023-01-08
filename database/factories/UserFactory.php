@@ -23,7 +23,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => bcrypt('Contraseña.1'), // password
             'remember_token' => Str::random(10),
-            'grupo'=> $this->faker->boolean()
+            // 'grupo'=> $this->faker->boolean()
         ];
     }
 

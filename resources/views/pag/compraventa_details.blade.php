@@ -45,9 +45,9 @@
                                             {{-- <p class="card-text"><strong>Usuario:</strong> <a href="{{route('profile_view2', $instrumento->user_id)}}">{{  $instrumento->usuario}}</a></p> --}}
                                             <p class="card-text"><strong>Correo:</strong> <a href="mailto:{{$instrumento->email}}" class="text-decoration-none fw-bold">{{$instrumento->email}}</a> </p>
                                             <p class="card-text"><strong>Provincia:</strong> {{ $instrumento->state }}</p>
-                                            <p class="card-text"><strong>User id:</strong> {{ $instrumento->user_id }}</p>
-                                            <p class="card-text"><strong>User id:</strong> {{ gettype($instrumento->user_id) }}</p>
-                                            <p class="card-text"><strong>User id:</strong> {{ (gettype((string) $instrumento->user_id)) }}</p>
+                                            {{-- <p class="card-text"><strong>User id:</strong> {{ $instrumento->user_id }}</p> --}}
+                                            {{-- <p class="card-text"><strong>User id:</strong> {{ gettype($instrumento->user_id) }}</p> --}}
+                                            {{-- <p class="card-text"><strong>User id:</strong> {{ (gettype((string) $instrumento->user_id)) }}</p> --}}
                                             
 
 
