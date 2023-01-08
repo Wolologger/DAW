@@ -32,7 +32,6 @@
                             <div class="row g-0">
                                     <div class="col-md-6">
                                         <div class="card-body">
-                                            
                                         <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/pacifica.jpg"
                                             alt="..." /><p>
                                             <p class="card-text"><strong>Creado por:</strong> {{  $tutorial->usuario}}</p>

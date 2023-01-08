@@ -12,9 +12,9 @@
                             <div class="container">
                                 <div class="row justify-content-center">
 
-                                    <div class="col-md-auto p-1 text-center">
+                                    <div class="col-md-2 p-1 text-center">
                                         <input type="text" name="nombre" list="nombresGrupos" class="form-control"
-                                            placeholder="Nombre del grupo">
+                                            placeholder="Grupo">
                                         <datalist id="nombresGrupos">
                                             @foreach ($grupos as $grupo)
                                                 <option value="{{ $grupo->name }}">

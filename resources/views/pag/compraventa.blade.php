@@ -50,6 +50,11 @@
                                         @endforeach
                                     </select>
                             </div>
+                            
+                            {{-- <div class="col-md-auto p-1 text-center">
+                                <input type="number" class="form-control">
+                            </div> --}}
+
                             <div class="col-md-auto p-1 text-center">
                                     {{-- Estado: --}}
                                     <select name="estado" id="estado" class="form-select">

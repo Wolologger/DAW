@@ -26,8 +26,7 @@ class CompraventaController extends Controller
                 'model',
                 'price', 
                 'state_product', 
-                'state', 
-                'status')
+                'state')
        ->get();
 
        // Query provincias
@@ -79,8 +78,7 @@ class CompraventaController extends Controller
                  'model',
                  'price', 
                  'state_product', 
-                 'state', 
-                 'status')
+                 'state', )
         ->where('type', 'LIKE', '%'.$tipo.'%')
         // ->where('brand', 'LIKE', '%'.$marca.'%')
         ->where('brand', 'LIKE', '%'.$marca.'%')
@@ -143,6 +141,13 @@ class CompraventaController extends Controller
             ->where('user_id', '=', $user_id) 
             ->orderBy('created_at', 'desc')
             ->get();
+
+            if ((count($compraventa)) <= 0){
+               $compraventa = DB::table('compraventas')
+                ->select('id')
+                ->where('brand', '=', '#aZIv06H53Zy') 
+                ->get();;
+            }
 
             return view('user/compraventa', ['compraventa' => $compraventa]);
         }

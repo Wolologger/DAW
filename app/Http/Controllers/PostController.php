@@ -64,6 +64,12 @@ class PostController extends Controller
         ->orderBy('created_at', 'desc')
         ->get();
 
+        if ((count($posts)) <= 0){
+            $posts = DB::table('posts')
+             ->select('id')
+             ->where('name', '=', '#aZIv06H53Zy') 
+             ->get();;
+         }
 
         return view('user/posts', ['posts' => $posts]);
     }

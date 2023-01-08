@@ -142,7 +142,13 @@ class GruposController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->get();
 
-        
+                if ((count($grupos)) <= 0){
+                    $grupos = DB::table('grupos')
+                     ->select('id')
+                     ->where('name', '=', '#aZIv06H53Zy') 
+                     ->get();;
+                 }
+
                 return view('user/grupos', ['grupos' => $grupos]);
             }
         

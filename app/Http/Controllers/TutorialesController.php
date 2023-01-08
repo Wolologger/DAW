@@ -83,6 +83,13 @@ class TutorialesController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->get();
         
+                if ((count($tutoriales)) <= 0){
+                    $tutoriales = DB::table('tutorials')
+                     ->select('id')
+                     ->where('name', '=', '#aZIv06H53Zy') 
+                     ->get();;
+                 }
+        
 
                 return view('user/tutoriales', ['tutoriales' => $tutoriales]);
             }
