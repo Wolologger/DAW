@@ -6,39 +6,39 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-center">{{ __('Posts') }}</div>
-                    @if ($posts->count() <= 0)
-                    
-                    <h5 class="text-center">No existen registros</h5>
-    
-                    @else
-                    {{-- <div class="container"> --}}
-                        <div class="row justify-content-center">
-                            <form method="POST" action="{{ route('posts_filtro') }}">
-                                @csrf
-                            <div class="col">
-                                <strong>Fecha:</strong>
-                                <input type="date" name="fecha">
-                            </div>
-                            <div class="col">
-                                <strong>Titulo:</strong>
-                                <input type="text" name="titulo">
-                                
-                            </div>
-                            <div class="col">
-                                <strong>Categoria</strong>
-                                <input type="text" name="category">
-                                
-                            </div>
-                            <div class="col border">
-                                <div class="d-grid gap-2 border rounded-circle">
-                                    <button type="submit" class="btn btn-primary text-secondary"><i
-                                            class="bi bi-search"></i></button>
+
+
+                    <form method="POST" action="{{ route('posts_filtro') }}">
+                        @csrf
+                        <div class="container">
+                            <div class="row justify-content-center">
+
+                                <div class="col-md-auto p-1 text-center">
+                                    <input type="date" name="fecha" class="form-control">
+                                </div>
+
+                                <div class="col-md-auto p-1 text-center">
+                                    <input type="text" name="titulo" class="form-control" placeholder="Titulo">
+                                </div>
+
+                                <div class="col-md-auto p-1 text-center">
+                                    <input type="text" name="category" class="form-control" placeholder="Categoria">
+                                </div>
+
+                                <div class="col-md-auto p-1 text-center">
+                                    <div class="d-grid gap-2 border rounded-pill border-primary">
+                                        <button type="submit" class="btn btn-link border-0 text-decoration-none"><i
+                                                class="bi bi-search text-primary"></i></button>
+                                    </div>
                                 </div>
                             </div>
-                        </form>
                         </div>
-                    </div>
+                    </form>
 
+                    @if ($posts->count() <= 0)
+                    <h5 class="text-center">No existen registros</h5>
+                    @else
+                                        
                     <div class="card-body">
                         <div class="card mb-3 border">
                             <div class="row g-0">

@@ -27,61 +27,60 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-center">{{ __('Compra Venta de Intrumentos') }}</div>
-                    @if ($compraventa->count() <= 0)
-                    
-                    <h5 class="text-center">No existen registros</h5>
-    
-                    @else
-                    {{-- <div class="container"> --}}
-                    <div class="row justify-content-center">
-                        <form method="POST" action="{{ route('compraventa_filtro') }}">
-                            @csrf
-                            <div class="col border">
-                                {{-- Tipo: --}}
-                                <select name="tipo" id="tipo">
-                                    <option value="" selected>Elige tipo</option>
+
+                    <form method="POST" action="{{ route('compraventa_filtro') }}">
+                        @csrf
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-auto p-1 text-center">
+                                    {{-- Tipo: --}}
+                                <select name="tipo" id="tipo" class="form-select">
+                                    <option value="" selected>Tipo</option>
                                     @foreach ($tipos as $tipo)
                                         <option value="{{ $tipo->type }}">{{ $tipo->type }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col border">
-                                {{-- Marca: --}}
-                                <select name="marca" id="marca">
-                                    <option value="" selected>Elige marca</option>
-                                    @foreach ($marcas as $marca)
-                                        <option value="{{ $marca->brand }}">{{ $marca->brand }}</option>
-                                    @endforeach
-                                </select>
+                            <div class="col-md-auto p-1 text-center">
+                                    {{-- Marca: --}}
+                                    <select name="marca" id="marca" class="form-select">
+                                        <option value="" selected>Marca</option>
+                                        @foreach ($marcas as $marca)
+                                            <option value="{{ $marca->brand }}">{{ $marca->brand }}</option>
+                                        @endforeach
+                                    </select>
                             </div>
-                            <div class="col border">
-                                {{-- Estado: --}}
-                                <select name="estado" id="estado">
-                                    <option value="" selected>Elige estado</option>
-                                    @foreach ($estados as $estado)
-                                        <option value="{{ $estado->state_product }}">{{ $estado->state_product }}</option>
-                                    @endforeach
-                                </select>
+                            <div class="col-md-auto p-1 text-center">
+                                    {{-- Estado: --}}
+                                    <select name="estado" id="estado" class="form-select">
+                                        <option value="" selected>Estado</option>
+                                        @foreach ($estados as $estado)
+                                            <option value="{{ $estado->state_product }}">{{ $estado->state_product }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                             </div>
-                            <div class="col border">
-                                {{-- <strong>Provincia:</strong> --}}
-                                <select name="provincia" id="provincia">
-                                    <option value="" selected>Elige provincia</option>
-                                    @foreach ($provincias as $provincia)
-                                        <option value="{{ $provincia->state }}">{{ $provincia->state }}</option>
-                                    @endforeach
-                                </select>
+                            <div class="col-md-auto p-1 text-center">
+                                    {{-- <strong>Provincia:</strong> --}}
+                                    <select name="provincia" id="provincia" class="form-select">
+                                        <option value="" selected>Provincia</option>
+                                        @foreach ($provincias as $provincia)
+                                            <option value="{{ $provincia->state }}">{{ $provincia->state }}</option>
+                                        @endforeach
+                                    </select>
                             </div>
-                            <div class="col border">
-                                <div class="d-grid gap-2 border rounded-circle">
-                                    <button type="submit" class="btn btn-primary text-secondary"><i
-                                            class="bi bi-search"></i></button>
+                            <div class="col-md-auto p-1 text-center">
+                                <div class="d-grid gap-2 border rounded-pill border-primary">
+                                    <button type="submit" class="btn btn-link border-0 text-decoration-none"><i
+                                            class="bi bi-search text-primary"></i></button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
 
+                    @if ($compraventa->count() <= 0)
+                        <h5 class="text-center">No existen registros</h5>
+                    @else
                 <div class="card-body">
                     <div class="card mb-3 border">
 
@@ -91,7 +90,8 @@
                                     {{-- @foreach ($imagenes as $imagen) --}}
                                     <div class="card-body">
                                         {{-- <img class="img-fluid rounded" width="650" height="350" src={{$imagen->url}} --}}
-                                        <img class="img-fluid rounded" width="650" height="350" src='https://via.placeholder.com/650x350.png/008888?text=repellendus'
+                                        <img class="img-fluid rounded" width="650" height="350"
+                                            src='https://via.placeholder.com/650x350.png/008888?text=repellendus'
                                             alt="..." />
                                     </div>
                                     {{-- @endforeach --}}
