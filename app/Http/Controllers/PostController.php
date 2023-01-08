@@ -64,10 +64,7 @@ class PostController extends Controller
         ->orderBy('created_at', 'desc')
         ->get();
 
-        if(count($posts)<=0){
-            $posts = "No se ha encontrado ningún registro";
-        }
-        
+
         return view('user/posts', ['posts' => $posts]);
     }
 

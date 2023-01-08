@@ -47,6 +47,9 @@
                     </form>
                 </div>
 
+                @if ($grupos->count() <= 0)
+                    <h5 class="text-center">No existen registros</h5>
+                @else
             </div>
             <div class="card-body ">
                 <div class="card mb-3 ">
@@ -103,7 +106,7 @@
 
                             </div>
                         @endforeach
-
+                        @endif
                     </div>
                 </div>
 

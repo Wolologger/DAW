@@ -27,7 +27,11 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-center">{{ __('Compra Venta de Intrumentos') }}</div>
-
+                    @if ($compraventa->count() <= 0)
+                    
+                    <h5 class="text-center">No existen registros</h5>
+    
+                    @else
                     {{-- <div class="container"> --}}
                     <div class="row justify-content-center">
                         <form method="POST" action="{{ route('compraventa_filtro') }}">
@@ -115,6 +119,7 @@
                                     </div>
                                 </div>
                             @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -36,7 +36,7 @@
                     @endphp
 
                     <form method="POST" action="{{ route('user.compraventa.new_view', $user->id) }}">
-                        
+
                         @csrf
                         <div class="card-header">
                             <div class="card">
@@ -49,64 +49,67 @@
                 </div>
 
             </div>
-            <div class="card-body ">
-                <div class="card mb-3 ">
-                    <div class="row g-0 ">
-                        @foreach ($compraventa as $instrumento)
-                            <div class="col-md-5">
-                                <div class="card-body">
-                                    <img class="img-fluid rounded" src="../../assets/img/portfolio/thumbnails/pacifica.jpg"
-                                        alt="..." />
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="card-body">
-                                    <h5 class="card-title">Instrumento:
-                                        {{ $instrumento->brand . ' ' . $instrumento->model }}</h5>
-                                    <p class="card-text">Precio: {{ $instrumento->price }} €</p>
-                                    <p class="card-text">Estado: {{ $instrumento->state_product }}</p>
-                                    <p class="card-text">Provincia: {{ $instrumento->state }}</p>
-                                    <p class="card-text">Fecha creación:
-                                        {{ date('d-m-Y', strtotime($instrumento->created_at)) }}</p>
-                                    {{-- <p class="card-text">Últm. actualización: {{  date('d-m-Y', strtotime($instrumento->updated_at))}}</p> --}}
-                                    </p>
-                                </div>
-
-                            </div>
-                            <div class="col-md-2">
-                                <div class="card-body">
-                                    {{-- <div class="d-grid gap-2 col-2 mx-auto "> --}}
-                                    <div class="card-text text-center">
-                                        <form method="POST"
-                                            action="{{ route('user.compraventa.edit_view', $instrumento->id) }}">
-                                            @csrf
-
-                                            <button type="submit" class="btn btn-primary">
-                                                <span class="text-light text-decoration-none">
-                                                    {{ 'Editar' }}
-                                                </span>
-                                            </button>
-                                        </form>
-                                        <p>
-                                        <form method="POST"
-                                            action="{{ route('user.compraventa.delete', [$instrumento->user_id, $instrumento->id]) }}">
-                                            @csrf
-                                            <button type="submit" class="btn btn-danger"
-                                                onclick="return confirm('¿Estás seguro?')"><span
-                                                    class="text-light text-decoration-none">{{ 'Borrar' }}</span>
-                                            </button>
-                                        </form>
+            @if ($compraventa->count() <= 0)
+                <h5 class="text-center">No existen registros</h5>
+            @else
+                <div class="card-body ">
+                    <div class="card mb-3 ">
+                        <div class="row g-0 ">
+                            @foreach ($compraventa as $instrumento)
+                                <div class="col-md-5">
+                                    <div class="card-body">
+                                        <img class="img-fluid rounded"
+                                            src="../../assets/img/portfolio/thumbnails/pacifica.jpg" alt="..." />
                                     </div>
                                 </div>
+                                <div class="col-md-5">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Instrumento:
+                                            {{ $instrumento->brand . ' ' . $instrumento->model }}</h5>
+                                        <p class="card-text">Precio: {{ $instrumento->price }} €</p>
+                                        <p class="card-text">Estado: {{ $instrumento->state_product }}</p>
+                                        <p class="card-text">Provincia: {{ $instrumento->state }}</p>
+                                        <p class="card-text">Fecha creación:
+                                            {{ date('d-m-Y', strtotime($instrumento->created_at)) }}</p>
+                                        {{-- <p class="card-text">Últm. actualización: {{  date('d-m-Y', strtotime($instrumento->updated_at))}}</p> --}}
+                                        </p>
+                                    </div>
 
-                            </div>
-                        @endforeach
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="card-body">
+                                        {{-- <div class="d-grid gap-2 col-2 mx-auto "> --}}
+                                        <div class="card-text text-center">
+                                            <form method="POST"
+                                                action="{{ route('user.compraventa.edit_view', $instrumento->id) }}">
+                                                @csrf
 
-                    </div>
-                </div>
+                                                <button type="submit" class="btn btn-primary">
+                                                    <span class="text-light text-decoration-none">
+                                                        {{ 'Editar' }}
+                                                    </span>
+                                                </button>
+                                            </form>
+                                            <p>
+                                            <form method="POST"
+                                                action="{{ route('user.compraventa.delete', [$instrumento->user_id, $instrumento->id]) }}">
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger"
+                                                    onclick="return confirm('¿Estás seguro?')"><span
+                                                        class="text-light text-decoration-none">{{ 'Borrar' }}</span>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
 
-            </div>
+                                </div>
+                            @endforeach
+            @endif
         </div>
+    </div>
+
+    </div>
+    </div>
     </div>
     </div>
     </div>

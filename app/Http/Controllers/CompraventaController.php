@@ -144,10 +144,6 @@ class CompraventaController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-            if(count($compraventa)<=0){
-                $compraventa = "No se ha encontrado ningún registro";
-            }
-    
             return view('user/compraventa', ['compraventa' => $compraventa]);
         }
     

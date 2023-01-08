@@ -142,9 +142,6 @@ class GruposController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->get();
 
-                if(count($grupos)<=0){
-                    $grupos = "No se ha encontrado ningún registro";
-                }
         
                 return view('user/grupos', ['grupos' => $grupos]);
             }

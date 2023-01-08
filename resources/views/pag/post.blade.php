@@ -6,7 +6,11 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-center">{{ __('Posts') }}</div>
-
+                    @if ($posts->count() <= 0)
+                    
+                    <h5 class="text-center">No existen registros</h5>
+    
+                    @else
                     {{-- <div class="container"> --}}
                         <div class="row justify-content-center">
                             <form method="POST" action="{{ route('posts_filtro') }}">
@@ -60,7 +64,7 @@
 
                                             </p>
                                             <form method="POST"
-                                                {{-- action="{{ route('user.posts.details', $post->id) }}"> --}}>
+                                                action="{{ route('user.posts.details', $post->id) }}">
                                                 @csrf
                                                 <div class="d-grid gap-2 border rounded">
                                                     <button type="submit"
@@ -71,6 +75,7 @@
                                         </div>
                                     </div>
                                 @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>

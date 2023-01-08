@@ -46,7 +46,9 @@
                                 </button>
                     </form>
                 </div>
-
+                @if ($tutoriales->count() <= 0)
+                    <h5 class="text-center">No existen registros</h5>
+                @else
             </div>
             <div class="card-body ">
                 <div class="card mb-3 ">
@@ -78,7 +80,8 @@
                                 <div class="card-body">
                                     {{-- <div class="d-grid gap-2 col-2 mx-auto "> --}}
                                     <div class="card-text text-center">
-                                        <form method="post" action="{{ route('user.tutoriales.edit_view', $tutorial->id) }}">
+                                        <form method="post"
+                                            action="{{ route('user.tutoriales.edit_view', $tutorial->id) }}">
                                             @csrf
 
                                             <button type="submit" class="btn btn-primary">
@@ -101,7 +104,7 @@
 
                             </div>
                         @endforeach
-
+                        @endif
                     </div>
                 </div>
 

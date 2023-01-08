@@ -77,17 +77,14 @@ class TutorialesController extends Controller
 
             public function tutoriales(User $user){
                 $user_id = $user -> id;
-                $tutorial = DB::table('tutorials')
+                $tutoriales = DB::table('tutorials')
                 ->select('*')
                 ->where('user_id', '=', $user_id) 
                 ->orderBy('created_at', 'desc')
                 ->get();
         
-                if(count($tutorial)<=0){
-                    $tutorial = "No se ha encontrado ningún registro";
-                }
 
-                return view('user/tutoriales', ['tutoriales' => $tutorial]);
+                return view('user/tutoriales', ['tutoriales' => $tutoriales]);
             }
         
             public function tutoriales_details(Request $id){

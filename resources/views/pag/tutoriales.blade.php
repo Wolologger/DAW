@@ -6,9 +6,13 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-center">{{ __('Tutoriales') }}</div>
-
                     {{-- <div class="container"> --}}
                     <div class="row justify-content-center text-center">
+                        @if ($tutoriales->count() <= 0)
+                    
+                        <h5 class="text-center">No existen registros</h5>
+        
+                        @else
                         <form method="POST" action="{{ route('tutoriales_filtro') }}">
                             @csrf
                         <div class="col-0">
@@ -36,6 +40,8 @@
                     </form>
                     </div>
                 </div>
+                
+
 
                 <div class="card-body">
                     <div class="card mb-3 border">
@@ -44,7 +50,6 @@
                                 {{-- <div class="col-md-4 border"> --}}
                                 <div class="col-md-6 ">
                                     <div class="card-body">
-
                                         <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/2.jpg"
                                             alt="..." />
                                     </div>
@@ -57,8 +62,11 @@
                                         <p class="card-text"><strong>Tipo:</strong> {{ $tutorial->type }}</p>
                                         <p class="card-text"><strong>Resumen:</strong> {{ $tutorial->extract }}</p>
                                         </p>
-                                        <form method="POST" @csrf <div class="d-grid gap-2 border rounded">
-                                            <button type="submit"
+                                        <form method="POST" 
+                                        action="{{ route('user.tutoriales.details', $tutorial->id) }}"> 
+                                            @csrf 
+                                            <div class="d-grid gap-2 border rounded">
+                                                <button type="submit"
                                                 class="btn btn-outline text-primary">{{ 'Más detalle' }}</a></button>
                                     </div>
                                     </form>
@@ -66,6 +74,8 @@
                                 </div>
                         </div>
                         @endforeach
+                        @endif
+
                     </div>
                 </div>
             </div>
