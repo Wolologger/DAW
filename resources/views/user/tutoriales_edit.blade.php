@@ -83,11 +83,12 @@
                                             <label for="descripcion">Resumen</label>
                                             <input type="text" class="form-control" name="resumen" id="resumen" value="{{$tutorial->extract}}">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="descripcion">Cuerpo</label>
-                                            <textarea class="form-control" name="cuerpo" id="cuerpo" rows="3">{{$tutorial->body}}</textarea>
-                                        </div>
+
                                 </div>
+                            </div>
+                            <div class="form-group p-3">
+                                <label for="descripcion">Cuerpo</label>
+                                <textarea class="form-control" name="cuerpo" id="cuerpo" rows="3">{{$tutorial->body}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -104,4 +105,11 @@
                 </div>
             </div>
         </div>
+          <script src="https://cdn.tiny.cloud/1/qz8w05apm8sx0woys8v6oup9vi7hrr3aqx39uih6zzp5197d/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+        
+        <script>
+          tinymce.init({
+              selector:'#cuerpo'
+          });
+        </script>
     @endsection

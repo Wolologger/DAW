@@ -48,12 +48,12 @@
                                 </div>
                                 <div class="col p-2">
                                     <p><label class="form-label">Correo:</label>
-                                        <input type="text" name="email" class="form-control"
-                                            value="{{ $user->email }}">
+                                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                            value="{{ $user->email }}" autocomplete="email" required>
                                     <p>
                                     <p><label class="form-label">Nombre: </label>
                                         <input type="text" name="nombre" class="form-control"
-                                            value="{{ $user->name }}">
+                                            value="{{ $user->name }}" required>
                                     <p>
                                 </div>
                             </div>
@@ -77,20 +77,13 @@
                 </div>
             </div>
 
-            {{-- <a class="dropdown-item " href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                              document.getElementById('logout-form').submit();">
-                <div class="text-center">
-                    {{ __('Desconectarse') }}
-                </div>
 
-            </a>
-
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form> --}}
-
-
+            @error('email')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
 
         </div>
+        
 @endsection

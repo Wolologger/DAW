@@ -68,29 +68,30 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Nuevo Post</h5>
                                     <form method="POST" action="{{ route('user.posts.new', $user) }}">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label for="formGroupExampleInput">Nombre</label>
-                                        <input type="text" class="form-control" id="marca" name="nombre"
-                                            placeholder="Post nº1">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="formGroupExampleInput">Categoria</label>
-                                        <input type="text" class="form-control" id="categoria" name="categoria"
-                                            {{-- placeholder="Pacifica" value={{$post->model}}> --}}
-                                            placeholder="PATATA">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="descripcion">Resumen</label>
-                                        <input type="text" class="form-control" name="resumen" id="resumen">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="descripcion">Cuerpo</label>
-                                        <textarea class="form-control" name="cuerpo" id="cuerpo" rows="3"></textarea>
-                                    </div>
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput">Nombre</label>
+                                            <input type="text" class="form-control" id="marca" name="nombre"
+                                                placeholder="Post nº1">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput">Categoria</label>
+                                            <input type="text" class="form-control" id="categoria" name="categoria"
+                                                {{-- placeholder="Pacifica" value={{$post->model}}> --}} placeholder="PATATA">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="descripcion">Resumen</label>
+                                            <input type="text" class="form-control" name="resumen" id="resumen">
+                                        </div>
+
                                 </div>
                             </div>
+                            <div class="form-group p-3">
+                                <label for="descripcion">Cuerpo</label>
+                                <textarea class="form-control" name="cuerpo" id="cuerpo" rows="3"></textarea>
+                            </div>
                         </div>
+
                     </div>
                     <div class="card text-center border">
                         <button type="submit" class="btn btn-success">
@@ -104,4 +105,11 @@
                 </div>
             </div>
         </div>
+          <script src="https://cdn.tiny.cloud/1/qz8w05apm8sx0woys8v6oup9vi7hrr3aqx39uih6zzp5197d/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+        
+        <script>
+          tinymce.init({
+              selector:'#cuerpo'
+          });
+        </script>
     @endsection

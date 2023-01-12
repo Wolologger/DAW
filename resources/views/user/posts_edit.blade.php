@@ -65,31 +65,42 @@
                                     <h5 class="card-title">Editar Instrumento:</h5>
                                     {{-- <h5 class="card-title">Nuevo Instrumento</h5> --}}
                                     @foreach ($resultado as $post)
-                                    <form method="POST"
-                                    action="{{ route('user.posts.edit', [$post->id, $post->user_id]) }}">
-                                    @csrf
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput">Nombre</label>
-                                            <input type="text" class="form-control" id="nombre" name="nombre"
-                                                placeholder="Nombre" value="{{$post->name}}">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput">Categoria</label>
-                                            <input type="text" class="form-control" id="categoria" name="categoria"
-                                                {{-- placeholder="Pacifica" value={{$post->model}}> --}}
-                                                placeholder="Musica indie" value="{{$post->category}}">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="descripcion">Resumen</label>
-                                            <input type="text" class="form-control" name="resumen" id="resumen" value="{{$post->extract}}">
-                                        </div>
-                                        <div class="form-group">
+                                        <form method="POST"
+                                            action="{{ route('user.posts.edit', [$post->id, $post->user_id]) }}">
+                                            @csrf
+                                            <div class="form-group">
+                                                <label for="formGroupExampleInput">Nombre</label>
+                                                <input type="text" class="form-control" id="nombre" name="nombre"
+                                                    placeholder="Nombre" value="{{ $post->name }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="formGroupExampleInput">Categoria</label>
+                                                <input type="text" class="form-control" id="categoria" name="categoria"
+                                                    {{-- placeholder="Pacifica" value={{$post->model}}> --}} placeholder="Musica indie"
+                                                    value="{{ $post->category }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="descripcion">Resumen</label>
+                                                <input type="text" class="form-control" name="resumen" id="resumen"
+                                                    value="{{ $post->extract }}">
+                                            </div>
+                                            {{-- <div class="form-group">
                                             <label for="descripcion">Cuerpo</label>
                                             <textarea class="form-control" name="cuerpo" id="cuerpo" rows="3">{{$post->body}}</textarea>
                                         </div>
                                 </div>
                             </div>
                         </div>
+                    </div> --}}
+
+                                </div>
+                            </div>
+                            <div class="form-group p-3">
+                                <label for="descripcion">Cuerpo</label>
+                                <textarea class="form-control" name="cuerpo" id="cuerpo" rows="3">{{$post->body}}</textarea>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="card text-center">
                         <button type="submit" class="btn btn-warning">
@@ -104,4 +115,11 @@
                 </div>
             </div>
         </div>
+          <script src="https://cdn.tiny.cloud/1/qz8w05apm8sx0woys8v6oup9vi7hrr3aqx39uih6zzp5197d/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+        
+        <script>
+          tinymce.init({
+              selector:'#cuerpo'
+          });
+        </script>
     @endsection

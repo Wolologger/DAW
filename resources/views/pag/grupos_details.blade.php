@@ -44,7 +44,7 @@
                                     <div class="col-md-6">
                                         <div class="card-body">
                                             <p class="card-text"><strong>Busca:</strong><br> {{ $grupo->search }}</p>
-                                            <p class="card-text"><strong>Descripcion:</strong><br> {{ $grupo->body }}</p>
+                                            <p class="card-text"><strong>Descripcion:</strong><br> {!!$grupo->body!!}</p>
                                             
                                         </p>
                                         </div>

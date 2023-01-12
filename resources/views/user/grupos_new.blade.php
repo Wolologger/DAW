@@ -155,11 +155,12 @@
                                                 <option value="Tecnico de sonido">Técnico de sonido</option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="descripcion">Descripción</label>
-                                            <textarea class="form-control" name="descripcion" id="descripcion" rows="3"></textarea>
-                                        </div>
+
                                 </div>
+                            </div>
+                            <div class="form-group p-3">
+                                <label for="descripcion">Descripción</label>
+                                <textarea class="form-control" name="descripcion" id="descripcion" rows="3"></textarea>
                             </div>
                         </div>
                     </div>
@@ -175,4 +176,11 @@
                 </div>
             </div>
         </div>
+          <script src="https://cdn.tiny.cloud/1/qz8w05apm8sx0woys8v6oup9vi7hrr3aqx39uih6zzp5197d/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+        
+        <script>
+          tinymce.init({
+              selector:'#descripcion'
+          });
+        </script>
     @endsection

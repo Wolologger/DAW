@@ -28,26 +28,26 @@ Route::get('/', function () {
 
 $compraventa = DB::table('compraventas')
 ->select('*')
-->orderBy('created_at', 'desc')
+->orderBy('updated_at', 'desc')
 ->take(3)
 ->get();
 
 $tutoriales = DB::table('tutorials')
 ->select('*')
-->orderBy('created_at', 'desc')
+->orderBy('updated_at', 'desc')
 ->take(3)
 ->get();
 
 $grupos = DB::table('grupos')
 ->select('*')
 ->where('search', '<>', 'Ninguno')    
-->orderBy('created_at', 'desc')
+->orderBy('updated_at', 'desc')
 ->take(4)
 ->get();
 
 $posts = DB::table('posts')
 ->select('*')
-->orderBy('created_at', 'desc')
+->orderBy('updated_at', 'desc')
 ->take(4)
 ->get();
 

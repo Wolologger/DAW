@@ -55,7 +55,7 @@
                             <div class="row g-0">
                                 <div class="col-md-auto">
                                     <div class="card-body">
-                                    <p class="card-text"><strong>Cuerpo:</strong><br> {{ $post->body }}</p>
+                                    <p class="card-text"><strong>Cuerpo:</strong><br> {!!$post->body!!}</p>
 
                                     </div>
                                 </div>

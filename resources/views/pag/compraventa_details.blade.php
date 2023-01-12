@@ -60,7 +60,7 @@
                                             <p class="card-text"><strong>Tipo:</strong> {{ $instrumento->type }}</p>
                                             <p class="card-text"><strong>Precio:</strong> {{ $instrumento->price }} €</p>
                                             <p class="card-text"><strong>Estado:</strong> {{ $instrumento->state_product }}</p>
-                                            <p class="card-text"><strong>Descripcion:</strong><br> {{ $instrumento->descripcion }}</p>
+                                            <p class="card-text"><strong>Descripcion:</strong><br> {!!$instrumento->descripcion!!}</p>
                                             
                                         </p>
                                         </div>

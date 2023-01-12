@@ -42,7 +42,7 @@
                                     <div class="col-md-6">
                                         <div class="card-body">
                                             <p class="card-text"><strong>Tipo:</strong> {{ $tutorial->type }}</p>
-                                            <p class="card-text"><strong>Descripcion:</strong><br> {{ $tutorial->body }}</p>
+                                            <p class="card-text"><strong>Descripcion:</strong><br> {!!$tutorial->body!!}</p>
                                             
                                         </p>
                                         </div>
