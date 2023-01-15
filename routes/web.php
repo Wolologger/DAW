@@ -51,7 +51,13 @@ $posts = DB::table('posts')
 ->take(4)
 ->get();
 
-return view('layouts/template', ['compraventa' => $compraventa, 'grupos' => $grupos, 'posts' => $posts, 'tutoriales'=>$tutoriales]);
+
+return view('layouts/template', [
+    'compraventa' => $compraventa, 
+    'grupos' => $grupos, 
+    'posts' => $posts, 
+    'tutoriales'=>$tutoriales
+]);
 
     
 })->name('home');

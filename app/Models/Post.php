@@ -19,7 +19,10 @@ class Post extends Model
     public function category(){
         return $this->belongsto(Category::class);
     }
-    
+
+    public function coments(){
+        return $this->belongsto(Coments::class);
+    }
 
     // relacion n:m
     public function tags(){

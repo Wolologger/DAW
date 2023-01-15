@@ -82,8 +82,19 @@ class PostController extends Controller
         ->where('posts.id', '=', $id) 
         ->get();
 
+        $coments = DB::table('coments')
+        ->select('users.name as usuario','users.id', 'posts.id', 'coments.descripcion', 'coments.updated_at')
+        ->join('posts','post_id', '=', 'posts.id')
+        ->join('users','posts.user_id', '=', 'users.id')
+        ->where('posts.id', '=', $id) 
+        ->orderBy('coments.created_at', 'desc')
+        ->get();
+
         // return $posts;
-        return view('pag/posts_details', ['posts' => $posts]);
+        return view('pag/posts_details', [
+            'posts' => $posts,
+            'coments' => $coments
+        ]);
     }
 
     public function posts_new_view(){
