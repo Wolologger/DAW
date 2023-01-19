@@ -163,21 +163,11 @@
                                                 <option value="Regular">Regular</option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="descripcion">Descripción</label>
-                                            <textarea required class="form-control" id="descripcion" rows="3" name="descripcion"></textarea>
-                                        </div>
-                                        {{-- <hr>
-                                            <div class="form-group text-center">
-                                                <button type="submit" class="btn btn-secondary">
-                                                    <i class="bi bi-plus-circle"></i>  
-                                                    <span class="text-light text-decoration-none">
-                                                        {{ 'Crear' }}
-                                                    </span>
-                                                </button>
-                                            </div>
-                                        </form> --}}
                                 </div>
+                            </div>
+                            <div class="form-group p-3">
+                                <label for="descripcion">Descripción</label>
+                                <textarea required class="form-control" id="descripcion" rows="3" name="descripcion"></textarea>
                             </div>
                         </div>
                     </div>

@@ -91,10 +91,10 @@ Route::post('/posts', [App\Http\Controllers\PostController::class, 'filtro'])->n
 
 
 // Mi perfil
-Route::get('/user/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('get.profile');
-Route::get('/user/profile/{user}', [App\Http\Controllers\UserController::class, 'profile_view'])->name('profile_view2');
-Route::post('/user/profile/{user}', [App\Http\Controllers\UserController::class, 'profile_view'])->name('profile_view');
-Route::post('/user/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
+Route::get('/user/profile', [App\Http\Controllers\UserController::class, 'profile'])->middleware(['auth','verified'])->name('get.profile');
+Route::get('/user/profile/{user}', [App\Http\Controllers\UserController::class, 'profile_view'])->middleware(['auth','verified'])->name('profile_view2');
+Route::post('/user/profile/{user}', [App\Http\Controllers\UserController::class, 'profile_view'])->middleware(['auth','verified'])->name('profile_view');
+Route::post('/user/profile', [App\Http\Controllers\UserController::class, 'profile'])->middleware(['auth','verified'])->name('profile');
 
 // Mi perfil - Editar
 Route::post('/user/profile/edit/{user}', [App\Http\Controllers\UserController::class, 'profile_edit_view'])->name('profile_edit_view');
@@ -110,14 +110,14 @@ Route::post('/user/compraventa/{user}', [App\Http\Controllers\CompraventaControl
 Route::post('/user/compraventa/details/{id}', [App\Http\Controllers\CompraventaController::class, 'compraventa_details'])->name('user.compraventa.details');
 
 // Mis compraventa - Nuevo
-Route::post('/user/compraventa/new/{id}', [App\Http\Controllers\CompraventaController::class, 'compraventa_new_view'])->name('user.compraventa.new_view');
+Route::post('/user/compraventa/new/{id}', [App\Http\Controllers\CompraventaController::class, 'compraventa_new_view'])->middleware(['auth','verified'])->name('user.compraventa.new_view');
 
 // Mis compraventa - Nuevo Form
-Route::post('/user/compraventa/new/{id}/create', [App\Http\Controllers\CompraventaController::class, 'compraventa_new'])->name('user.compraventa.new');
+Route::post('/user/compraventa/new/{id}/create', [App\Http\Controllers\CompraventaController::class, 'compraventa_new'])->middleware(['auth','verified'])->name('user.compraventa.new');
 
 // Mis compraventa - Editar
-Route::post('/user/compraventa/edit/{id}', [App\Http\Controllers\CompraventaController::class, 'compraventa_edit_view'])->name('user.compraventa.edit_view');
-Route::post('/user/compraventa/edit/{id}/{userid}', [App\Http\Controllers\CompraventaController::class, 'compraventa_edit'])->name('user.compraventa.edit');
+Route::post('/user/compraventa/edit/{id}', [App\Http\Controllers\CompraventaController::class, 'compraventa_edit_view'])->middleware(['auth','verified'])->name('user.compraventa.edit_view');
+Route::post('/user/compraventa/edit/{id}/{userid}', [App\Http\Controllers\CompraventaController::class, 'compraventa_edit'])->middleware(['auth','verified'])->name('user.compraventa.edit');
 
 // Mis compraventa - Borrar
 Route::post('/user/compraventa/delete/{userid}/{id}', [App\Http\Controllers\CompraventaController::class, 'compraventa_delete'])->name('user.compraventa.delete');
@@ -142,6 +142,16 @@ Route::post('/user/posts/edit/{id}/{userid}', [App\Http\Controllers\PostControll
 
 // Mis posts - Borrar
 Route::post('/user/posts/delete/{userid}/{id}', [App\Http\Controllers\PostController::class, 'posts_delete'])->name('user.posts.delete');
+
+// Mis posts_Comentarios
+// Mis posts_Comentarios - Nuevo
+Route::post('/user/posts/comment/{id}/new', [App\Http\Controllers\PostController::class, 'comment_new'])->name('user.comment.new');
+
+// Mis posts_Comentarios - Editar
+Route::post('/user/posts/comment/{id}/edit', [App\Http\Controllers\PostController::class, 'comment_edit'])->name('user.comment.edit');
+
+// Mis posts_Comentarios - Borrar
+Route::post('/user/posts/comment/{id}/delete', [App\Http\Controllers\PostController::class, 'comment_delete'])->name('user.comment.delete');
 
 
 

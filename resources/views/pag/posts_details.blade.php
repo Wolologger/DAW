@@ -63,23 +63,30 @@
                                 </div>
                                 <p>
                                     {{-- <hr class="light"> --}}
-                                <h3 class="text-center card border-secondary text-primary fw-bold p-3"> Comentarios:</h3>
+                                <h3 class="text-center card border-secondary rounded-pill text-primary fw-bold p-3"> Comentarios:</h3>
                                 <hr class="divider">
-                                @if ($coments->count() <= 0)
-                                    <h5 class="text-center">No existen comentarios en este post</h5>
-                                @else
+
                                     @auth
 
-                                        <button id="showButton" class="btn btn-lg btn-info text-light form-control">Publicar
-                                            nuevo comentario</button>
+                                        <button id="showButton" class="btn btn-lg btn-info text-light form-control">
+                                            <i class="bi bi-plus-circle"></i>
+                                            Publicar nuevo comentario</button>
                                         <button id="hideButton" style="display: none;"
-                                            class="btn btn-lg btn-warning text-light form-control">Cancelar</button>
-                                        <form id="form" style="display: none;">
-                                            <!-- Tu formulario va aquí -->
-                                                <label for="descripcion">Comentario</label>
-                                                <textarea class="form-control" name="cuerpo" id="cuerpo" rows="3"></textarea>
-                                                <button class="btn btn-lg btn-success text-light"> Publicar
-                                                </button>
+                                            class="btn btn-lg btn-warning text-light form-control">
+                                            <i class="bi bi-x-square"></i>
+                                            Cancelar</button><p>
+                                        {{-- <form id="form" style="display: none;" action="{{ route('user.comment.new', [auth()->user()->id, $post->id])" }}> --}}
+                                            <form method="POST" id="form" style="display: none;"
+                                                {{-- action="{{ route('user.comment.new', [auth()->user()->id, $post->id]) }}"> --}}
+                                                action="{{ route('user.comment.new', [auth()->user()->id]) }}">
+                                                <input type="hidden" name="post_id" value="{{$idpost}}">
+
+                                            @csrf
+                                            <textarea class="form-control" name="comentario" id="comentario" rows="3" required></textarea>
+                                            <button class="btn form-control btn-lg btn-success text-light"> 
+                                                <i class="bi bi-file-earmark-plus"></i>
+                                                Publicar
+                                            </button>
 
                                         </form>
                                         <p>
@@ -87,6 +94,9 @@
 
 
                                         @endauth
+                                        @if ($coments->count() <= 0)
+                                        <h5 class="text-center">No existen comentarios en este post</h5>
+                                        @else
 
                                         @foreach ($coments as $coment)
                                             {{-- <div class="card-body"> --}}
@@ -108,22 +118,60 @@
                                         </div>
                                         <p class="card-text">{!! $coment->descripcion !!}</p>
 
+                                    {{-- </div> --}}
+                            </div>
+                            {{-- Post ID: {{$idpost}}<br>
+                            Coment id {{$coment->coment_id}}<br>
+                            USERPOST id {{$post->posts_user_id}}<br>
+
+                            User_Comentario ID:{{$coment->user_id}}<br>
+                            Usuario ID: {{auth()->user()->id}} --}}
+                            @auth
+                                @if ($coment->user_id == auth()->user()->id)
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-8 text-center">
+                                            <div class="card border-0">
+{{-- 
+                                                        <button class="btn form-control btn-lg btn-primary" id="showButton">
+                                                        <i class="bi bi-pencil"></i>
+                                                        Editar</button>
+ --}}
+                                                        <button id="hideButton" style="display: none;"
+                                                        class="btn btn-lg btn-warning text-light form-control">
+                                                        <i class="bi bi-x-square"></i>
+                                                        Cancelar</button><p>
+                                                            <form id="form" style="display: none;">
+                                                                <!-- Tu formulario va aquí -->
+                                                                <textarea class="form-control" name="comentario" id="comentario" rows="3"></textarea>
+                                                                <button class="btn form-control btn-lg btn-success text-light"> 
+                                                                    <i class="bi bi-file-earmark-plus"></i>
+                                                                    Publicar
+                                                                </button>
+                    
+                                                            </form>
+                                            </div>
+                                            <p>
+                                            <div class="card border-0">
+                                                <form method="POST"
+                                                action="{{ route('user.comment.delete', [$coment->coment_id]) }}">
+                                                @csrf
+                                                <button type="submit" class="btn form-control btn-lg btn-danger"
+                                                    onclick="return confirm('¿Estás seguro?')"><span
+                                                        class="text-light text-decoration-none">{{ 'Borrar' }}</span>
+                                                </button>
+                                            </form>
+                                            </div>
+                                        </div>
                                     </div>
-                                    {{-- </div> --}}
-                                    @auth
-                                        @if ($coments->user_id = auth()->user()->id)
-                                            <h1> SIIII </h1>
-                                            <button class="btn-primary">Editar</button>
-                                            <button class="btn-danger">Borrar</button>
-                                        @else
-                                            <h1> NOOOO </h1>
-                                        @endif
-                                    @endauth
-                                    {{-- </div> --}}
-                                    {{-- </div> --}}
-                                    <hr>
-                                    {{-- </div> --}}
-                                @endforeach
+                                </div>
+                                @endif
+                            @endauth
+                            {{-- </div> --}}
+                            {{-- </div> --}}
+                            <hr>
+                            {{-- </div> --}}
+                    @endforeach
                     @endif
                     @endforeach
 
@@ -135,6 +183,7 @@
     </div>
     </div>
     </div>
+
     <script>
         let showButton = document.getElementById("showButton");
         let hideButton = document.getElementById("hideButton");
@@ -151,5 +200,7 @@
             hideButton.style.display = "none";
             showButton.style.display = "block";
         });
+
     </script>
+
 @endsection

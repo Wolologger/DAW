@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Coments;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -77,15 +78,30 @@ class PostController extends Controller
     public function posts_details(Request $id){
         $id = $id -> id;
         $posts = DB::table('posts')
-        ->select('users.name as usuario', 'posts.name as nombre_post', 'posts.category as category', 'posts.extract as extract', 'posts.body as body', 'posts.created_at as posts_created_at')
+        ->select(
+            'users.name as usuario', 
+            'posts.user_id as posts_user_id', 
+            'posts.name as nombre_post',
+            'posts.id as post_id', 
+            'posts.category as category', 
+            'posts.extract as extract', 
+            'posts.body as body', 
+            'posts.created_at as posts_created_at')
         ->join('users','posts.user_id', '=', 'users.id')
         ->where('posts.id', '=', $id) 
         ->get();
 
         $coments = DB::table('coments')
-        ->select('users.name as usuario','users.id', 'posts.id', 'coments.descripcion', 'coments.updated_at')
+        ->select(
+            'coments.id as coment_id',
+            'users.name as usuario',
+            'users.id as user_id', 
+            'posts.id as posts_id', 
+            'coments.descripcion', 
+            'coments.updated_at')
         ->join('posts','post_id', '=', 'posts.id')
-        ->join('users','posts.user_id', '=', 'users.id')
+        // ->join('users','posts.user_id', '=', 'users.id')
+        ->join('users','coments.user_id', '=', 'users.id')
         ->where('posts.id', '=', $id) 
         ->orderBy('coments.created_at', 'desc')
         ->get();
@@ -93,7 +109,8 @@ class PostController extends Controller
         // return $posts;
         return view('pag/posts_details', [
             'posts' => $posts,
-            'coments' => $coments
+            'coments' => $coments,
+            'idpost' => $id
         ]);
     }
 
@@ -143,5 +160,38 @@ class PostController extends Controller
         $resultado ->each->delete();
         return redirect()->route('get.user.posts',[$user_id]);
     }
+
+    public function comment_new(Request $request, $post_id){
+        $post_id = $request->post_id;
+        $comentario = $request->comentario;
+        $user_id = $request ->id;
+
+        $comment = new Coments;
+        $comment->descripcion = $comentario;
+        $comment->user_id = $user_id;
+        $comment->post_id = $post_id;
+        $comment->save();
+        // return $comment;
+        return redirect()->route('posts');
+
+    }
+
+    public function comment_edit(Request $id, $post_id){
+
+        return "edit";
+
+    }
+
+
+    public function comment_delete(Request $id){
+
+        $id = $id->id;
+        $resultado = Coments::get()->where('id', '=', $id);
+         $resultado ->each->delete();
+        // return $resultado;
+         return redirect()->route('posts');
+
+    }
+
 
 }

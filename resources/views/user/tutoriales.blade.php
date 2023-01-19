@@ -39,7 +39,7 @@
                         @csrf
                         <div class="card-header">
                             <div class="card">
-                                <button type="submit" class="btn btn-info">
+                                <button type="submit" class="btn btn-lg form-control btn-info">
                                     <span class="text-light text-decoration-none">
                                         {{ 'Nuevo' }}
                                     </span>
@@ -84,7 +84,7 @@
                                             action="{{ route('user.tutoriales.edit_view', $tutorial->id) }}">
                                             @csrf
 
-                                            <button type="submit" class="btn btn-primary">
+                                            <button type="submit" class="btn btn-lg form-control btn-primary">
                                                 <span class="text-light text-decoration-none">
                                                     {{ 'Editar' }}
                                                 </span>
@@ -94,7 +94,7 @@
                                         <form method="post"
                                             action="{{ route('user.tutoriales.delete', [$tutorial->user_id, $tutorial->id]) }}">
                                             @csrf
-                                            <button type="submit" class="btn btn-danger"
+                                            <button type="submit" class="btn form-control btn-lg btn-danger"
                                                 onclick="return confirm('¿Estás seguro?')"><span
                                                     class="text-light text-decoration-none">{{ 'Borrar' }}</span>
                                             </button>

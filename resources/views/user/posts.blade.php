@@ -39,7 +39,7 @@
                         @csrf
                         <div class="card-header">
                             <div class="card">
-                                <button type="submit" class="btn btn-info">
+                                <button type="submit" class="btn btn-lg form-control btn-info">
                                     <span class="text-light text-decoration-none">
                                         {{ 'Nuevo' }}
                                     </span>
@@ -80,7 +80,7 @@
                                         <form method="POST" action="{{ route('user.posts.edit_view', $post->id) }}">
                                             @csrf
 
-                                            <button type="submit" class="btn btn-primary">
+                                            <button type="submit" class="btn btn-lg form-control btn-primary">
                                                 <span class="text-light text-decoration-none">
                                                     {{ 'Editar' }}
                                                 </span>
@@ -90,7 +90,7 @@
                                         <form method="POST"
                                             action="{{ route('user.posts.delete', [$post->user_id, $post->id]) }}">
                                             @csrf
-                                            <button type="submit" class="btn btn-danger"
+                                            <button type="submit" class="btn form-control btn-lg btn-danger"
                                                 onclick="return confirm('¿Estás seguro?')"><span
                                                     class="text-light text-decoration-none">{{ 'Borrar' }}</span>
                                             </button>

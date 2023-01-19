@@ -84,7 +84,7 @@
                                                 action="{{ route('user.compraventa.edit_view', $instrumento->id) }}">
                                                 @csrf
 
-                                                <button type="submit" class="btn btn-primary">
+                                                <button type="submit" class="btn btn-lg form-control btn-primary">
                                                     <span class="text-light text-decoration-none">
                                                         {{ 'Editar' }}
                                                     </span>
@@ -94,7 +94,7 @@
                                             <form method="POST"
                                                 action="{{ route('user.compraventa.delete', [$instrumento->user_id, $instrumento->id]) }}">
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger"
+                                                <button type="submit" class="btn form-control btn-lg btn-danger"
                                                     onclick="return confirm('¿Estás seguro?')"><span
                                                         class="text-light text-decoration-none">{{ 'Borrar' }}</span>
                                                 </button>

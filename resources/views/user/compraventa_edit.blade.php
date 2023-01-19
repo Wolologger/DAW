@@ -164,20 +164,12 @@
                                                 <option value="Regular">Regular</option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="descripcion">Descripción</label>
-                                            <textarea class="form-control" name="descripcion" id="descripcion" rows="3">{{$instrumento->descripcion}}</textarea>
-                                        </div>
-                                        {{-- <div class="card text-center">
-                                                <button type="submit" class="btn btn-warning">
-                                                    <span class="text-light text-decoration-none">
-                                                        <i class="bi bi-arrow-up-short"></i>
-                                                        {{ 'Actualizar' }}
-                                                    </span>
-                                                </button>
-                                            </div>
-                                        </form> --}}
+
                                 </div>
+                            </div>
+                            <div class="form-group p-3">
+                                <label for="descripcion">Descripción</label>
+                                <textarea class="form-control" name="descripcion" id="descripcion" rows="3">{{$instrumento->descripcion}}</textarea>
                             </div>
                         </div>
                     </div>
