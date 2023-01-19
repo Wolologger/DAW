@@ -57,8 +57,12 @@
                             <div class="col-md-5">
                                 <div class="card-body">
 
-                                    <img class="img-fluid rounded" src="../../assets/img/portfolio/thumbnails/2.jpg"
-                                        alt="..." />
+                                    @if ($post->image)
+                                    <img src="{{ asset($post->image->url) }}" alt="{{ $post->name }}" class="img-fluid">
+                                    @else
+                                    <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/1.jpg"
+                                    alt="..." />
+                                    @endif
                                 </div>
 
                             </div>

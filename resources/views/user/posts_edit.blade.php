@@ -37,6 +37,7 @@
                             <div class="row g-0">
                                 <div class="col-md-6">
                                     {{-- <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/pacifica.jpg" alt="..." />  src="" alt="..." /> --}}
+                                    @foreach ($resultado as $post)
 
                                     <form>
                                         @csrf
@@ -46,8 +47,12 @@
                                             <div class="form-group">
                                                 <h5 class="card-title">Subir imagen:</h5>
                                                 <div class="card" style="width: auto; height: auto;">
-                                                    <img class="card-img-top" src=".../100px180/?text=Image cap"
-                                                        alt="...">
+                                                    @if ($post->image)
+                                                    <img src="{{ asset($post->image->url) }}" alt="{{ $post->name }}" class="img-fluid">
+                                                    @else
+                                                    <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/1.jpg"
+                                                    alt="..." />
+                                                    @endif
                                                 </div>
                                                 <div class="mb-3">
                                                     <input class="form-control form-control-sm" id="formFileSm"
@@ -64,7 +69,6 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Editar Instrumento:</h5>
                                     {{-- <h5 class="card-title">Nuevo Instrumento</h5> --}}
-                                    @foreach ($resultado as $post)
                                         <form method="POST"
                                             action="{{ route('user.posts.edit', [$post->id, $post->user_id]) }}">
                                             @csrf

@@ -45,10 +45,17 @@
                                 @foreach ($posts as $post)
                                     {{-- <div class="col-md-4 border"> --}}
                                     <div class="col-md-6 ">
-                                        <div class="card-body">
-
+                                        <div class="card-body border">
+{{-- 
                                         <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/1.jpg"
+                                            alt="..." /> --}}
+                                            @if ($post->image)
+                                            <img src="{{ asset($post->image->url) }}" alt="{{ $post->name }}" class="img-fluid">
+                                            @else
+                                            <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/1.jpg"
                                             alt="..." />
+                                            @endif
+
                                     </div>
                                 </div>
 

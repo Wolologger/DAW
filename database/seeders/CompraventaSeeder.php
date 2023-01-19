@@ -24,8 +24,8 @@ class CompraventaSeeder extends Seeder
         foreach ($compraventas as $compraventa) {
             Image::factory(1)->create([
                 'imageable_id' => $compraventa->id,
-                // 'imageable_type' => Compraventa::class
-                'imageable_type' => "Compraventa"
+                'imageable_type' => Compraventa::class
+                // 'imageable_type' => "Compraventa"
 
             ]);
         }

@@ -14,14 +14,14 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = DB::table('posts')
-        ->select('id', 
-                 'name', 
-                 'category',
-                 'created_at',
-                 'extract', )
-        ->get();
-
+        // $posts = DB::table('posts')
+        // ->select('id', 
+        //          'name', 
+        //          'category',
+        //          'created_at',
+        //          'extract', )
+        // ->get();
+        $posts = Post::with('image')->get();
 
         return view('pag/post', [
             'posts' => $posts
@@ -34,7 +34,8 @@ class PostController extends Controller
         $titulo = $request->titulo;
         $categoria = $request->categoria;
 
-        $posts = DB::table('posts')
+        // $posts = DB::table('posts')
+        $posts = Post::with('image')
         ->select('id', 
                  'name', 
                  'category',
@@ -59,14 +60,16 @@ class PostController extends Controller
 
     public function posts(User $user){
         $user_id = $user -> id;
-        $posts = DB::table('posts')
+        // $posts = DB::table('posts')
+        $posts = Post::with('image')
         ->select('*')
         ->where('user_id', '=', $user_id) 
         ->orderBy('created_at', 'desc')
         ->get();
 
         if ((count($posts)) <= 0){
-            $posts = DB::table('posts')
+            // $posts = DB::table('posts')
+            $posts = Post::with('image')
              ->select('id')
              ->where('name', '=', '#aZIv06H53Zy') 
              ->get();;
@@ -77,7 +80,8 @@ class PostController extends Controller
 
     public function posts_details(Request $id){
         $id = $id -> id;
-        $posts = DB::table('posts')
+        // $posts = DB::table('posts')
+        $posts = Post::with('image')
         ->select(
             'users.name as usuario', 
             'posts.user_id as posts_user_id', 
@@ -164,7 +168,7 @@ class PostController extends Controller
     public function comment_new(Request $request, $post_id){
         $post_id = $request->post_id;
         $comentario = $request->comentario;
-        $user_id = $request ->id;
+        $user_id = auth()->user()->id;
 
         $comment = new Coments;
         $comment->descripcion = $comentario;
@@ -175,12 +179,36 @@ class PostController extends Controller
         return redirect()->route('posts');
 
     }
+//     public function comment_new(Request $request, $post_id)
+// {
+//     $validatedData = $request->validate([
+//         'comentario' => 'required|min:10|max:255',
+//     ]);
+    
+//     $comentario = $validatedData['comentario'];
+//     $user_id = auth()->user()->id;
+    
+//     try {
+//         $comment = new Coments([
+//             'descripcion' => $comentario,
+//             'user_id' => $user_id,
+//             'post_id' => $post_id,
+//         ]);
+//         $comment->save();
+//     } catch (\Exception $e) {
+//         return back()->withErrors(['error' => 'Error al guardar el comentario']);
+//     }
+//         return redirect()->route('posts');
 
-    public function comment_edit(Request $id, $post_id){
+// }
 
-        return "edit";
 
-    }
+
+    // public function comment_edit(Request $id, $post_id){
+
+    //     return "edit";
+
+    // }
 
 
     public function comment_delete(Request $id){

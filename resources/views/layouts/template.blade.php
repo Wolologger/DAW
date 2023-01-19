@@ -112,8 +112,12 @@
                     <div class="col-lg-4 col-sm-6 border shadow">
 
                         <a class="compraventa-box" title={{ $instrumento->slug }}>
-                            <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/pacifica.jpg"
-                                alt="..." />
+                            @if ($instrumento->image)
+                            <img src="{{ asset($instrumento->image->url) }}" alt="{{ $instrumento->name }}" class="img-fluid">
+                            @else
+                            <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/1.jpg"
+                            alt="..." />
+                            @endif
                             <div class="compraventa-box-caption">
                                 <div class="project-category text-white-75">
                                     {{ $instrumento->brand . ' ' . $instrumento->model }}
@@ -203,8 +207,12 @@
                             @csrf
                             <button type="submit" class="shadow border-0">
                                 <a class="portfolio-box">
-                                    <img class="img-fluid" src="assets/img/portfolio/thumbnails/flv.jpg"
-                                        alt="..." />
+                                    @if ($tutorial->image)
+                                    <img src="{{ asset($tutorial->image->url) }}" alt="{{ $tutorial->name }}" class="img-fluid">
+                                    @else
+                                    <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/1.jpg"
+                                    alt="..." />
+                                    @endif
                                     <div class="portfolio-box-caption">
                                         <div class="project-category text-white-50">{{ $tutorial->type }}</div>
                                         <div class="project-name">{{ $tutorial->name }}</div>

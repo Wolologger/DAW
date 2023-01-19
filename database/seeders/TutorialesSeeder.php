@@ -21,8 +21,8 @@ class TutorialesSeeder extends Seeder
         foreach ($tutoriales as $tutorial) {
             Image::factory(1)->create([
                 'imageable_id' => $tutorial->id,
-                // 'imageable_type' => Tutorial::class
-                'imageable_type' => "Tutorial"
+                'imageable_type' => Tutorial::class
+                // 'imageable_type' => "Tutorial"
 
             ]);
         }

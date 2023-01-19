@@ -22,8 +22,8 @@ class GruposSeeder extends Seeder
         foreach ($grupos as $grupo) {
             Image::factory(1)->create([
                 'imageable_id' => $grupo->id,
-                // 'imageable_type' => Grupo::class
-                'imageable_type' => 'Grupo'
+                'imageable_type' => Grupo::class
+                // 'imageable_type' => 'Grupo'
 
             ]);
         }

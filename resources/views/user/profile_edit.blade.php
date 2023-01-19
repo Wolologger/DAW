@@ -40,8 +40,13 @@
                         <div class="container">
                             <div class="row justify-content-center p-2">
                                 <div class="col p-2 text-center">
-                                    <img src="../../../assets/img/portfolio/thumbnails/user.png" class="rounded-circle border"
-                                        width="220px">
+                                    @if ($user->image)
+                                    <img src="{{ asset($user->image->url) }}" alt="{{ $user->name }}" class="rounded-circle border"
+                                    {{-- width="220px" height="220px"> --}}>
+                                    @else
+                                    <img src="../assets/img/portfolio/thumbnails/user.png" class="rounded-circle border"
+                                    width="220px">
+                                    @endif
                                     <hr class="divider">
                                     <input type="file" class="form-control">
 
@@ -85,5 +90,5 @@
             @enderror
 
         </div>
-        
+
 @endsection

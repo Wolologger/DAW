@@ -5,7 +5,10 @@ use App\Http\Controllers\TutorialesController;
 use App\Http\Controllers\GruposController;
 use App\Http\Controllers\Instrumentos;
 use App\Http\Controllers\HomeController;
-
+use App\Models\Compraventa;
+use App\Models\Grupo;
+use App\Models\Post;
+use App\Models\Tutorial;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 // cambiar esto
@@ -26,26 +29,30 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
 
-$compraventa = DB::table('compraventas')
+// $compraventa = DB::table('compraventas')
+$compraventa = Compraventa::with('image')
 ->select('*')
 ->orderBy('updated_at', 'desc')
 ->take(3)
 ->get();
 
-$tutoriales = DB::table('tutorials')
+// $tutoriales = DB::table('tutorials')
+$tutoriales = Tutorial::with('image')
 ->select('*')
 ->orderBy('updated_at', 'desc')
 ->take(3)
 ->get();
 
-$grupos = DB::table('grupos')
+// $grupos = DB::table('grupos')
+$grupos = Grupo::with('image')
 ->select('*')
 ->where('search', '<>', 'Ninguno')    
 ->orderBy('updated_at', 'desc')
 ->take(4)
 ->get();
 
-$posts = DB::table('posts')
+// $posts = DB::table('posts')
+$posts = Post::with('image')
 ->select('*')
 ->orderBy('updated_at', 'desc')
 ->take(4)
@@ -145,8 +152,8 @@ Route::post('/user/posts/delete/{userid}/{id}', [App\Http\Controllers\PostContro
 
 // Mis posts_Comentarios
 // Mis posts_Comentarios - Nuevo
+// Route::post('/user/posts/comment/{id}/new', [App\Http\Controllers\PostController::class, 'comment_new'])->name('user.comment.new');
 Route::post('/user/posts/comment/{id}/new', [App\Http\Controllers\PostController::class, 'comment_new'])->name('user.comment.new');
-
 // Mis posts_Comentarios - Editar
 Route::post('/user/posts/comment/{id}/edit', [App\Http\Controllers\PostController::class, 'comment_edit'])->name('user.comment.edit');
 

@@ -24,8 +24,8 @@ class PostSeeder extends Seeder
             Coments::factory(3)->create();
             Image::factory(1)->create([
                 'imageable_id' => $post->id,
-                // 'imageable_type' => Post::class
-                'imageable_type' => "Post"
+                'imageable_type' => Post::class
+                // 'imageable_type' => "Post"
 
             ]);
 
