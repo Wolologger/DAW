@@ -58,7 +58,7 @@
                                 <div class="card-body">
 
                                     @if ($post->image)
-                                    <img src="{{ asset($post->image->url) }}" alt="{{ $post->name }}" class="img-fluid">
+                                    <img src="{{ asset($post->image->url) }}" alt="{{ $post->name }}" class="img-fluid rounded">
                                     @else
                                     <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/1.jpg"
                                     alt="..." />
@@ -70,9 +70,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Post: {{ $post->name }}</p>
                                         <p class="card-text">Fecha creación:
-                                            {{ date('d-m-Y', strtotime($post->created_at)) }}</p>
+                                            {{ date('d/m/Y', strtotime($post->created_at)) }}</p>
                                         <p class="card-text">Resumen: {{ $post->extract }}</p>
-                                        {{-- <p class="card-text">Últm. actualización: {{  date('d-m-Y', strtotime($post->updated_at))}}</p> --}}
+                                        {{-- <p class="card-text">Últm. actualización: {{  date('d/m/Y', strtotime($post->updated_at))}}</p> --}}
                                         </p>
                                 </div>
 

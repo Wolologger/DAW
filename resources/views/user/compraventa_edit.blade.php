@@ -37,22 +37,29 @@
                             <div class="row g-0">
                                 <div class="col-md-6">
                                     {{-- <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/pacifica.jpg" alt="..." />  src="" alt="..." /> --}}
-
-                                    <form>
-                                        @csrf
-                                        <div class="card-body">
-                                            <div class="form-group">
-                                                <h5 class="card-title">Subir imagen:</h5>
-                                                <div class="card" style="width: auto; height: auto;">
-                                                    <img class="card-img-top" src=".../100px180/?text=Image cap"
-                                                        alt="...">
+                                    @foreach ($resultado as $instrumento)
+                                        <form>
+                                            @csrf
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <h5 class="card-title">Subir imagen:</h5>
+                                                    <div class="card" style="width: auto; height: auto;">
+                                                        @if ($instrumento->image)
+                                                            <img src="{{ asset($instrumento->image->url) }}"
+                                                                alt="{{ $instrumento->name }}" class="img-fluid">
+                                                        @else
+                                                            <img class="img-fluid rounded"
+                                                                src="assets/img/portfolio/thumbnails/2.jpg"
+                                                                alt="..." />
+                                                            <p>
+                                                        @endif
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <input class="form-control form-control-sm" id="formFileSm"
+                                                            type="file">
+                                                    </div>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <input class="form-control form-control-sm" id="formFileSm"
-                                                        type="file">
-                                                </div>
-                                            </div>
-                                    </form>
+                                        </form>
                                 </div>
 
 
@@ -62,10 +69,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Editar Instrumento:</h5>
                                     {{-- <h5 class="card-title">Nuevo Instrumento</h5> --}}
-                                    @foreach ($resultado as $instrumento)
                                     <form method="POST"
-                                    action="{{ route('user.compraventa.edit', [$instrumento->id, $instrumento->user_id]) }}">
-                                    @csrf
+                                        action="{{ route('user.compraventa.edit', [$instrumento->id, $instrumento->user_id]) }}">
+                                        @csrf
                                         <div class="form-group">
                                             <label for="exampleFormControlSelect1">Tipo</label>
                                             <select required class="form-control" id="tipo" name="tipo">
@@ -82,18 +88,17 @@
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Marca</label>
                                             <input type="text" class="form-control" id="marca" name="marca"
-                                                placeholder="Yamaha" value="{{$instrumento->brand}}">
+                                                placeholder="Yamaha" value="{{ $instrumento->brand }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Modelo</label>
                                             <input type="text" class="form-control" id="modelo" name="modelo"
-                                                placeholder="Pacifica" value={{$instrumento->model}}>
+                                                placeholder="Pacifica" value={{ $instrumento->model }}>
                                         </div>
                                         <div class="form-group">
-                                            <label for="precio">Precio <i
-                                                class="bi bi-currency-euro"></i></label>
+                                            <label for="precio">Precio <i class="bi bi-currency-euro"></i></label>
                                             <input type="text" class="form-control" id="precio" name="precio"
-                                                placeholder="300" value={{$instrumento->price}}>
+                                                placeholder="300" value={{ $instrumento->price }}>
                                         </div>
                                         <div class="form-group">
                                             <label for="provincia">Provincia</label>
@@ -169,7 +174,7 @@
                             </div>
                             <div class="form-group p-3">
                                 <label for="descripcion">Descripción</label>
-                                <textarea class="form-control" name="descripcion" id="descripcion" rows="3">{{$instrumento->descripcion}}</textarea>
+                                <textarea class="form-control" name="descripcion" id="descripcion" rows="3">{{ $instrumento->descripcion }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -186,11 +191,13 @@
                 </div>
             </div>
         </div>
-          <script src="https://cdn.tiny.cloud/1/qz8w05apm8sx0woys8v6oup9vi7hrr3aqx39uih6zzp5197d/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-        
+
+        <script src="https://cdn.tiny.cloud/1/qz8w05apm8sx0woys8v6oup9vi7hrr3aqx39uih6zzp5197d/tinymce/6/tinymce.min.js"
+            referrerpolicy="origin"></script>
+
         <script>
-          tinymce.init({
-              selector:'#descripcion'
-          });
-        </script>   
+            tinymce.init({
+                selector: '#descripcion'
+            });
+        </script>
     @endsection

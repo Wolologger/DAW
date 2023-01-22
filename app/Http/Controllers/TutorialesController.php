@@ -19,15 +19,15 @@ class TutorialesController extends Controller
      */
     public function index()
     {
-        $tutoriales = DB::table('tutorials')
-        ->select('id', 
-                 'name', 
+        $tutoriales = Tutorial::with('image')
+        ->select('id',
+                 'name',
                  'type',
                  'extract', )
         ->get();
         // return view('pag/tutoriales');
 
-        $tipos = DB::table('tutorials')
+        $tipos = Tutorial::with('image')
         ->select('type')
         ->groupBy('type')
         ->get();
@@ -46,9 +46,9 @@ class TutorialesController extends Controller
         $tipo = $request->tipo;
         $titulo = $request->titulo;
 
-        $tutoriales = DB::table('tutorials')
-        ->select('id', 
-                 'name', 
+        $tutoriales = Tutorial::with('image')
+        ->select('id',
+                 'name',
                  'type',
                  'extract', )
         ->where('type', 'LIKE', '%'.$tipo.'%')
@@ -56,7 +56,7 @@ class TutorialesController extends Controller
         ->get();
         // return view('pag/tutoriales');
 
-        $tipos = DB::table('tutorials')
+        $tipos = Tutorial::with('image')
         ->select('type')
         ->groupBy('type')
         ->get();
@@ -69,40 +69,52 @@ class TutorialesController extends Controller
         ]);
 
         }
-    
-    
+
+
     }
 
             // TUTORIALES
 
             public function tutoriales(User $user){
                 $user_id = $user -> id;
-                $tutoriales = DB::table('tutorials')
+                $tutoriales = Tutorial::with('image')
                 ->select('*')
-                ->where('user_id', '=', $user_id) 
+                ->where('user_id', '=', $user_id)
                 ->orderBy('created_at', 'desc')
                 ->get();
-        
+
                 if ((count($tutoriales)) <= 0){
-                    $tutoriales = DB::table('tutorials')
+                    $tutoriales = Tutorial::with('image')
                      ->select('id')
-                     ->where('name', '=', '#aZIv06H53Zy') 
+                     ->where('name', '=', '#aZIv06H53Zy')
                      ->get();;
                  }
-        
+
 
                 return view('user/tutoriales', ['tutoriales' => $tutoriales]);
             }
-        
+
+            // public function tutoriales_details(Request $id){
+            //     $id = $id -> id;
+            //     $tutoriales = Tutorial::with('image')
+            //     ->select('users.name as usuario','type', 'tutorials.id as tutorial_id','tutorials.name as tutorial_name', 'extract', 'body', 'tutorials.created_at')
+            //     ->with('user', 'image')
+            //     ->join('users','tutorials.user_id', '=', 'users.id')
+            //     ->where('tutorials.id', '=', $id)
+            //     ->get();
+            //     return $tutoriales;
+            //     // return view('pag/tutoriales_details', ['tutoriales' => $tutoriales]);
+            // }
+
             public function tutoriales_details(Request $id){
                 $id = $id -> id;
-                $tutoriales = DB::table('tutorials')
-                ->select('users.name as usuario','type', 'tutorials.id as tutorial_id','tutorials.name as tutorial_name', 'extract', 'body', 'tutorials.created_at')
-                ->join('users','tutorials.user_id', '=', 'users.id')
-                ->where('tutorials.id', '=', $id) 
+                $tutoriales = Tutorial::with('image','user')
+                ->select('*')
+                // ->join('users','tutorials.user_id', '=', 'users.id')
+                ->where('tutorials.id', '=', $id)
                 ->get();
-        
-                return view('pag/tutoriales_details', ['tutoriales' => $tutoriales]);           
+                // return $tutoriales;
+                return view('pag/tutoriales_details', ['tutoriales' => $tutoriales]);
             }
 
             public function tutoriales_new_view(){
@@ -124,7 +136,7 @@ class TutorialesController extends Controller
                 $tutorial->save();
 
                 return redirect()->route('get.user.tutoriales',[$user_id]);
-            }    
+            }
             public function tutoriales_edit_view(Request $id){
                 $id = $id->id;
                 $resultado = Tutorial::get()->where('id', '=', $id);
@@ -150,7 +162,7 @@ class TutorialesController extends Controller
                 $resultado = Tutorial::get()->where('id', '=', $id)->where('user_id', '=', $user_id);
                 $resultado ->each->delete();
                 return redirect()->route('get.user.tutoriales',[$user_id]);
-            }    
+            }
 
 
 

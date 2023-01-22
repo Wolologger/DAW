@@ -50,7 +50,7 @@
                                         @endforeach
                                     </select>
                             </div>
-                            
+
                             {{-- <div class="col-md-auto p-1 text-center">
                                 <input type="number" class="form-control">
                             </div> --}}
@@ -92,21 +92,24 @@
                         <div class="row g-0">
                             @foreach ($compraventa as $instrumento)
                                 <div class="col-md-6 ">
-                                    {{-- @foreach ($imagenes as $imagen) --}}
                                     <div class="card-body">
-                                        {{-- <img class="img-fluid rounded" width="650" height="350" src={{$imagen->url}} --}}
-                                        <img class="img-fluid rounded" width="650" height="350"
-                                            src='https://via.placeholder.com/650x350.png/008888?text=repellendus'
-                                            alt="..." />
+
+                                        @if ($instrumento->image)
+                                        <img src="{{ asset($instrumento->image->url) }}" alt="{{ $instrumento->name }}" class="img-fluid">
+                                        @else
+                                        <img class="img-fluid rounded"
+                                            src="assets/img/portfolio/thumbnails/grupo.jpg" alt="..." />
+                                        @endif
+                                        {{-- {{$instrumento->image->id}} --}}
+
                                     </div>
-                                    {{-- @endforeach --}}
                                 </div>
                                 <div class="col-md-6 ">
                                     <div class="card-body">
                                         {{-- <h4>Tipo: {{ $instrumento->type }}</h4> --}}
-
-                                        <h5 class="card-title">Instrumento:
-                                            {{ $instrumento->brand . ' ' . $instrumento->model }}</h5>
+                                        {{$instrumento ->id}}<p>
+                                        <h5 class="card-title">
+                                            {{ $instrumento->type . ': ' .$instrumento->brand . ' ' . $instrumento->model }}</h5>
                                         <p class="card-text">Tipo: {{ $instrumento->type }}</p>
                                         <p class="card-text">Precio: {{ $instrumento->price }} €</p>
                                         <p class="card-text">Estado: {{ $instrumento->state_product }}</p>

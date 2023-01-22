@@ -38,7 +38,7 @@
                     @if ($posts->count() <= 0)
                     <h5 class="text-center">No existen registros</h5>
                     @else
-                                        
+
                     <div class="card-body">
                         <div class="card mb-3 border">
                             <div class="row g-0">
@@ -46,7 +46,7 @@
                                     {{-- <div class="col-md-4 border"> --}}
                                     <div class="col-md-6 ">
                                         <div class="card-body border">
-{{-- 
+{{--
                                         <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/1.jpg"
                                             alt="..." /> --}}
                                             @if ($post->image)
@@ -67,7 +67,7 @@
                                                 {{ $post->name}}</h5>
                                             <p class="card-text"><strong>Categoria:</strong> {{ $post->category }}</p>
                                             <p class="card-text"><strong>Resumen:</strong> {{ $post->extract }}</p>
-                                            <p class="card-text"><strong>Fecha:</strong> {{ date('d-m-Y', strtotime($post->created_at)) }}</p>
+                                            <p class="card-text"><strong>Fecha:</strong> {{ date('d/m/Y', strtotime($post->created_at)) }}</p>
 
                                             </p>
                                             <form method="POST"

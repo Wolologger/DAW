@@ -37,6 +37,7 @@
                             <div class="row g-0">
                                 <div class="col-md-6">
                                     {{-- <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/pacifica.jpg" alt="..." />  src="" alt="..." /> --}}
+                                    @foreach ($resultado as $tutorial)
 
                                     <form>
                                         @csrf
@@ -46,8 +47,14 @@
                                             <div class="form-group">
                                                 <h5 class="card-title">Subir imagen:</h5>
                                                 <div class="card" style="width: auto; height: auto;">
-                                                    <img class="card-img-top" src=".../100px180/?text=Image cap"
-                                                        alt="...">
+                                                    @if ($tutorial->image)
+                                                    <img src="{{ asset($tutorial->image->url) }}"
+                                                        alt="{{ $tutorial->name }}" class="img-fluid">
+                                                @else
+                                                <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/2.jpg"
+                                                    alt="..." />
+                                                    <p>
+                                                @endif
                                                 </div>
                                                 <div class="mb-3">
                                                     <input class="form-control form-control-sm" id="formFileSm"
@@ -106,7 +113,7 @@
             </div>
         </div>
           <script src="https://cdn.tiny.cloud/1/qz8w05apm8sx0woys8v6oup9vi7hrr3aqx39uih6zzp5197d/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-        
+
         <script>
           tinymce.init({
               selector:'#cuerpo'

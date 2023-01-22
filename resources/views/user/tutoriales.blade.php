@@ -57,8 +57,15 @@
                             <div class="col-md-5">
                                 <div class="card-body">
 
+
+                                    @if ($tutorial->image)
+                                        <img src="{{ asset($tutorial->image->url) }}"
+                                            alt="{{ $tutorial->name }}" class="img-fluid rounded">
+                                    @else
                                     <img class="img-fluid rounded" src="../../assets/img/portfolio/thumbnails/2.jpg"
                                         alt="..." />
+                                        <p>
+                                    @endif
                                 </div>
 
                             </div>
@@ -70,8 +77,8 @@
                                         <p class="card-text">Resumen:
                                             {{ $tutorial->extract }}</p>
                                         <p class="card-text">Fecha creación:
-                                            {{ date('d-m-Y', strtotime($tutorial->created_at)) }}</p>
-                                        {{-- <p class="card-text">Últm. actualización: {{  date('d-m-Y', strtotime($tutorial->updated_at))}}</p> --}}
+                                            {{ date('d/m/Y', strtotime($tutorial->created_at)) }}</p>
+                                        {{-- <p class="card-text">Últm. actualización: {{  date('d/m/Y', strtotime($tutorial->updated_at))}}</p> --}}
                                         </p>
                                 </div>
 

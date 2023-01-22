@@ -57,9 +57,14 @@
                         @foreach ($grupos as $grupo)
                             <div class="col-md-5">
                                 <div class="card-body">
-
-                                    <img class="img-fluid rounded" src="../../assets/img/portfolio/thumbnails/2.jpg"
-                                        alt="..." />
+                                    @if ($grupo->image)
+                                    <img src="{{ asset($grupo->image->url) }}" alt="{{ $grupo->name }}" class="img-fluid">
+                                    @else
+                                    <img class="img-fluid rounded" src="../../assets/img/portfolio/thumbnails/2.jpg""
+                                    alt="..." />
+                                    @endif
+                                    {{-- <img class="img-fluid rounded" src="../../assets/img/portfolio/thumbnails/2.jpg"
+                                        alt="..." /> --}}
                                 </div>
 
                             </div>
@@ -73,8 +78,8 @@
                                         <p class="card-text">Busca:
                                             {{ $grupo->search }}</p>
                                         <p class="card-text">Fecha creación:
-                                            {{ date('d-m-Y', strtotime($grupo->created_at)) }}</p>
-                                        {{-- <p class="card-text">Últm. actualización: {{  date('d-m-Y', strtotime($grupo->updated_at))}}</p> --}}
+                                            {{ date('d/m/Y', strtotime($grupo->created_at)) }}</p>
+                                        {{-- <p class="card-text">Últm. actualización: {{  date('d/m/Y', strtotime($grupo->updated_at))}}</p> --}}
                                         </p>
                                 </div>
 

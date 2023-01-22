@@ -46,8 +46,16 @@
                                         {{-- <div class="col-md-4 border"> --}}
                                         <div class="col-md-6 ">
                                             <div class="card-body">
+
+                                                @if ($tutorial->image)
+                                                    <img src="{{ asset($tutorial->image->url) }}"
+                                                        alt="{{ $tutorial->name }}" class="img-fluid">
+                                                @else
                                                 <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/2.jpg"
                                                     alt="..." />
+                                                    <p>
+                                                @endif
+                                                {{-- {{$tutorial->image->id}} --}}
                                             </div>
                                         </div>
 

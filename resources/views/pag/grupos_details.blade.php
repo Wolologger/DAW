@@ -26,26 +26,32 @@
             <div class="col-md-8">
                 <div class="card">
                     @foreach ($grupos as $grupo)
-                    <div class="card-header text-center text-uppercase">{{ $grupo->grupos_name }}</div>
+                    <div class="card-header text-center text-uppercase">{{ $grupo->name }}</div>
                     <div class="card-body">
                         <div class="card mb-3">
                             <div class="row g-0">
                                     <div class="col-md-6">
                                         <div class="card-body">
-                                            
-                                        <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/pacifica.jpg"
+                                            @if ($grupo->image)
+                                            <img src="{{ asset($grupo->image->url) }}" alt="{{ $grupo->name }}" class="img-fluid">
+                                            @else
+
+                                            <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/pacifica.jpg"
                                             alt="..." /><p>
+                                            @endif
+                                            {{-- <h1> {{$grupo->image->id}} </h1> --}}
+
                                             {{-- <p class="card-text"><strong>Usuario:</strong> {{  $grupo->usuario}}</p> --}}
                                             <p class="card-text"><strong>Contacto:</strong> <a href="mailto:{{  $grupo->contact}}">{{  $grupo->contact}}</a></p>
-                                            <p class="card-text"><strong>Provincia:</strong> {{ $grupo->grupos_state }}</p>
-                                            <p class="card-text"><strong>Fecha:</strong> {{  date('d-m-Y', strtotime($grupo->grupos_created_at))}}</p>
+                                            <p class="card-text"><strong>Provincia:</strong> {{ $grupo->state }}</p>
+                                            <p class="card-text"><strong>Fecha:</strong> {{  date('d/m/Y', strtotime($grupo->grupos_created_at))}}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="card-body">
                                             <p class="card-text"><strong>Busca:</strong><br> {{ $grupo->search }}</p>
                                             <p class="card-text"><strong>Descripcion:</strong><br> {!!$grupo->body!!}</p>
-                                            
+
                                         </p>
                                         </div>
 

@@ -48,7 +48,7 @@
                                                 <h5 class="card-title">Subir imagen:</h5>
                                                 <div class="card" style="width: auto; height: auto;">
                                                     @if ($post->image)
-                                                    <img src="{{ asset($post->image->url) }}" alt="{{ $post->name }}" class="img-fluid">
+                                                    <img src="{{ asset($post->image->url) }}" alt="{{ $post->name }}" class="img-fluid rounded">
                                                     @else
                                                     <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/1.jpg"
                                                     alt="..." />
@@ -120,7 +120,7 @@
             </div>
         </div>
           <script src="https://cdn.tiny.cloud/1/qz8w05apm8sx0woys8v6oup9vi7hrr3aqx39uih6zzp5197d/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-        
+
         <script>
           tinymce.init({
               selector:'#cuerpo'

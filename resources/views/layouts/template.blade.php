@@ -103,7 +103,7 @@
     <div id="compraventa">
         <hr class="divider-light" />
         <div class="container px-4 px-lg-5 text-center">
-            <h2 class="text-uppercase Roboto"><i class="bi bi-wallet2"></i> Compra Venta</h2>
+            <h2 class="text-uppercase Roboto"><i class="bi bi-wallet2"></i> Compraventa</h2>
         </div>
         <div class="container-fluid p-0">
             <div class="row g-0">

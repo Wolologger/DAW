@@ -37,14 +37,13 @@
                                         @if ($post->image)
                                         <img src="{{ asset($post->image->url) }}" alt="{{ $post->name }}" class="img-fluid">
                                         @else
-                                        <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/1.jpg"
-                                        alt="..." />
+                                        {{-- <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/1.jpg"
+                                        alt="..." /> --}}
                                         @endif
-                                        
                                         <p>
                                         <p class="card-text"><strong>Creado por:</strong> {{ $post->usuario }}</p>
                                         <p class="card-text"><strong>Fecha:</strong>
-                                            {{ date('d-m-Y', strtotime($post->posts_created_at)) }}</p>
+                                            {{ date('d/m/Y', strtotime($post->posts_created_at)) }}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -88,7 +87,7 @@
 
                                             @csrf
                                             <textarea class="form-control" name="comentario" id="comentario" rows="3" required></textarea>
-                                            <button class="btn form-control btn-lg btn-success text-light"> 
+                                            <button class="btn form-control btn-lg btn-success text-light">
                                                 <i class="bi bi-file-earmark-plus"></i>
                                                 Publicar
                                             </button>
@@ -118,7 +117,7 @@
                                     <div class="card-body">
                                         <div class="text-start">
                                             <label class="card-text text-muted text-end"><strong>Fecha:</strong>
-                                                {{ date('d-m-Y', strtotime($coment->updated_at)) }}</label>
+                                                {{ date('d/m/Y', strtotime($coment->updated_at)) }}</label>
                                             <hr class="divider-light">
                                         </div>
                                         <p class="card-text">{!! $coment->descripcion !!}</p>
@@ -137,7 +136,7 @@
                                     <div class="row justify-content-center">
                                         <div class="col-md-8 text-center">
                                             <div class="card border-0">
-{{-- 
+{{--
                                                         <button class="btn form-control btn-lg btn-primary" id="showButton">
                                                         <i class="bi bi-pencil"></i>
                                                         Editar</button>
@@ -149,11 +148,11 @@
                                                             <form id="form" style="display: none;">
                                                                 <!-- Tu formulario va aquí -->
                                                                 <textarea class="form-control" name="comentario" id="comentario" rows="3"></textarea>
-                                                                <button class="btn form-control btn-lg btn-success text-light"> 
+                                                                <button class="btn form-control btn-lg btn-success text-light">
                                                                     <i class="bi bi-file-earmark-plus"></i>
                                                                     Publicar
                                                                 </button>
-                    
+
                                                             </form>
                                             </div>
                                             <p>

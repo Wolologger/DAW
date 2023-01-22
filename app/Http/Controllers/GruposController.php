@@ -18,38 +18,38 @@ class GruposController extends Controller
      */
     public function index()
     {
-        $grupos = DB::table('grupos')
-        ->select('id', 
-                 'name', 
-                 'body', 
+        $grupos = Grupo::with('image')
+        ->select('id',
+                 'name',
+                 'body',
                  'contact',
                  'gender',
-                 'state', 
+                 'state',
                  'search',)
         ->where('search', '<>', 'Ninguno')
         ->get();
 
         // Query musicos
-        $musicos = DB::table('grupos')
+        $musicos = Grupo::with('image')
         ->select('search')
         ->where('search', '<>', 'Ninguno')
         ->groupBy('search')
         ->get();
 
         // Query nombres
-        $nombres = DB::table('grupos')
+        $nombres = Grupo::with('image')
         ->select('name')
         ->groupBy('name')
         ->get();
 
         // Query género musical
-        $generos = DB::table('grupos')
+        $generos = Grupo::with('image')
         ->select('gender')
         ->groupBy('gender')
-        ->get();          
-  
+        ->get();
+
         // Query provincias
-        $provincias = DB::table('grupos')
+        $provincias = Grupo::with('image')
         ->select('state')
         ->groupBy('state')
         ->get();
@@ -73,12 +73,12 @@ class GruposController extends Controller
         $genero = $request->genero;
 
         // Query general
-        $grupos = DB::table('grupos')
-        ->select('id', 
-                 'name', 
-                 'body', 
+        $grupos = Grupo::with('image')
+        ->select('id',
+                 'name',
+                 'body',
                  'contact',
-                 'state', 
+                 'state',
                  'gender',
                  'search',)
         ->where('search', '<>', 'Ninguno')
@@ -98,30 +98,30 @@ class GruposController extends Controller
 
 
           // Query musicos
-          $musicos = DB::table('grupos')
+          $musicos = Grupo::with('image')
           ->select('search')
           ->where('search', '<>', 'Ninguno')
           ->groupBy('search')
           ->get();
-  
+
           // Query nombres
-          $nombres = DB::table('grupos')
+          $nombres = Grupo::with('image')
           ->select('name')
           ->groupBy('name')
           ->get();
 
           // Query género musical
-          $generos = DB::table('grupos')
+          $generos = Grupo::with('image')
           ->select('gender')
           ->groupBy('gender')
-          ->get();          
-  
+          ->get();
+
           // Query provincias
-          $provincias = DB::table('grupos')
+          $provincias = Grupo::with('image')
           ->select('state')
           ->groupBy('state')
           ->get();
-  
+
           return view('pag/grupos', [
               'grupos' => $grupos,
               'musicos' => $musicos,
@@ -136,31 +136,32 @@ class GruposController extends Controller
 
             public function grupos(User $user){
                 $user_id = $user -> id;
-                $grupos = DB::table('grupos')
+                $grupos = Grupo::with('image')
                 ->select('*')
-                ->where('user_id', '=', $user_id) 
+                ->where('user_id', '=', $user_id)
                 ->orderBy('created_at', 'desc')
                 ->get();
 
                 if ((count($grupos)) <= 0){
-                    $grupos = DB::table('grupos')
+                    $grupos = Grupo::with('image')
                      ->select('id')
-                     ->where('name', '=', '#aZIv06H53Zy') 
+                     ->where('name', '=', '#aZIv06H53Zy')
                      ->get();;
                  }
 
                 return view('user/grupos', ['grupos' => $grupos]);
             }
-        
+
             public function grupos_details(Request $id){
                 $id = $id -> id;
-                $grupos = DB::table('grupos')
-                ->select('users.name as usuario','grupos.created_at as grupos_created_at','grupos.state as grupos_state', 'grupos.name as grupos_name', 'contact', 'body', 'gender', 'search')
-                ->join('users','grupos.user_id', '=', 'users.id')
-                ->where('grupos.id', '=', $id) 
+                $grupos = Grupo::with('image')
+                // ->select('users.name as usuario','grupos.created_at as grupos_created_at','grupos.state as grupos_state', 'grupos.name as grupos_name', 'contact', 'body', 'gender', 'search')
+                // ->select('*')
+                // ->join('users','grupos.user_id', '=', 'users.id')
+                ->where('grupos.id', '=', $id)
                 ->get();
-        
-                return view('pag/grupos_details', ['grupos' => $grupos]);         
+                // return $grupos;
+                return view('pag/grupos_details', ['grupos' => $grupos]);
             }
             public function grupos_new_view(){
                 return view('user/grupos_new');
@@ -172,11 +173,11 @@ class GruposController extends Controller
                 $provincia = $resultado->provincia;
                 $contacto = $resultado->contacto;
                 $descripcion = $resultado->descripcion;
-                
+
                 $grupo = new Grupo;
                 $grupo->name = $nombre;
                 $grupo->slug = Str::slug($nombre);
-                $grupo->contact = $contacto; 
+                $grupo->contact = $contacto;
                 $grupo->gender = $genero;
                 $grupo->state = $provincia;
                 $grupo->search = $musico;
@@ -184,7 +185,7 @@ class GruposController extends Controller
                 $grupo->user_id = $user_id;
                 $grupo->save();
                 return redirect()->route('get.user.grupos',[$user_id]);
-            }    
+            }
             public function grupos_edit_view(Request $id){
                 $id = $id->id;
                 $resultado = Grupo::get()->where('id', '=', $id);
@@ -198,11 +199,11 @@ class GruposController extends Controller
                 $provincia = $resultado->provincia;
                 $contacto = $resultado->contacto;
                 $descripcion = $resultado->descripcion;
-                
-        
-                $grupo = Grupo::findOrFail($id); 
+
+
+                $grupo = Grupo::findOrFail($id);
                 $grupo->name = $nombre;
-                $grupo->contact = $contacto; 
+                $grupo->contact = $contacto;
                 $grupo->gender = $genero;
                 $grupo->state = $provincia;
                 $grupo->search = $musico;

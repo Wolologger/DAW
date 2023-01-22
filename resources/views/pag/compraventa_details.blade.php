@@ -31,24 +31,29 @@
                         <div class="card mb-3">
                             <div class="row g-0">
                                     <div class="col-md-6">
+                                        {{-- {{$instrumento->id}}<p>  --}}
                                         <div class="card-body">
-                                            
-                                        <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/pacifica.jpg"
+                                            @if ($instrumento->image)
+                                            <img src="{{ asset($instrumento->image->url) }}" alt="{{ $instrumento->name }}" class="img-fluid">
+                                            @else
+                                            <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/pacifica.jpg"
                                             alt="..." /><p>
-                                            
+                                            @endif
+                                                {{-- {{$instrumento->image->id}} --}}
+
                         <form method="POST" action="{{ route('profile_view', $instrumento->user_id) }}">
                             @csrf
                                 <input type="hidden" value="{{$instrumento->user_id}}" name="user_id">
                                 <strong>Usuario:</strong>
-                                    <button type="submit" class="btn btn-link border-0 text-decoration-none p-0 fw-bold"> {{$instrumento->usuario}} </button>
-                        </form>   
+                                    <button type="submit" class="btn btn-link border-0 text-decoration-none p-0 fw-bold"> {{$instrumento->name}} </button>
+                        </form>
                                             {{-- <p class="card-text"><strong>Usuario:</strong> <a href="{{route('profile_view2', $instrumento->user_id)}}">{{  $instrumento->usuario}}</a></p> --}}
                                             <p class="card-text"><strong>Correo:</strong> <a href="mailto:{{$instrumento->email}}" class="text-decoration-none fw-bold">{{$instrumento->email}}</a> </p>
                                             <p class="card-text"><strong>Provincia:</strong> {{ $instrumento->state }}</p>
                                             {{-- <p class="card-text"><strong>User id:</strong> {{ $instrumento->user_id }}</p> --}}
                                             {{-- <p class="card-text"><strong>User id:</strong> {{ gettype($instrumento->user_id) }}</p> --}}
                                             {{-- <p class="card-text"><strong>User id:</strong> {{ (gettype((string) $instrumento->user_id)) }}</p> --}}
-                                            
+
 
 
 
@@ -56,12 +61,14 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="card-body">
-                                            <p class="card-text"><strong>Fecha:</strong> {{  date('d-m-Y', strtotime($instrumento->compraventas_created_at))}}</p>
+                                            {{-- <p class="card-text"><strong>Fecha:</strong> {{  date('d/m/Y', strtotime($instrumento->compraventas_created_at))}}</p> --}}
+                                            <p class="card-text"><strong>Fecha:</strong> {{  date('d/m/Y', strtotime($instrumento->created_at))}}</p>
+
                                             <p class="card-text"><strong>Tipo:</strong> {{ $instrumento->type }}</p>
                                             <p class="card-text"><strong>Precio:</strong> {{ $instrumento->price }} €</p>
                                             <p class="card-text"><strong>Estado:</strong> {{ $instrumento->state_product }}</p>
                                             <p class="card-text"><strong>Descripcion:</strong><br> {!!$instrumento->descripcion!!}</p>
-                                            
+
                                         </p>
                                         </div>
 

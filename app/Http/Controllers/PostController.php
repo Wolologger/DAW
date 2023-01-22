@@ -15,8 +15,8 @@ class PostController extends Controller
     public function index()
     {
         // $posts = DB::table('posts')
-        // ->select('id', 
-        //          'name', 
+        // ->select('id',
+        //          'name',
         //          'category',
         //          'created_at',
         //          'extract', )
@@ -36,8 +36,8 @@ class PostController extends Controller
 
         // $posts = DB::table('posts')
         $posts = Post::with('image')
-        ->select('id', 
-                 'name', 
+        ->select('id',
+                 'name',
                  'category',
                  'created_at',
                  'extract', )
@@ -49,7 +49,7 @@ class PostController extends Controller
 
 
         return view('pag/post', [
-            
+
             'posts' => $posts]);
         // return $posts;
     }
@@ -63,7 +63,7 @@ class PostController extends Controller
         // $posts = DB::table('posts')
         $posts = Post::with('image')
         ->select('*')
-        ->where('user_id', '=', $user_id) 
+        ->where('user_id', '=', $user_id)
         ->orderBy('created_at', 'desc')
         ->get();
 
@@ -71,7 +71,7 @@ class PostController extends Controller
             // $posts = DB::table('posts')
             $posts = Post::with('image')
              ->select('id')
-             ->where('name', '=', '#aZIv06H53Zy') 
+             ->where('name', '=', '#aZIv06H53Zy')
              ->get();;
          }
 
@@ -81,32 +81,38 @@ class PostController extends Controller
     public function posts_details(Request $id){
         $id = $id -> id;
         // $posts = DB::table('posts')
-        $posts = Post::with('image')
-        ->select(
-            'users.name as usuario', 
-            'posts.user_id as posts_user_id', 
-            'posts.name as nombre_post',
-            'posts.id as post_id', 
-            'posts.category as category', 
-            'posts.extract as extract', 
-            'posts.body as body', 
-            'posts.created_at as posts_created_at')
-        ->join('users','posts.user_id', '=', 'users.id')
-        ->where('posts.id', '=', $id) 
+        // $posts = Post::with('image')
+        // ->select(
+        //     'users.name as usuario',
+        //     'posts.user_id as posts_user_id',
+        //     'posts.name as nombre_post',
+        //     'posts.id as post_id',
+        //     'posts.category as category',
+        //     'posts.extract as extract',
+        //     'posts.body as body',
+        //     'posts.created_at as posts_created_at')
+        // ->join('users','posts.user_id', '=', 'users.id')
+        // ->where('posts.id', '=', $id)
+        // ->get();
+        $posts = Post::with('image','user')
+        ->select('*')
+        // ->join('users','tutorials.user_id', '=', 'users.id')
+        ->where('posts.id', '=', $id)
         ->get();
+
 
         $coments = DB::table('coments')
         ->select(
             'coments.id as coment_id',
             'users.name as usuario',
-            'users.id as user_id', 
-            'posts.id as posts_id', 
-            'coments.descripcion', 
+            'users.id as user_id',
+            'posts.id as posts_id',
+            'coments.descripcion',
             'coments.updated_at')
         ->join('posts','post_id', '=', 'posts.id')
         // ->join('users','posts.user_id', '=', 'users.id')
         ->join('users','coments.user_id', '=', 'users.id')
-        ->where('posts.id', '=', $id) 
+        ->where('posts.id', '=', $id)
         ->orderBy('coments.created_at', 'desc')
         ->get();
 
@@ -137,7 +143,7 @@ class PostController extends Controller
         $posts->save();
 
         return redirect()->route('get.user.posts',[$user_id]);
-    }    
+    }
     public function posts_edit_view(Request $id){
         $id = $id->id;
         $resultado = Post::get()->where('id', '=', $id);
@@ -148,14 +154,14 @@ class PostController extends Controller
         $categoria = $resultado->categoria;
         $resumen = $resultado->resumen;
         $cuerpo = $resultado->cuerpo;
-        
+
         $posts = Post::findOrFail($id);
         $posts->name = $nombre;
         $posts->extract = $resumen;
         $posts->category = $categoria;
         $posts->body = $cuerpo;
         $posts->update();
-        
+
         return redirect()->route('get.user.posts',[$user_id]);
     }
     public function posts_delete(Request $id, $user_id){
@@ -184,10 +190,10 @@ class PostController extends Controller
 //     $validatedData = $request->validate([
 //         'comentario' => 'required|min:10|max:255',
 //     ]);
-    
+
 //     $comentario = $validatedData['comentario'];
 //     $user_id = auth()->user()->id;
-    
+
 //     try {
 //         $comment = new Coments([
 //             'descripcion' => $comentario,

@@ -26,16 +26,24 @@
             <div class="col-md-8">
                 <div class="card">
                     @foreach ($tutoriales as $tutorial)
-                    <div class="card-header text-center text-uppercase">{{ $tutorial->tutorial_name }}</div>
+                    <div class="card-header text-center text-uppercase">{{ $tutorial->name }}</div>
                     <div class="card-body">
                         <div class="card mb-3">
                             <div class="row g-0">
                                     <div class="col-md-6">
                                         <div class="card-body">
-                                        <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/pacifica.jpg"
+                                            @if ($tutorial->image)
+                                            <img src="{{ asset($tutorial->image->url) }}" alt="{{ $tutorial->name }}" class="img-fluid">
+                                            @else
+                                            <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/pacifica.jpg"
                                             alt="..." /><p>
-                                            <p class="card-text"><strong>Creado por:</strong> {{  $tutorial->usuario}}</p>
-                                            <p class="card-text"><strong>Fecha:</strong> {{  date('d-m-Y', strtotime($tutorial->created_at))}}</p>
+                                            @endif
+                                        {{-- <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/pacifica.jpg"
+                                            alt="..." /><p> --}}
+                                            {{-- <p class="card-text"><strong>Creado por:</strong> {{  $tutorial->usuario}}</p> --}}
+                                            <p class="card-text"><strong>Creado por:</strong> {{  $tutorial->user->name}}</p>
+
+                                            <p class="card-text"><strong>Fecha:</strong> {{  date('d/m/Y', strtotime($tutorial->created_at))}}</p>
 
                                         </div>
                                     </div>
@@ -43,7 +51,7 @@
                                         <div class="card-body">
                                             <p class="card-text"><strong>Tipo:</strong> {{ $tutorial->type }}</p>
                                             <p class="card-text"><strong>Descripcion:</strong><br> {!!$tutorial->body!!}</p>
-                                            
+
                                         </p>
                                         </div>
 

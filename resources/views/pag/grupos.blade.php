@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                         </form>
-                        
+
                         @if ($grupos->count() <= 0)
                         <h5 class="text-center">No existen registros</h5>
                         @else
@@ -68,8 +68,13 @@
                                         <div class="col-md-6 ">
                                             <div class="card-body">
 
+                                                @if ($grupo->image)
+                                                <img src="{{ asset($grupo->image->url) }}" alt="{{ $grupo->name }}" class="img-fluid">
+                                                @else
                                                 <img class="img-fluid rounded"
                                                     src="assets/img/portfolio/thumbnails/grupo.jpg" alt="..." />
+                                                @endif
+
                                             </div>
 
                                         </div>

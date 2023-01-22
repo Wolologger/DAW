@@ -46,7 +46,7 @@ $tutoriales = Tutorial::with('image')
 // $grupos = DB::table('grupos')
 $grupos = Grupo::with('image')
 ->select('*')
-->where('search', '<>', 'Ninguno')    
+->where('search', '<>', 'Ninguno')
 ->orderBy('updated_at', 'desc')
 ->take(4)
 ->get();
@@ -60,13 +60,13 @@ $posts = Post::with('image')
 
 
 return view('layouts/template', [
-    'compraventa' => $compraventa, 
-    'grupos' => $grupos, 
-    'posts' => $posts, 
+    'compraventa' => $compraventa,
+    'grupos' => $grupos,
+    'posts' => $posts,
     'tutoriales'=>$tutoriales
 ]);
 
-    
+
 })->name('home');
 
 
@@ -114,6 +114,7 @@ Route::post('/user/profile/edit/{user}/update', [App\Http\Controllers\UserContro
 // Mis compraventa
 Route::get('/user/compraventa/{user}', [App\Http\Controllers\CompraventaController::class, 'compraventa'])->name('get.user.compraventa');
 Route::post('/user/compraventa/{user}', [App\Http\Controllers\CompraventaController::class, 'compraventa'])->name('user.compraventa');
+
 Route::post('/user/compraventa/details/{id}', [App\Http\Controllers\CompraventaController::class, 'compraventa_details'])->name('user.compraventa.details');
 
 // Mis compraventa - Nuevo
@@ -163,7 +164,7 @@ Route::post('/user/posts/comment/{id}/delete', [App\Http\Controllers\PostControl
 
 
 
-// Mis grupos 
+// Mis grupos
 Route::get('/user/grupos/{user}', [App\Http\Controllers\GruposController::class, 'grupos'])->name('get.user.grupos');
 Route::post('/user/grupos/{user}', [App\Http\Controllers\GruposController::class, 'grupos'])->name('user.grupos');
 Route::post('/user/grupos/details/{id}', [App\Http\Controllers\GruposController::class, 'grupos_details'])->name('user.grupos.details');
@@ -185,7 +186,7 @@ Route::post('/user/grupos/delete/{userid}/{id}', [App\Http\Controllers\GruposCon
 
 
 
-// Mis tutoriales 
+// Mis tutoriales
 Route::get('/user/tutoriales/{user}', [App\Http\Controllers\TutorialesController::class, 'tutoriales'])->name('get.user.tutoriales');
 Route::post('/user/tutoriales/{user}', [App\Http\Controllers\TutorialesController::class, 'tutoriales'])->name('user.tutoriales');
 Route::post('/user/tutoriales/details/{id}', [App\Http\Controllers\TutorialesController::class, 'tutoriales_details'])->name('user.tutoriales.details');

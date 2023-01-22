@@ -58,8 +58,15 @@
                             @foreach ($compraventa as $instrumento)
                                 <div class="col-md-5">
                                     <div class="card-body">
+                                        @if ($instrumento->image)
+                                        <img src="{{ asset($instrumento->image->url) }}"
+                                            alt="{{ $instrumento->name }}" class="img-fluid">
+                                    @else
                                         <img class="img-fluid rounded"
-                                            src="../../assets/img/portfolio/thumbnails/pacifica.jpg" alt="..." />
+                                            src="assets/img/portfolio/thumbnails/2.jpg"
+                                            alt="..." />
+                                        <p>
+                                    @endif
                                     </div>
                                 </div>
                                 <div class="col-md-5">
@@ -70,8 +77,8 @@
                                         <p class="card-text">Estado: {{ $instrumento->state_product }}</p>
                                         <p class="card-text">Provincia: {{ $instrumento->state }}</p>
                                         <p class="card-text">Fecha creación:
-                                            {{ date('d-m-Y', strtotime($instrumento->created_at)) }}</p>
-                                        {{-- <p class="card-text">Últm. actualización: {{  date('d-m-Y', strtotime($instrumento->updated_at))}}</p> --}}
+                                            {{ date('d/m/Y', strtotime($instrumento->created_at)) }}</p>
+                                        {{-- <p class="card-text">Últm. actualización: {{  date('d/m/Y', strtotime($instrumento->updated_at))}}</p> --}}
                                         </p>
                                     </div>
 
