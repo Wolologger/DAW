@@ -60,7 +60,7 @@
                                     @if ($post->image)
                                     <img src="{{ asset($post->image->url) }}" alt="{{ $post->name }}" class="img-fluid rounded">
                                     @else
-                                    <img class="img-fluid rounded" src="assets/img/portfolio/thumbnails/1.jpg"
+                                    <img class="img-fluid rounded" src="../../assets/img/portfolio/thumbnails/1.jpg"
                                     alt="..." />
                                     @endif
                                 </div>

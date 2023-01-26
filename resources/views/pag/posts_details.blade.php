@@ -37,8 +37,8 @@
                                         @if ($post->image)
                                         <img src="{{ asset($post->image->url) }}" alt="{{ $post->name }}" class="img-fluid">
                                         @else
-                                        {{-- <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/1.jpg"
-                                        alt="..." /> --}}
+                                        <img class="img-fluid rounded" src="../../../assets/img/portfolio/thumbnails/1.jpg"
+                                        alt="..." />
                                         @endif
                                         <p>
                                         <p class="card-text"><strong>Creado por:</strong> {{ $post->usuario }}</p>

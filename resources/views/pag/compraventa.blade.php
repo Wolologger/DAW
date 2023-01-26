@@ -107,7 +107,7 @@
                                 <div class="col-md-6 ">
                                     <div class="card-body">
                                         {{-- <h4>Tipo: {{ $instrumento->type }}</h4> --}}
-                                        {{$instrumento ->id}}<p>
+                                        {{-- {{$instrumento ->id}}<p> --}}
                                         <h5 class="card-title">
                                             {{ $instrumento->type . ': ' .$instrumento->brand . ' ' . $instrumento->model }}</h5>
                                         <p class="card-text">Tipo: {{ $instrumento->type }}</p>

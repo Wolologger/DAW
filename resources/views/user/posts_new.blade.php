@@ -77,7 +77,7 @@
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Categoria</label>
                                             <input type="text" class="form-control" id="categoria" name="categoria"
-                                                {{-- placeholder="Pacifica" value={{$post->model}}> --}} placeholder="PATATA">
+                                                {{-- placeholder="Pacifica" value={{$post->model}}> --}} placeholder="Noticias">
                                         </div>
                                         <div class="form-group">
                                             <label for="descripcion">Resumen</label>
@@ -106,7 +106,7 @@
             </div>
         </div>
           <script src="https://cdn.tiny.cloud/1/qz8w05apm8sx0woys8v6oup9vi7hrr3aqx39uih6zzp5197d/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-        
+
         <script>
           tinymce.init({
               selector:'#cuerpo'
